@@ -500,6 +500,10 @@ select {
     margin-top: 10px;
     gap: 30px;
 }
+.specials__bottom-decor--1{
+    top: 20px;
+    width: 150px;
+}
 
 }
 @media (min-width: 1500px){
@@ -535,5 +539,8 @@ select {
 .specials__bottom-actions{
     gap: 40px;
 }
-
+.specials__bottom-decor--1{
+    top: 10px;
+    width: 160px;
+}
 }

@@ -232,7 +232,7 @@
 }
 .specials__bottom-decor--1{
     width: clamp(100px, 10vw, 110px);
-    top: clamp(-15px, -2vw, -40px);
+    top: clamp(-10px , -1vw, -20px);
     left: clamp(10px, 3vw, -50px);
     transform:
     rotate(-60deg)
