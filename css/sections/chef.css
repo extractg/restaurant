@@ -50,5 +50,9 @@
     margin-top: 20px;
 }
 .chef__image-wrapper{
-    width: clamp(300px, 35vw, 400px);
+    width: clamp(250px, 40vw, 400px);
+}
+.chef__image-wrapper img{
+    width: 100%;
+    display: block;
 }

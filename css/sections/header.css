@@ -36,18 +36,19 @@
 }
 .header__actions{
     display: flex;
-    gap: clamp(10px, 2vw, 15px);
+    gap: clamp(15px, 2vw, 15px);
     justify-content: center;
     align-items: center;
 }
-.header__btn--primary{
-    padding: 0.6em clamp(0.9em, 4vw, 1.3em); 
+.btn.header__btn{
+    padding:
+    0.55em
+    clamp(1em, 4vw, 1.3em);
+    font-size:
+    clamp(0.82rem, 0.8vw + 0.45rem, 1rem);
     border-radius: 10px 2px 10px 2px;
-    font-weight: 500;
-    background-color: var(--secondary-btn-color);
-    color: #fff;
-    font-size: clamp(0.875rem, 1vw + 0.5rem, 1.1rem);
-    box-shadow: 0 7px 15px rgba(234, 109, 39, 0.2);
+    box-shadow:
+    0 6px 14px rgba(234,109,39,0.18);
 }
 .burger {
     background: none;
