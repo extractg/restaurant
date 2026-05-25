@@ -2,6 +2,8 @@
 @import url(sections/hero.css);
 @import url(sections/specials.css);
 @import url(sections/chef.css);
+@import url(sections/newsletter.css);
+@import url(sections/footer.css);
 :root {
     --primary-color: #1b2f42 ;
     --secondary-color:  #41464e;
@@ -187,6 +189,22 @@ select {
     display: block;
     margin: 0 auto;
 }
+.newsletter{
+    padding: 90px 0;
+}
+
+.newsletter__inner{
+    padding: 80px 40px;
+    border-radius: 24px;
+}
+
+.newsletter__form{
+    max-width: 600px;
+}
+
+.newsletter__title{
+    font-size: clamp(2rem, 4vw, 3rem);
+}
 }
 
 @media (min-width: 992px){
@@ -365,6 +383,28 @@ select {
     width: 100%;
     max-width: 260px;
 }
+.newsletter__inner{
+    gap: 40px;
+    padding: 90px 50px;
+}
+
+.newsletter__form{
+    max-width: 650px;
+
+    padding: 10px;
+}
+
+.newsletter__input{
+    padding: 16px 18px;
+
+    font-size: 0.95rem;
+}
+
+.newsletter__button{
+    padding: 16px 28px;
+
+    font-size: 0.95rem;
+}
 }
 
 @media (min-width: 1200px){
@@ -443,10 +483,55 @@ select {
 .specials__text{
     font-size: 1.2rem;
 }
+.specials__cards{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(20px, 2vw, 30px);
+    margin-top: 70px;
+    padding: 0;
+    align-items: start;
+}
+
+.specials__card{
+    width: 100%;
+    max-width: 280px;
+    min-height: 260px;
+    margin: 0 auto;
+    padding:
+    50px
+    20px
+    24px;
+}
+
+.specials__card-img{
+    width: clamp(100px, 8vw, 135px);
+}
+.specials__price{
+    top: 6px;
+    right: 6px;
+
+    width: clamp(38px, 3vw, 46px);
+    height: clamp(38px, 3vw, 46px);
+
+    font-size: clamp(0.75rem, 1vw, 0.9rem);
+
+    box-shadow:
+    0 6px 14px rgba(0,0,0,0.28);
+}
 
 .specials__card-text{
     width: 100%;
-    max-width: 250px;
+    max-width: 220px;
+
+    margin: 0 auto;
+
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.specials__card-text{
+    max-width: 230px;
+    margin: 0 auto;
 }
 
 .specials__bottom{
@@ -504,6 +589,35 @@ select {
     top: 20px;
     width: 150px;
 }
+.newsletter{
+    padding: 120px 0;
+}
+
+.newsletter__inner{
+    padding: 100px 60px;
+}
+
+.newsletter__form{
+    max-width: 700px;
+
+    border-radius: 20px;
+}
+
+.newsletter__input{
+    padding: 18px 20px;
+
+    font-size: 1rem;
+}
+
+.newsletter__button{
+    padding: 18px 32px;
+
+    font-size: 1rem;
+
+    border-radius: 14px;
+}
+
+
 
 }
 @media (min-width: 1500px){
@@ -511,17 +625,17 @@ select {
     padding: 50px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 50px;
+    gap: 60px;
 }
 .specials__bottom{
     padding-bottom: 150px;
 }
 .specials__card{
-    max-width: 300px;
+    width: clamp(250px, 75vw, 400px);
     min-height: 300px;
     padding:
     75px
-    18px
+    15px
     25px;
 }
 .specials{
@@ -542,5 +656,46 @@ select {
 .specials__bottom-decor--1{
     top: 10px;
     width: 160px;
+}
+.chef{
+    padding: 120px 0;
+}
+.chef__inner{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 50px;
+    padding-bottom: 100px;
+}
+.chef__content{
+    align-items: flex-start;
+    text-align: left;
+    gap: 40px;
+}
+.chef__title{
+    font-size: clamp(2.8rem, 4vw, 3.5rem);
+}
+.chef__text{
+    font-size: 1.2rem;
+    width: 100%;
+    max-width: 500px;
+}
+.newsletter{
+    padding: 100px 0;
+}
+.newsletter__inner{
+    padding: 100px 60px;
+}
+
+.newsletter__title{
+    font-size: 3.5rem;
+}
+
+.newsletter__form{
+    max-width: 760px;
+}
+.newsletter__title{
+    width: 100%;
+    max-width: 900px;
 }
 }

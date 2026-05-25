@@ -43,6 +43,7 @@
 .chef__item i{
     display: flex;
     font-size: clamp(18px, 3vw, 24px);
+    color: var(--secondary-btn-color);
 }
 .chef__actions{
     display: flex;
