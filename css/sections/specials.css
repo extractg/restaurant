@@ -1,7 +1,7 @@
 .specials{
     padding: 70px 0;
     position: relative;
-    overflow: hidden;
+    
     background-color: #F3F3F4;
 }
 .specials__top{
@@ -47,27 +47,22 @@
     text-align: center;
     min-height: 260px;
     box-shadow:
-    0 8px 20px rgba(0,0,0,0.03),
-    0 20px 45px rgba(0,0,0,0.06);
+    0 10px 25px rgba(15, 23, 42, 0.05),
+    0 25px 60px rgba(15, 23, 42, 0.08);
     transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease,
-    border-color 0.35s ease,
-    background-color 0.35s ease;
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     cursor: pointer;
     will-change: transform;
-    transform: translateZ(0);
-    backface-visibility: hidden;
 }
-
 .specials__card:hover{
+
     transform:
-    translateY(-6px)
-    translateZ(0);
-    background-color: rgba(255,255,255,0.98);
+    translateY(-7px);
+
     box-shadow:
-    0 20px 40px rgba(15, 23, 42, 0.08),
-    0 35px 70px rgba(15, 23, 42, 0.12);
+    0 25px 50px rgba(15, 23, 42, 0.10),
+    0 55px 110px rgba(15, 23, 42, 0.18);
 }
 
 .specials__card-image{
@@ -235,7 +230,7 @@
 .specials__bottom-decor--1{
     width: clamp(100px, 10vw, 110px);
     top: clamp(-10px , -1vw, -20px);
-    left: clamp(10px, 3vw, -50px);
+    left: clamp(20px, 3vw, -50px);
     transform:
     rotate(-60deg)
     translateZ(0);
@@ -255,4 +250,33 @@
     transform:
     rotate(90deg)
     translateZ(0);
+}
+.specials__bottom-bowl{
+    animation: bowlFloat 8s ease-in-out infinite;
+}
+
+@keyframes bowlFloat{
+
+    0%,100%{
+        transform: translateY(0);
+    }
+
+    50%{
+        transform: translateY(-5px);
+    }
+
+}
+.specials__bottom-decor{
+    animation: leafFloat 8s ease-in-out infinite;
+}
+@keyframes leafFloat{
+
+    0%,100%{
+        transform: rotate(0deg);
+    }
+
+    50%{
+        transform: rotate(5deg);
+    }
+
 }

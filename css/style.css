@@ -376,8 +376,8 @@ LARGE DESKTOP
     .hero__image-wrapper{
         max-width: 540px;
     }
-
     .hero__socials{
+        font-size: 25px;
         gap: 40px;
     }
 
@@ -491,4 +491,9 @@ LARGE DESKTOP
     .footer__socials{
         gap: 30px;
     }
+    .specials__bottom-decor--1{
+        width: 130px;
+        left: 50px;
+    }
+
 }
