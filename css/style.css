@@ -5,10 +5,14 @@
 @import url(sections/newsletter.css);
 @import url(sections/footer.css);
 :root {
-    --primary-color: #1b2f42 ;
-    --secondary-color:  #41464e;
+    --color-title: #1f2e3d;
+    --color-text: #55606d;
+    --color-muted: #8a939b;
+    --color-btn-dark: #101A24;
+    --color-accent: #EA6D27;
     --primary-btn-color:  #101A24;
     --secondary-btn-color: #EA6D27;
+    --background-color: #f7f7f7;
 }
 
 body {
@@ -127,575 +131,364 @@ select {
 }
 @media (min-width: 768px){
 
-.hero {
-    padding: 80px 0;
-}
-.hero__inner {
-    gap: 60px;
-}
-.hero__content{
-    gap: 40px;
-}
-.hero__image{
-    max-width: 700px;
-    height: clamp(250px, 40vw, 500px);
-}
-.hero__image-wrapper{
-    width: 100%;
-    max-width: 500px;
-    max-height: 580px;
-    margin: 0 auto;
-    position: relative;
-}
-.hero__title {
-    font-size: clamp(3rem, 5vw, 4rem);
-}
-.hero__decor {
-    opacity: 0.20;
-}
-.hero__socials{ 
-    gap: 40px; 
-    margin-top: 10px; 
-}
-.hero__actions{
-    gap: 35px;
-}
-.chef__content{
-    gap: 40px;
-}
-.chef__list{
-    gap: 50px;
-}
-.chef__actions{
-    justify-content: center;
-    gap: 40px;
- 
-}
-.specials__cards{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 120px;
-    margin-top: 70px;
-    padding: 0 20px;
-}
-.specials__info{
-    gap: 30px;
-}
-.specials__bottom{
-    margin-top: 140px;
-}
-.specials__bottom-img{
-    width: clamp(320px, 40vw, 420px);
-    display: block;
-    margin: 0 auto;
-}
-.newsletter{
-    padding: 90px 0;
-}
+    .hero{
+        padding: 80px 0;
+    }
 
-.newsletter__inner{
-    padding: 80px 40px;
-    border-radius: 24px;
-}
+    .hero__inner{
+        gap: 60px;
+    }
 
-.newsletter__form{
-    max-width: 600px;
-}
+    .hero__content{
+        gap: 40px;
+    }
 
-.newsletter__title{
-    font-size: clamp(2rem, 4vw, 3rem);
-}
+    .hero__title{
+        font-size: clamp(48px, 6vw, 64px);
+    }
+
+    .hero__image-wrapper{
+        max-width: 500px;
+    }
+
+    .hero__image{
+        height: 500px;
+    }
+
+    .hero__socials{
+        gap: 40px;
+    }
+
+    .hero__actions{
+        gap: 35px;
+    }
+
+    .chef__content{
+        gap: 40px;
+    }
+
+    .chef__list{
+        gap: 30px;
+    }
+
+    .chef__actions{
+        gap: 40px;
+    }
+
+    .specials__info{
+        gap: 30px;
+    }
+
+    .specials__cards{
+        gap: 100px;
+        margin-top: 70px;
+    }
+
+    .specials__bottom{
+        margin-top: 140px;
+    }
+
+    .specials__bottom-img{
+        max-width: 420px;
+    }
+
+    .newsletter{
+        padding: 90px 0;
+    }
+
+    .newsletter__inner{
+        padding: 80px 40px;
+        border-radius: 24px;
+    }
+
+    .newsletter__form{
+        max-width: 600px;
+    }
+
+    .newsletter__title{
+        font-size: clamp(36px, 5vw, 48px);
+    }
+     .footer{
+        padding: 70px 0 35px;
+    }
+
+    .footer__inner{
+        gap: 70px;
+    }
+
+    .footer__menu{
+        gap: 100px;
+    }
+
+    .footer__bottom{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
 
 @media (min-width: 992px){
 
-.container{
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-inline: 60px;
+    .container{
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-inline: 40px;
+    }
+
+    .burger{
+        display: none;
+    }
+
+    .nav{
+        position: static;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        display: block;
+    }
+
+    .nav__list{
+        display: flex;
+        gap: 45px;
+    }
+
+    .hero{
+        padding: 100px 0;
+    }
+
+    .hero__inner{
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 70px;
+    }
+
+    .hero__content{
+        flex: 1;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .hero__title{
+        max-width: 500px;
+    }
+
+    .hero__text{
+        max-width: 470px;
+        margin: 0;
+    }
+
+    .hero__actions,
+    .hero__socials{
+        justify-content: flex-start;
+    }
+
+    .hero__image-wrapper{
+        flex: 1;
+        max-width: 520px;
+    }
+
+    .hero__decor{
+        opacity: 0.25;
+    }
+
+    .specials{
+        margin-top: 100px;
+    }
+
+    .specials__cards{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 100px 80px;
+        justify-items: center;
+    }
+
+    .specials__card{
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .specials__card-text{
+        max-width: 260px;
+    }
+
+    .specials__bottom{
+        padding-top: 50px;
+    }
+
+    .chef__inner{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 60px;
+    }
+
+    .chef__content{
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .chef__list{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 60px;
+    }
+
+    .newsletter__inner{
+        gap: 40px;
+        padding: 90px 50px;
+    }
+
+    .newsletter__form{
+        max-width: 650px;
+    }
 }
 
-.header{
-    padding: 35px 0;
-}
 
-.burger{
-    display: none;
-}
-
-.nav{
-    position: static;
-    width: auto;
-    height: auto;
-    background-color: transparent;
-    display: block;
-}
-
-.nav__list{
-    display: flex;
-    flex-direction: row;
-    gap: 45px;
-}
-
-.nav__link{
-    font-size: 1.05rem;
-}
-
-.header__btn--primary{
-    padding: 0.75em 1.5em;
-}
-
-.hero{
-    padding: 90px 0;
-}
-
-.hero__inner{
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 70px;
-}
-
-.hero__content{
-    align-items: flex-start;
-    text-align: left;
-    gap: 42px;
-    flex: 1;
-}
-
-.hero__title{
-    font-size: clamp(2.8rem, 5vw, 3.6rem);
-
-    max-width: 450px;
-
-    line-height: 1.1;
-}
-
-.hero__text{
-    max-width: 470px;
-    width: 100%;
-    margin: 0;
-    font-size: 1.05rem;
-    line-height: 1.8;
-}
-
-.hero__actions{
-    justify-content: flex-start;
-}
-
-.hero__socials{
-    justify-content: flex-start;
-    gap: 30px;
-    margin-top: 10px;
-}
-
-.hero__image-wrapper{
-    flex: 1;
-    max-width: 520px;
-}
-
-.hero__image{
-    max-width: 100%;
-    height: 500px;
-    border-radius: 38px;
-}
-
-.hero__decor{
-    opacity: 0.22;
-}
-
-.hero__decor--1{
-    top: -45px;
-    right: -70px;
-}
-
-.hero__decor--2{
-    bottom: -60px;
-    left: -80px;
-}
-.specials{
-    margin-top: 100px;
-}
-.specials__title{
-    letter-spacing: 2px;
-    font-size: clamp(2rem, 4vw, 3rem);
-}
-.specials__text{
-    max-width: 430px;
-    font-size: clamp(1rem, 2vw, 1.2rem);
-}
-.specials__cards{
-    display: grid;
-    grid-template-columns: repeat(2, max-content);
-    justify-content: center;
-    gap: 100px 150px;
-    padding: 0 20px;
-}
-.specials__card{
-    max-width: none;
-    width: 320px;
-    min-height: 320px;
-}
-.specials__card-image{
-    position: absolute;
-    top: clamp(-40px, -8vw, -50px);
-}
-.specials__card-title{
-    opacity: 0.9;
-}
-.specials__card-text{
-    width: clamp(220px, 50vw, 280px);
-    font-size: clamp(1rem, 2vw, 1rem);
-}
-.specials__bottom{
-    padding-top: 50px;
-}
-.specials__bottom-img{
-    width: clamp(320px, 42vw, 420px);
-    display: block;
-    margin: 0 auto;
-}
-.chef__content{
-    gap: 50px;
-}
-.chef__list{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    row-gap: 40px;
-    column-gap: 60px;
-}
-.chef__actions{
-    justify-content: center;
-    gap: 50px;
-
-}
-.specials__card{
-    max-width: 300px;
-    height: 250px;
-    padding:
-    75px
-    18px
-    25px;
-    display: flex;
-    flex-direction: column;
-}
-.specials__card-text{
-    width: 100%;
-    max-width: 260px;
-}
-.newsletter__inner{
-    gap: 40px;
-    padding: 90px 50px;
-}
-
-.newsletter__form{
-    max-width: 650px;
-
-    padding: 10px;
-}
-
-.newsletter__input{
-    padding: 16px 18px;
-
-    font-size: 0.95rem;
-}
-
-.newsletter__button{
-    padding: 16px 28px;
-
-    font-size: 0.95rem;
-}
-}
+/* =========================
+LARGE DESKTOP
+========================= */
 
 @media (min-width: 1200px){
 
-.container{
-    max-width: 1400px;
-    padding-inline: clamp(24px, 4vw, 48px);
-}
+    .container{
+        max-width: 1400px;
+        padding-inline: 48px;
+    }
 
-.hero{
-    padding: 120px 0;
-}
+    .hero{
+        padding: 120px 0;
+    }
 
-.hero__inner{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: clamp(50px, 6vw, 100px);
-}
+    .hero__inner{
+        gap: 100px;
+    }
 
-.hero__content{
-    flex: 1;
-    gap: 50px;
-    align-items: flex-start;
-    text-align: left;
-}
+    .hero__title{
+        font-size: clamp(56px, 5vw, 72px);
+        max-width: 560px;
+    }
 
-.hero__title{
-    font-size: clamp(3.2rem, 4vw, 4rem);
-    max-width: 560px;
-    line-height: 1.15;
-}
+    .hero__text{
+        max-width: 500px;
+        font-size: 19px;
+    }
 
-.hero__text{
-    width: 100%;
-    max-width: 500px;
-    margin: 0;
-    font-size: 1.2rem;
-    line-height: 1.8;
-}
+    .hero__image-wrapper{
+        max-width: 540px;
+    }
 
-.hero__actions{
-    gap: 35px;
-}
+    .hero__socials{
+        gap: 40px;
+    }
 
-.hero__socials{
-    gap: 40px;
-    margin-top: 20px;
-}
+    .specials__title{
+        font-size: clamp(48px, 5vw, 64px);
+    }
 
-.hero__image-wrapper{
-    flex: 1;
-    max-width: 540px;
-}
-
-.hero__image{
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
-}
-
-.hero__decor{
-    opacity: 0.7;
-}
-
-.nav__link{
-    font-size: 1.1rem;
-}
-
-.specials__title{
-    font-size: clamp(2.5rem, 4vw, 3.5rem);
-    letter-spacing: 3px;
-}
-
-.specials__text{
-    font-size: 1.2rem;
-}
-.specials__cards{
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: clamp(20px, 2vw, 30px);
-    margin-top: 70px;
-    padding: 0;
-    align-items: start;
-}
-
-.specials__card{
-    width: 100%;
-    max-width: 280px;
-    min-height: 260px;
-    margin: 0 auto;
-    padding:
-    50px
-    20px
-    24px;
-}
-
-.specials__card-img{
-    width: clamp(100px, 8vw, 135px);
-}
-.specials__price{
-    top: 6px;
-    right: 6px;
-
-    width: clamp(38px, 3vw, 46px);
-    height: clamp(38px, 3vw, 46px);
-
-    font-size: clamp(0.75rem, 1vw, 0.9rem);
-
-    box-shadow:
-    0 6px 14px rgba(0,0,0,0.28);
-}
-
-.specials__card-text{
-    width: 100%;
-    max-width: 220px;
-
-    margin: 0 auto;
-
-    font-size: 0.95rem;
-    line-height: 1.7;
-}
-
-.specials__card-text{
-    max-width: 230px;
-    margin: 0 auto;
-}
-
-.specials__bottom{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: clamp(40px, 5vw, 90px);
-    margin-top: 140px;
-    padding-bottom: 100px;
-}
-
-.specials__bottom-img{
-    flex: 1;
-    max-width: 500px;
-    margin: 0;
-}
-
-.specials__bottom-bowl{
-    width: 100%;
-    display: block;
-}
-
-.specials__bottom-content{
-    flex: 1;
-    max-width: 480px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    gap: 32px;
-    margin-top: 0;
-}
-
-.specials__bottom-title{
-    font-size: clamp(2.8rem, 4vw, 3.5rem);
-    text-align: left;
-    line-height: 1.2;
-}
-
-.specials__bottom-text{
-    width: 100%;
-    max-width: 460px;
-    margin: 0;
-    text-align: left;
-    font-size: 1.15rem;
-    line-height: 1.9;
-}
-
-.specials__bottom-actions{
-    justify-content: flex-start;
-    margin-top: 10px;
-    gap: 30px;
-}
-.specials__bottom-decor--1{
-    top: 20px;
-    width: 150px;
-}
-.newsletter{
-    padding: 120px 0;
-}
-
-.newsletter__inner{
-    padding: 100px 60px;
-}
-
-.newsletter__form{
-    max-width: 700px;
-
-    border-radius: 20px;
-}
-
-.newsletter__input{
-    padding: 18px 20px;
-
-    font-size: 1rem;
-}
-
-.newsletter__button{
-    padding: 18px 32px;
-
-    font-size: 1rem;
-
-    border-radius: 14px;
-}
-
-
-
-}
-@media (min-width: 1500px){
     .specials__cards{
-    padding: 50px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 60px;
-}
-.specials__bottom{
-    padding-bottom: 150px;
-}
-.specials__card{
-    width: clamp(250px, 75vw, 400px);
-    min-height: 300px;
-    padding:
-    75px
-    15px
-    25px;
-}
-.specials{
-    padding: 100px 0px;
-}
-.specials__info{
-    gap: 40px;
-}
-.specials__bottom{
-    gap: 150px;
-}
-.specials__bottom-content{
-    gap: 40px;
-}
-.specials__bottom-actions{
-    gap: 40px;
-}
-.specials__bottom-decor--1{
-    top: 10px;
-    width: 160px;
-}
-.chef{
-    padding: 120px 0;
-}
-.chef__inner{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 50px;
-    padding-bottom: 100px;
-}
-.chef__content{
-    align-items: flex-start;
-    text-align: left;
-    gap: 40px;
-}
-.chef__title{
-    font-size: clamp(2.8rem, 4vw, 3.5rem);
-}
-.chef__text{
-    font-size: 1.2rem;
-    width: 100%;
-    max-width: 500px;
-}
-.newsletter{
-    padding: 100px 0;
-}
-.newsletter__inner{
-    padding: 100px 60px;
-}
+        grid-template-columns: repeat(4, 1fr);
+        gap: 50px;
+    }
 
-.newsletter__title{
-    font-size: 3.5rem;
-}
+    .specials__card{
+        max-width: 300px;
+        min-height: 300px;
+        padding: 70px 20px 30px;
+        display: flex;
+        flex-direction: column;
+    }
 
-.newsletter__form{
-    max-width: 760px;
-}
-.newsletter__title{
-    width: 100%;
-    max-width: 900px;
-}
+    .specials__card-img{
+        width: 130px;
+    }
+
+    .specials__bottom{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 90px;
+        padding-bottom: 100px;
+    }
+
+    .specials__bottom-img{
+        flex: 1;
+        max-width: 500px;
+        margin: 0;
+    }
+
+    .specials__bottom-content{
+        flex: 1;
+        max-width: 480px;
+        align-items: flex-start;
+        text-align: left;
+        margin-top: 0;
+    }
+
+    .specials__bottom-title{
+        text-align: left;
+    }
+
+    .specials__bottom-text{
+        max-width: 460px;
+        margin: 0;
+        text-align: left;
+    }
+
+    .specials__bottom-actions{
+        justify-content: flex-start;
+    }
+
+    .chef{
+        padding: 120px 0;
+    }
+
+    .chef__title{
+        font-size: clamp(48px, 5vw, 64px);
+    }
+
+    .chef__text{
+        max-width: 500px;
+        font-size: 19px;
+    }
+
+    .newsletter{
+        padding: 100px 0;
+    }
+
+    .newsletter__inner{
+        max-width: 1280px;
+        padding: 100px 60px;
+    }
+
+    .newsletter__title{
+        max-width: 1000px;
+        font-size: clamp(48px, 5vw, 62px);
+    }
+
+    .newsletter__form{
+        max-width: 760px;
+    }
+    .footer{
+        padding: 60px 0 40px;
+    }
+
+    .footer__inner{
+        display: grid;
+        grid-template-columns:
+        minmax(300px, 600px)
+        auto
+        auto;
+        align-items: start;
+        gap: 100px;
+    }
+
+    .footer__menu{
+        gap: 140px;
+    }
+    .footer__logo{
+        width: 150px;
+    }
+    .footer__socials{
+        gap: 30px;
+    }
 }

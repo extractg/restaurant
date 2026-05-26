@@ -7,10 +7,11 @@
     justify-content: space-between;
     gap: 20px;
 }
-.header__inner img{
+.header__logo{
     display: block;
-    transform: translateY(-5px);
-    width: clamp(110px, 30vw, 130px);
+    width: 120px;
+    transform: translateY(-7px);
+    opacity: 0.9;
 }
 
 .nav{
@@ -30,13 +31,15 @@
 .nav__list{
     list-style: none;
     text-align: center;
+    color: var(--color-text);
+    font-size: clamp(12px, 4vw, 18px);
 }
 .nav.active {
     right: 0;
 }
 .header__actions{
     display: flex;
-    gap: clamp(15px, 2vw, 15px);
+    gap: 15px;
     justify-content: center;
     align-items: center;
 }

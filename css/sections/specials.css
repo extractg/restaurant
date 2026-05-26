@@ -17,14 +17,15 @@
     text-align: center;
 }
 .specials__title{
-    font-size: clamp(35px, 5vw, 48px);
+    font-size: clamp(35px, 5vw, 40px);
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--color-title);
 }
 .specials__text{
-    font-size: clamp(0.6rem, 1.5vw 1.2rem);
-    color: var(--secondary-color);
-    width: clamp(300px, 60vw, 500px);
+    font-size: clamp(14px, 1.5vw, 19px);
+    color: var(--color-text);
+    width: 100%;
+    max-width: 500px;
 }
 .specials__cards{
     display: grid;
@@ -36,15 +37,13 @@
 
 .specials__card{
     position: relative;
-    width: clamp(280px, 80vw, 400px);
+    width: 100%;
+    max-width: 400px;
     margin: 0 auto;
     background-color: #ffffff;
     border: 1px solid rgba(255,255,255,0.7);
     border-radius: 40px;
-    padding:
-    clamp(85px, 12vw, 110px)
-    clamp(20px, 5vw, 30px)
-    clamp(30px, 6vw, 40px);
+    padding: 100px 30px 40px;
     text-align: center;
     min-height: 260px;
     box-shadow:
@@ -108,23 +107,25 @@
     display: flex;
     flex-direction: column;
     gap: clamp(14px, 3vw, 22px);
-    margin-top: clamp(40px, 6vw, 50px);
+    margin-top: 40px;
     align-items: center;
     text-align: center;
 }
 
 .specials__card-title{
-    font-size: clamp(1.2rem, 3vw, 1.5rem);
-    font-weight: 700;
-    color: var(--primary-color);
+    font-size: 24px;
     line-height: 1.3;
+    font-weight: 700;
+    color: var(--color-title);
 }
 
 .specials__card-text{
-    width: clamp(220px, 55vw, 300px);
-    font-size: clamp(0.9rem, 2vw, 1rem);
+    width: 100%;
+    max-width: 300px;
+    font-size: 16px;
     line-height: 1.8;
-    color: var(--secondary-color);
+    line-height: 1.8;
+    color: var(--color-text);
 }
 .specials__item{
     position: relative;
@@ -199,14 +200,15 @@
 .specials__bottom-title{
     font-size: clamp(1.5rem, 6vw, 2.5rem);
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--color-title);
     text-align: center;
 }
 .specials__bottom-text{
-    width: clamp(260px, 65vw, 500px);
+    width: 100%;
+    max-width: 500px;
     font-size: clamp(1rem, 2vw, 1.1rem);
     line-height: 1.8;
-    color: var(--secondary-color);
+    color: var(--color-text);
     text-align: center;
     margin: 0 auto;
 }

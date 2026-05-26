@@ -16,33 +16,35 @@
     gap: 25px;
 }
 .chef__title{
-    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.2;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-title);
 }
 .chef__text{
     font-size: clamp(1rem, 3vw, 1.2rem);
-    color: var(--color-secondary);
-    width: clamp(250px, 50vw, 400px);
+    color: var(--color-text);
+    width:100%;
+    max-width:400px;
 }
 .chef__list{
     display: flex;
     flex-direction: column;
-    gap: clamp(25px, 3vw, 25px);
+    gap: 25px;
     margin-top: 20px;
 }
 .chef__item{
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
 }
 .chef__item span{
-    font-size: clamp(1rem, 3vw, 1.3rem);
-    color: var(--color-secondary);
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--color-text);
 }
 .chef__item i{
     display: flex;
-    font-size: clamp(18px, 3vw, 24px);
+    font-size: clamp(15px, 2vw, 24px);
     color: var(--secondary-btn-color);
 }
 .chef__actions{
