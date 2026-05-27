@@ -59,7 +59,7 @@
     <section class="hero">
       <div class="container">
         <div class="hero__inner">
-          <div class="hero__content" >
+          <div class="hero__content" data-aos="fade-right">
             <h1 class="hero__title">We provide the best food for you</h1>
               <p class="hero__text">
                 Discover a unique dining experience with carefully crafted dishes, elegant ambiance, and flavors that bring people together.
@@ -93,7 +93,7 @@
               alt=""
               class="hero__decor hero__decor--2"
             />
-            <div class="hero__image">
+            <div class="hero__image" data-aos="fade-left">
               <img
                 src="assets/images/restaurant.svg"
                 alt="Restaurant"
@@ -108,7 +108,7 @@
     <section class="specials">
       <div class="container">
         <div class="specials__top">
-          <div class="specials__info">
+          <div class="specials__info" data-aos="fade-up">
             <h2 class="specials__title">Our Special Dishes</h2>
               <p class="specials__text">
                 Explore our carefully crafted dishes made with fresh ingredients, rich flavors, and a modern touch designed to satisfy every taste.
@@ -116,14 +116,14 @@
           </div>
 
           <div class="specials__cards">
-            <div class="specials__item" >
+            <div class="specials__item" data-aos="fade-up" data-aos-delay="100" >
               <img
                 src="assets/images/leaf4.svg"
                 alt=""
                 class="specials__decor specials__decor--1"
               />
 
-              <div class="specials__card" >
+              <div class="specials__card">
                 <div class="specials__card-image">
                   <img
                     src="assets/images/dish1.svg"
@@ -145,7 +145,7 @@
               </div>
             </div>
 
-            <div class="specials__item" >
+            <div class="specials__item" data-aos="fade-up" data-aos-delay="200">
               <img
                 src="assets/images/leaf5.svg"
                 alt=""
@@ -174,7 +174,7 @@
               </div>
             </div>
 
-            <div class="specials__item">
+            <div class="specials__item" data-aos="fade-up" data-aos-delay="300">
               <img
                 src="assets/images/leaf2.svg"
                 alt=""
@@ -202,7 +202,7 @@
                 </div>
               </div>
             </div>
-            <div class="specials__item" >
+            <div class="specials__item" data-aos="fade-up" data-aos-delay="400">
               <img
                 src="assets/images/leaf4.svg"
                 alt=""
@@ -234,7 +234,7 @@
         </div>
 
         <div class="specials__bottom">
-          <div class="specials__bottom-img">
+          <div class="specials__bottom-img" data-aos="fade-right">
             <img
               src="assets/images/greenleaf1.svg"
               alt=""
@@ -256,7 +256,7 @@
               class="specials__bottom-bowl"
             />
           </div>
-          <div class="specials__bottom-content">
+          <div class="specials__bottom-content" data-aos="fade-left">
             <h2 class="specials__bottom-title">Welcome to Our Restaurant</h2>
             <p class="specials__bottom-text">
               Indulge in our expertly crafted dishes, where every bite is a
@@ -274,7 +274,7 @@
     <section class="chef">
       <div class="container">
         <div class="chef__inner">
-          <div class="chef__content">
+          <div class="chef__content" data-aos="fade-right">
             <h2 class="chef__title">Our Expert Chef</h2>
             <p class="chef__text">
               Meet our talented chef who brings passion and creativity to every
@@ -323,7 +323,7 @@
               <button class="btn btn--secondary">Book a table</button>
             </div>
           </div>
-          <div class="chef__image-wrapper">
+          <div class="chef__image-wrapper" data-aos="fade-left">
             <img src="assets/images/chef.svg" alt="Chef" class="chef__image" />
           </div>
         </div>
@@ -331,7 +331,7 @@
     </section>
     <section class="newsletter" >
       <div class="container">
-        <div class="newsletter__inner">
+        <div class="newsletter__inner" data-aos="fade-up">
           <h2 class="newsletter__title">
             Get Or Promo Code by <br />
             Subscribing To our Newsletter
@@ -349,7 +349,7 @@
     </section>
     <footer class="footer">
       <div class="container">
-        <div class="footer__inner">
+        <div class="footer__inner" data-aos="fade-up">
           <div class="footer__column footer__column--info">
             <a href="#" class="footer__logo">
               <img
@@ -431,7 +431,6 @@
               </a>
             </div>
           </div>
-        </div>
         <div class="footer__bottom">
           <p class="footer__copyright">
             © 2026 Restaurant. All rights reserved.
@@ -446,9 +445,10 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init({
-        duration: 1000,
-        once: true,
-        offset: 100,
+          duration: 700,
+          once: true,
+          offset: 80,
+          easing: 'ease-out-cubic',
       });
     </script>
   </body>

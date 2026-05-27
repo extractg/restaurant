@@ -33,7 +33,10 @@ body {
     padding-inline: 20px;
     width: 100%;
 }
-
+html,
+body{
+    overflow-x: clip;
+}
 
 ul, ol {
     list-style: none;
@@ -49,6 +52,10 @@ img, picture, svg, video {
     display: block;    
     max-width: 100%;   
     height: auto;      
+}
+button,
+a{
+    -webkit-tap-highlight-color: transparent;
 }
 
 input, button, textarea, select {
@@ -104,14 +111,6 @@ select {
     transform: translateY(0);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-}
-
-.btn:hover{
-    transform: translateY(-1px);
-    filter: brightness(1.06);
-    box-shadow:
-    0 10px 20px rgba(10,16,73,0.20),
-    0 0 20px rgba(255,255,255,0.08);
 }
 
 .btn:active{
@@ -436,6 +435,7 @@ LARGE DESKTOP
 
     .specials__bottom-actions{
         justify-content: flex-start;
+        gap: 40px;
     }
 
     .chef{
@@ -494,6 +494,14 @@ LARGE DESKTOP
     .specials__bottom-decor--1{
         width: 130px;
         left: 50px;
+    }
+        .btn:hover{
+        transform:
+        translateY(-2px);
+
+        box-shadow:
+        0 12px 24px rgba(15, 23, 42, 0.14),
+        0 24px 48px rgba(15, 23, 42, 0.10);
     }
 
 }

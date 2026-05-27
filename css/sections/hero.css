@@ -87,11 +87,16 @@
     color 0.3s ease,
     transform 0.3s ease;
 }
+.hero__socials i{
+    font-size: 20px;
+    line-height: 1.6;
+}
 
 .hero__social-link:hover{
     color: var(--color-accent);
     transform: translateY(-2px);
 }
+
 .hero__decor{
     position: absolute;
     width: clamp(100px, 25vw, 180px);
