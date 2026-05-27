@@ -251,32 +251,3 @@
     rotate(90deg)
     translateZ(0);
 }
-.specials__bottom-bowl{
-    animation: bowlFloat 8s ease-in-out infinite;
-}
-
-@keyframes bowlFloat{
-
-    0%,100%{
-        transform: translateY(0);
-    }
-
-    50%{
-        transform: translateY(-5px);
-    }
-
-}
-.specials__bottom-decor{
-    animation: leafFloat 8s ease-in-out infinite;
-}
-@keyframes leafFloat{
-
-    0%,100%{
-        transform: rotate(0deg);
-    }
-
-    50%{
-        transform: rotate(5deg);
-    }
-
-}
