@@ -222,10 +222,6 @@
     transform: translateZ(0);
     backface-visibility: hidden;
     image-rendering: auto;
-    filter:
-    drop-shadow(0 8px 16px rgba(0,0,0,0.10))
-    drop-shadow(0 20px 35px rgba(0,0,0,0.12))
-    drop-shadow(0 0 18px rgba(126, 217, 87, 0.18));
 }
 .specials__bottom-decor--1{
     width: clamp(100px, 10vw, 110px);
