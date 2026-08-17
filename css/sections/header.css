@@ -14,8 +14,9 @@
 .header__logo{
     display: block;
     width: 120px;
-    transform: translateY(-7px);
-    opacity: 0.9;
+    opacity: 1;
+    height: auto;
+    transform: translateY(-3px);
 }
 
 .nav{
