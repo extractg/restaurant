@@ -1,15 +1,14 @@
-.header {
+header {
     padding: clamp(10px, 1.1vw, 13px) 0;
-    position: fixed; 
+    position: fixed;
     top: 0;
-    left: 0;         
-    width: 100%;     
-    background-color: rgba(22, 22, 22, 0.15); 
-    backdrop-filter: blur(12px);             
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    left: 0;
+    width: 100%;
+    background: rgba(22, 22, 22, 0.78);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     z-index: 999;
-    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+    isolation: isolate;
+    transition: background-color 0.3s ease;
 }
 .header__inner{
     display: flex;

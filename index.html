@@ -215,44 +215,41 @@
                 </div>
               </div>
             </div>
-            <!-- swiper-wrapper -->
           </div>
-          <!-- specials__cards swiper -->
         </div>
-        <!-- specials__top -->
 
         <div class="specials__bottom">
           <div class="specials__bottom-img" data-aos="fade-right">
             <img
-              src="assets/images/greenleaf1.svg"
-              alt=""
-              class="specials__bottom-decor specials__bottom-decor--1"
+              src="assets/images/restaurant_photo.png"
+              alt="Deliciora Restaurant"
+              class="specials__bottom-main-img"
             />
             <img
-              src="assets/images/greenleaf2.svg"
-              alt=""
-              class="specials__bottom-decor specials__bottom-decor--2"
-            />
-            <img
-              src="assets/images/greenleaf3.svg"
-              alt=""
-              class="specials__bottom-decor specials__bottom-decor--3"
-            />
-            <img
-              src="assets/images/bowl.svg"
-              alt="Bowl of food"
-              class="specials__bottom-bowl"
+              src="assets/images/restaurant_inside.png"
+              alt="Deliciora Restaurant Interior"
+              class="specials__bottom-small-img"
             />
           </div>
           <div class="specials__bottom-content" data-aos="fade-left">
-            <h2 class="specials__bottom-title">Welcome to Our Restaurant</h2>
+            <span class="specials__bottom-label"> Our Story </span>
+            <h2 class="specials__bottom-title">
+              A Passion for Food, Born in 2018
+            </h2>
             <p class="specials__bottom-text">
-              Indulge in our expertly crafted dishes, where every bite is a
-              celebration of flavor and quality.
+              Deliciora began in 2018 with a simple idea — to bring exceptional
+              food and warm hospitality together. Inspired by European cuisine,
+              seasonal ingredients, and years of tradition, our restaurant grew
+              into a place where memorable evenings are created around every table.
             </p>
+            <div class="specials__bottom-meta">
+              <span>EST. 2018</span>
+              <span class="specials__bottom-dot"></span>
+              <span>EUROPEAN CUISINE</span>
+            </div>
             <div class="specials__bottom-actions">
-              <button class="btn btn--primary">Menu</button>
-              <button class="btn btn--secondary">Book a table</button>
+              <button class="btn btn--primary">Our Story</button>
+              <button class="btn btn--secondary">Meet the Team</button>
             </div>
           </div>
         </div>
@@ -442,37 +439,37 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       const swiper = new Swiper(".specials__cards", {
-    slidesPerView: 1,
-    spaceBetween: 20,
+        slidesPerView: "auto",
+        spaceBetween: 16,
 
-    loop: true,
-    speed: 10000,
+        loop: true,
+        speed: 10000,
 
-    grabCursor: true,
+        grabCursor: true,
 
-    autoplay: {
-        delay: 0,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: false,
-    },
-
-    breakpoints: {
-        768: {
-            slidesPerView: 2,
-            spaceBetween: 30,
+        autoplay: {
+          delay: 0,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: false,
         },
 
-        992: {
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 28,
+          },
+
+          992: {
             slidesPerView: 2.5,
             spaceBetween: 35,
-        },
+          },
 
-        1200: {
+          1200: {
             slidesPerView: 3,
             spaceBetween: 40,
+          },
         },
-    },
-});
+      });
       AOS.init({
         duration: 700,
         once: true,
@@ -480,5 +477,5 @@
         easing: "ease-out-cubic",
       });
     </script>
-</body>
+  </body>
 </html>
