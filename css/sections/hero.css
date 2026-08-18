@@ -1,118 +1,100 @@
-.hero{
-    padding: 50px 0;
+.hero {
+    padding-top: 140px; 
+    padding-bottom: 80px; 
     position: relative;
     overflow: hidden;
-}
-.hero__inner{
+    min-height: 100vh; 
     display: flex;
-    flex-direction: column-reverse;
-    gap: 45px;
+    align-items: center; 
 }
-.hero__content{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    align-items: center;
-    text-align: center;
-}
-.hero__title{
-    font-size: clamp(36px, 5vw, 56px);
-    font-weight: 500;
-    max-width: 620px;
-    color: var(--color-title);
-    line-height: 1.1;
-}
-.hero__text{
-    font-size: clamp(0.9rem, 1vw + 0.4rem, 1rem);
-    line-height: 1.7;
-    color: var(--color-text);
-    width: 100%;
-    max-width: 500px;
-    letter-spacing: 0.5px;
-    margin: 0 auto;
-}
-.hero__actions{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-.hero__image-wrapper{
-    position: relative;
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;              
+    height: 100%;               
+    background-image: url("../../assets/images/half_background.png");
+    background-size: cover;    
+    background-position: center; 
+    background-repeat: no-repeat;
+    z-index: 1;                 
+    filter: brightness(0.25); 
+    transition: all 0.3s ease;
 }
 
-.hero__image{
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-    border-radius: clamp(28px, 6vw, 42px);
+/* Контейнер-ограничитель */
+.hero__inner {
     position: relative;
     z-index: 2;
-    box-shadow:
-    0 20px 40px rgba(0,0,0,0.14);
+    width: 100%;
 }
 
-.hero__img{
+.hero__content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center; 
+    text-align: center;  
+    max-width: 600px;
+    margin: 0 auto;     
+}
+
+.hero__title {
+    font-family: 'Playfair Display', serif; 
+    font-size: clamp(32px, 5vw, 46px);
+    font-weight: 600;
+    color: var(--color-title);
+    line-height: 1.2;
+}
+
+.hero__text {
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.6;
+    color: var(--color-text);
+    opacity: 0.85;
+}
+
+.hero__actions {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 15px;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-    transform: scale(1) translateZ(0);
-    will-change: transform;
-    backface-visibility: hidden;
-    transition:
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.hero__image:hover .hero__img{
-    transform: scale(1.04) translateZ(0);
-    
-}
-.hero__socials{
-    margin-top: 10px;
+
+.hero__socials {
+    margin-top: 20px; 
     display: flex;
     gap: 25px;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
+    position: relative;
+    width: 100%;
 }
-.hero__social-link{
+
+.hero__socials::before {
+    display: none; 
+}
+
+.hero__social-link {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-title);
-    transition:
-    color 0.3s ease,
-    transform 0.3s ease;
-}
-.hero__socials i{
-    font-size: 20px;
-    line-height: 1.6;
+    color: var(--color-text);
+    opacity: 0.6; 
+    transition: 
+        color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+        opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+        transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.hero__social-link:hover{
-    color: var(--color-accent);
-    transform: translateY(-2px);
+.hero__socials i {
+    font-size: 18px; 
+    line-height: 1;
 }
-
-.hero__decor{
-    position: absolute;
-    width: clamp(100px, 25vw, 180px);
-    opacity: 0.7;
-    z-index: -1;
-    pointer-events: none;
-    user-select: none;
+.hero__social-link:hover {
+    color: var(--color-accent); 
+    opacity: 1 ;
+    transform: translateY(-3px); 
 }
-.hero__decor--1{
-    top: -40px;
-    right: -20px;
-    transform: rotate(15deg);
-}
-.hero__decor--2{
-    bottom: -30px;
-    left: -70px;
-    transform: rotate(-120deg);
-}
-

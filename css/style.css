@@ -5,20 +5,18 @@
 @import url(sections/newsletter.css);
 @import url(sections/footer.css);
 :root {
-    --color-title: #1f2e3d;
-    --color-text: #55606d;
+    --color-title: #ffffff;
+    --color-text: #e9e9e9;
     --color-muted: #8a939b;
-    --color-btn-dark: #101A24;
-    --color-accent: #EA6D27;
-    --primary-btn-color:  #101A24;
-    --secondary-btn-color: #EA6D27;
-    --background-color: #f7f7f7;
+    --color-accent: #b89473;
+    --primary-btn-color:  #5f4d3c;
+    --secondary-btn-color: #5f4d3c;
 }
 
 body {
-  background: #FFFFFF;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 *,
 *::before,
@@ -74,13 +72,11 @@ button {
 }
 
 body {
-    font-family: 'David Libre', serif;
+    font-family: 'Playfair Display', 'David Libre', serif;
     min-height: 100vh;
     line-height: 1.5;
-    background-color: #FFFFFF; 
     color: var(--primary-color); 
-    
-    /* Сглаживание шрифтов */
+    background-color: #161616; 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility; 
@@ -93,43 +89,110 @@ select {
     font-family: inherit;
 }
 
-.btn{
-    padding: 0.6em clamp(0.9em, 6vw, 1.8em);
-    border-radius: 10px 2px 10px 2px;
+.btn {
+    padding: 0.9em 2.4em; 
+    border-radius: 4px; 
     font-weight: 500;
-    color: #fff;
-    font-size: clamp(0.875rem, 1vw + 0.5rem, 1.1rem);
+    font-size: clamp(0.875rem, 1vw, 1rem);
     white-space: nowrap;
-    background-clip: padding-box;
-    box-shadow:
-    0 7px 15px rgba(10,16,73,0.18);
-    transition:
-    box-shadow 0.25s ease,
-    filter 0.25s ease,
-    transform 0.18s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    position: relative;
+    overflow: hidden; /* Чтобы блик не вылетал за границы */
+    z-index: 1;
+    
+    /* Плавный возврат кнопки в исходное положение, когда убираем мышку */
+    transition: 
+        background 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+        border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+        color 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+        box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+        transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        
     cursor: pointer;
-    transform: translateY(0);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }
 
-.btn:active{
-    transform: translateY(1px);
-    filter: brightness(0.97);
+/* Элегантный клик (кнопка слегка утапливается) */
+.btn:active {
+    transform: translateY(1px) !important;
 }
 
-.btn--primary{
-    background-color: var(--primary-btn-color);
+/* --- PRIMARY (Menu & Profile) --- */
+.btn--primary {
+    background: #1c1510;
+    color: #ffffff;
+    border: 1px solid var(--primary-btn-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-.btn--secondary{
-    background-color: var(--secondary-btn-color);
+/* --- SECONDARY (Book a table) --- */
+.btn--secondary {
+    background: transparent;
+    color: var(--color-accent);
+    border: 1px solid rgba(184, 148, 115, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* --- ОБЩИЙ ХОВЕР ДЛЯ ОБЕИХ КНОПОК (Объединили во избежание конфликтов) --- */
+.btn--primary:hover {
+    background: var(--primary-btn-color);
+    border-color: var(--color-accent);
+    box-shadow: 0 12px 25px rgba(95, 77, 60, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn--secondary:hover {
+    background: rgba(184, 148, 115, 0.03); /* Легкий благородный прилив фона */
+    border-color: var(--color-accent);
+    box-shadow: 0 12px 25px rgba(184, 148, 115, 0.2);
+    transform: translateY(-2px);
+}
+
+/* --- ФУНКЦИОНАЛ БЕГУЩЕГО БЛИКА --- */
+.btn--secondary::before, 
+.btn--primary::before {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: -100%; /* Полностью прячем луч слева за экраном */
+    width: 60px; /* Фиксированная ширина луча для аккуратности */
+    height: 100%;
+    
+    /* Мягкий полупрозрачный белый блик */
+    background: linear-gradient(
+        to right, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.25) 50%, 
+        transparent 100%
+    );
+    transform: skewX(-25deg); /* Наклон светового луча */
+    z-index: 2;
+    pointer-events: none; /* Чтобы луч не мешал кликать по кнопке */
+}
+
+/* Запуск анимации при наведении */
+.btn--secondary:hover::before, 
+.btn--primary:hover::before {
+    animation: shine 0.75s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* КРИТИЧЕСКИЙ ФИКС: Описание движения луча (То, что было пропущено) */
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 150%; /* Луч пролетает сквозь всю кнопку и исчезает справа */
+    }
 }
 @media (min-width: 768px){
 
     .hero{
         padding: 80px 0;
     }
+    
 
     .hero__inner{
         gap: 60px;
@@ -225,17 +288,21 @@ select {
 
 @media (min-width: 992px){
 
-    .container{
-        max-width: 1200px;
+.container {
+        width: 100%;
+        max-width: 1280px;
         margin: 0 auto;
-        padding-inline: 40px;
+        padding-inline: clamp(50px, 5vw, 70px);
     }
 
-    .burger{
+
+    /* HEADER */
+
+    .burger {
         display: none;
     }
 
-    .nav{
+    .nav {
         position: static;
         width: auto;
         height: auto;
@@ -243,13 +310,105 @@ select {
         display: block;
     }
 
-    .nav__list{
+    .nav__list {
         display: flex;
         gap: 45px;
     }
 
-    .hero{
-        padding: 100px 0;
+
+    /* HERO */
+
+    .hero {
+        padding-top: 150px;
+        padding-bottom: 100px;
+    }
+
+    .hero::before {
+        left: auto;
+        right: 0;
+
+        width: 50%;
+
+        filter: brightness(1);
+
+        mask-image:
+            linear-gradient(to left, #000 70%, transparent 100%),
+            linear-gradient(to bottom, #000 80%, transparent 100%);
+
+        mask-composite: intersect;
+
+        -webkit-mask-image:
+            linear-gradient(to left, #000 70%, transparent 100%),
+            linear-gradient(to bottom, #000 80%, transparent 100%);
+
+        -webkit-mask-composite: source-in;
+    }
+
+
+    .hero__inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 70px;
+    }
+
+
+    .hero__content {
+        flex: 1;
+        max-width: 600px;
+        margin: 0;
+        align-items: flex-start;
+        text-align: left;
+        gap: 40px;
+    }
+
+
+    .hero__title {
+        max-width: 540px;
+        font-size: clamp(40px, 4.5vw, 64px);
+        line-height: 1.15;
+        letter-spacing: -0.01em;
+    }
+
+
+    .hero__text {
+        max-width: 500px;
+        margin: 0;
+        font-size: clamp(15px, 1.1vw, 18px);
+        letter-spacing: 0.3px;
+    }
+
+
+    .hero__actions {
+        justify-content: flex-start;
+        gap: 40px;
+    }
+
+
+    .hero__socials {
+        margin-top: 30px;
+        justify-content: flex-start;
+    }
+
+
+    .hero__socials::before {
+        display: block;
+
+        content: "";
+
+        width: 40px;
+        height: 1px;
+
+        margin-right: 5px;
+
+        background-color: var(--color-accent);
+        opacity: 0.4;
+    }
+
+
+    .hero__image-wrapper {
+        flex: 1;
+        max-width: 520px;
     }
 
     .hero__inner{
@@ -279,18 +438,6 @@ select {
         justify-content: flex-start;
     }
 
-    .hero__image-wrapper{
-        flex: 1;
-        max-width: 520px;
-    }
-
-    .hero__decor{
-        opacity: 0.25;
-    }
-
-    .specials{
-        margin-top: 100px;
-    }
 
     .specials__cards{
         grid-template-columns: repeat(2, 1fr);
@@ -361,11 +508,11 @@ LARGE DESKTOP
 
     .hero__title{
         font-size: clamp(56px, 5vw, 72px);
-        max-width: 560px;
+        max-width: 650px;
     }
 
     .hero__text{
-        max-width: 500px;
+        max-width: 540px;
         font-size: 19px;
     }
 
@@ -378,26 +525,52 @@ LARGE DESKTOP
     }
 
     .specials__title{
-        font-size: clamp(48px, 5vw, 64px);
+        font-size: 64px;
+    }
+    .specials__text{
+        font-size: 20px;
     }
 
-    .specials__cards{
-        grid-template-columns: repeat(4, 1fr);
-        gap: 50px;
+    .specials__cards {
+        padding-left: 30px;
+        padding-right: 30px;
     }
 
-    .specials__card{
-        max-width: 300px;
-        min-height: 300px;
-        padding: 70px 20px 30px;
-        display: flex;
-        flex-direction: column;
+    .specials__card {
+        width: 100%;
+        max-width: 350px;
+        height: 420px;
     }
 
-    .specials__card-img{
-        width: 130px;
+    .specials__card-image {
+        width: 100%;
+        height: 50%;
+        flex: 0 0 50%;
     }
 
+    .specials__card-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .specials__card-content {
+        width: 100%;
+        height: 50%;
+        flex: 0 0 50%;
+
+        padding: 24px 28px;
+    }
+
+    .specials__card-title {
+        font-size: 1.25rem;
+    }
+
+    .specials__card-text {
+        max-width: 320px;
+        font-size: 0.9rem;
+    }
     .specials__bottom{
         display: flex;
         align-items: center;

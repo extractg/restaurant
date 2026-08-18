@@ -13,12 +13,13 @@
       href="https://fonts.googleapis.com/css2?family=David+Libre:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/style.css" />
     <link
       rel="stylesheet"
-      href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
     />
-    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
     <title>Deliciora | Fresh & Delicious Meals</title>
   </head>
   <body>
@@ -59,9 +60,13 @@
         <div class="hero__inner">
           <div class="hero__content" data-aos="fade-right">
             <h1 class="hero__title">We provide the best food for you</h1>
-              <p class="hero__text">
-                Discover a unique dining experience with carefully crafted dishes, elegant ambiance, and flavors that bring people together.
-              </p>
+            <p class="hero__text">
+              Discover a unique dining experience where culinary mastery meets
+              an elegant, cozy ambiance. We carefully craft every dish using
+              only the freshest seasonal ingredients, rich traditional flavors,
+              and a modern touch designed to satisfy every taste and create
+              unforgettable moments.
+            </p>
             <div class="hero__actions">
               <button class="btn btn--primary">Menu</button>
               <button class="btn btn--secondary">Book a table</button>
@@ -80,25 +85,6 @@
               </a>
             </div>
           </div>
-          <div class="hero__image-wrapper" >
-            <img
-              src="assets/images/leaf1.svg"
-              alt=""
-              class="hero__decor hero__decor--1"
-            />
-            <img
-              src="assets/images/leaf2.svg"
-              alt=""
-              class="hero__decor hero__decor--2"
-            />
-            <div class="hero__image" data-aos="fade-left">
-              <img
-                src="assets/images/restaurant.svg"
-                alt="Restaurant"
-                class="hero__img"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -108,128 +94,132 @@
         <div class="specials__top">
           <div class="specials__info" data-aos="fade-up">
             <h2 class="specials__title">Our Special Dishes</h2>
-              <p class="specials__text">
-                Explore our carefully crafted dishes made with fresh ingredients, rich flavors, and a modern touch designed to satisfy every taste.
-              </p>
+
+            <p class="specials__text">
+              Explore our carefully crafted dishes made with fresh ingredients,
+              rich flavors, and a modern touch designed to satisfy every taste.
+            </p>
           </div>
 
-          <div class="specials__cards">
-            <div class="specials__item" data-aos="fade-up" data-aos-delay="100" >
-              <img
-                src="assets/images/leaf4.svg"
-                alt=""
-                class="specials__decor specials__decor--1"
-              />
+          <div class="specials__cards swiper">
+            <div class="swiper-wrapper">
+              <!-- Card 1 -->
+              <div
+                class="specials__item swiper-slide"
+                data-aos="fade-up"
+                data-aos-delay="100"
+              >
+                <div class="specials__card">
+                  <div class="specials__card-image">
+                    <img
+                      src="assets/images/Ribeye_Steak.png"
+                      alt="Ribeye Steak with Herbs"
+                      class="specials__card-img"
+                    />
+                  </div>
 
-              <div class="specials__card">
-                <div class="specials__card-image">
-                  <img
-                    src="assets/images/dish1.svg"
-                    alt="Lumpia with Suace"
-                    class="specials__card-img"
-                  />
+                  <div class="specials__card-content">
+                    <h3 class="specials__card-title">
+                      Ribeye Steak with Herbs
+                    </h3>
 
-                  <span class="specials__price">$12</span>
+                    <p class="specials__card-text">
+                      Juicy prime ribeye steak grilled to perfection, served
+                      with aromatic rosemary butter and roasted seasonal garlic.
+                    </p>
+                  </div>
                 </div>
+              </div>
 
-                <div class="specials__card-content">
-                  <h3 class="specials__card-title">Lumpia with Suace</h3>
+              <!-- Card 2 -->
+              <div
+                class="specials__item swiper-slide"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                <div class="specials__card">
+                  <div class="specials__card-image">
+                    <img
+                      src="assets/images/Pan_Seared_Salmon.png"
+                      alt="Pan-Seared Salmon"
+                      class="specials__card-img"
+                    />
+                  </div>
 
-                  <p class="specials__card-text">
-                    Crispy handmade lumpia served with fresh vegetables and
-                    signature spicy sauce.
-                  </p>
+                  <div class="specials__card-content">
+                    <h3 class="specials__card-title">Pan-Seared Salmon</h3>
+
+                    <p class="specials__card-text">
+                      Crispy-skinned Atlantic salmon fillet resting on a bed of
+                      creamy asparagus risotto and drizzled with lemon-herb oil.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div
+                class="specials__item swiper-slide"
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
+                <div class="specials__card">
+                  <div class="specials__card-image">
+                    <img
+                      src="assets/images/Truffle_Mushroom.png"
+                      alt="Truffle Mushroom Fettuccine"
+                      class="specials__card-img"
+                    />
+                  </div>
+
+                  <div class="specials__card-content">
+                    <h3 class="specials__card-title">
+                      Truffle Mushroom Fettuccine
+                    </h3>
+
+                    <p class="specials__card-text">
+                      Handcrafted fettuccine tossed in a rich, velvety wild
+                      mushroom cream sauce and infused with premium black
+                      truffle oil.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 4 -->
+              <div
+                class="specials__item swiper-slide"
+                data-aos="fade-up"
+                data-aos-delay="400"
+              >
+                <div class="specials__card">
+                  <div class="specials__card-image">
+                    <img
+                      src="assets/images/Burrata_ Heirloom.png"
+                      alt="Burrata & Heirloom Salad"
+                      class="specials__card-img"
+                    />
+                  </div>
+
+                  <div class="specials__card-content">
+                    <h3 class="specials__card-title">
+                      Burrata & Heirloom Salad
+                    </h3>
+
+                    <p class="specials__card-text">
+                      Creamy Italian burrata cheese paired with sweet heirloom
+                      tomatoes, fresh basil leaves, and finished with a balsamic
+                      glaze.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-
-            <div class="specials__item" data-aos="fade-up" data-aos-delay="200">
-              <img
-                src="assets/images/leaf5.svg"
-                alt=""
-                class="specials__decor specials__decor--2"
-              />
-
-              <div class="specials__card">
-                <div class="specials__card-image">
-                  <img
-                    src="assets/images/dish2.svg"
-                    alt="Fish and Veggie"
-                    class="specials__card-img"
-                  />
-
-                  <span class="specials__price">$12</span>
-                </div>
-
-                <div class="specials__card-content">
-                  <h3 class="specials__card-title">Fish and Veggie</h3>
-
-                  <p class="specials__card-text">
-                    Grilled fish with seasonal vegetables and herbs for a light
-                    healthy taste.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="specials__item" data-aos="fade-up" data-aos-delay="300">
-              <img
-                src="assets/images/leaf2.svg"
-                alt=""
-                class="specials__decor specials__decor--3"
-              />
-
-              <div class="specials__card">
-                <div class="specials__card-image">
-                  <img
-                    src="assets/images/dish3.svg"
-                    alt="Tofu Chili"
-                    class="specials__card-img"
-                  />
-
-                  <span class="specials__price">$12</span>
-                </div>
-
-                <div class="specials__card-content">
-                  <h3 class="specials__card-title">Tofu Chili</h3>
-
-                  <p class="specials__card-text">
-                    Spicy tofu mixed with colorful vegetables in a rich chili
-                    garlic sauce.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="specials__item" data-aos="fade-up" data-aos-delay="400">
-              <img
-                src="assets/images/leaf4.svg"
-                alt=""
-                class="specials__decor specials__decor--4"
-              />
-
-              <div class="specials__card">
-                <div class="specials__card-image">
-                  <img
-                    src="assets/images/dish4.svg"
-                    alt="Egg and Cucumber"
-                    class="specials__card-img"
-                  />
-
-                  <span class="specials__price">$12</span>
-                </div>
-
-                <div class="specials__card-content">
-                  <h3 class="specials__card-title">Egg and Cucumber</h3>
-
-                  <p class="specials__card-text">
-                    Fresh cucumber, seasoned rice and soft egg combined into a
-                    balanced meal.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <!-- swiper-wrapper -->
           </div>
+          <!-- specials__cards swiper -->
         </div>
+        <!-- specials__top -->
 
         <div class="specials__bottom">
           <div class="specials__bottom-img" data-aos="fade-right">
@@ -327,7 +317,7 @@
         </div>
       </div>
     </section>
-    <section class="newsletter" >
+    <section class="newsletter">
       <div class="container">
         <div class="newsletter__inner" data-aos="fade-up">
           <h2 class="newsletter__title">
@@ -357,7 +347,9 @@
               />
             </a>
             <p class="footer__text">
-              Bringing together modern flavors, elegant dining, and unforgettable experiences for every guest who visits our restaurant.
+              Bringing together modern flavors, elegant dining, and
+              unforgettable experiences for every guest who visits our
+              restaurant.
             </p>
             <div class="footer__hours">
               <h3 class="footer__hours-title">OPENING HOURS</h3>
@@ -417,37 +409,76 @@
           </div>
           <div class="footer__column footer__column--social">
             <h3 class="footer__title">Follow us</h3>
+
             <div class="footer__socials">
               <a href="#" class="footer__social">
                 <i class="fa-brands fa-facebook-f"></i>
               </a>
+
               <a href="#" class="footer__social">
                 <i class="fa-brands fa-instagram"></i>
               </a>
+
               <a href="#" class="footer__social">
                 <i class="fa-brands fa-twitter"></i>
               </a>
             </div>
           </div>
+        </div>
         <div class="footer__bottom">
           <p class="footer__copyright">
             © 2026 Restaurant. All rights reserved.
           </p>
+
           <div class="footer__bottom-links">
-            <a href="#" class="footer__bottom-link"> Terms of Service </a>
-            <a href="#" class="footer__bottom-link"> Privacy Policy </a>
+            <a href="#" class="footer__bottom-link">Terms of Service</a>
+            <a href="#" class="footer__bottom-link">Privacy Policy</a>
           </div>
         </div>
       </div>
+      <!-- container -->
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+      const swiper = new Swiper(".specials__cards", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+
+    loop: true,
+    speed: 6000,
+
+    grabCursor: true,
+
+    autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: false,
+    },
+
+    breakpoints: {
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 28,
+        },
+
+        992: {
+            slidesPerView: 2.5,
+            spaceBetween: 32,
+        },
+
+        1200: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+        },
+    },
+});
       AOS.init({
-          duration: 700,
-          once: true,
-          offset: 80,
-          easing: 'ease-out-cubic',
+        duration: 700,
+        once: true,
+        offset: 80,
+        easing: "ease-out-cubic",
       });
     </script>
-  </body>
+</body>
 </html>
