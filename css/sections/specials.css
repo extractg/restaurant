@@ -21,20 +21,23 @@
 }
 
 .specials__title {
+    width: 100%;
+    max-width: 430px;
     font-family: "Playfair Display", serif;
-    font-size: clamp(32px, 9vw, 40px);
-    line-height: 1.15;
+    font-size: clamp(1.65rem, 6vw, 2rem);
+    line-height: 1.2;
     font-weight: 700;
+    letter-spacing: -0.01em;
     color: var(--color-title);
 }
 
 .specials__text {
     width: 100%;
-    max-width: 500px;
-    font-size: 14px;
-    line-height: 1.6;
+    max-width: 420px;
+    font-size: clamp(0.88rem, 2vw, 1rem);
+    line-height: 1.85;
     color: var(--color-text);
-    opacity: 0.8;
+    opacity: 0.72;
 }
 .specials__cards {
     position: relative;
@@ -295,7 +298,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 18px;
+    gap: 20px;
     margin-top: 55px;
     text-align: center;
 }
@@ -347,17 +350,12 @@
 
 .specials__bottom-text {
     width: 100%;
-    max-width: 540px;
-
+    max-width: 500px;
     margin: 4px auto 0;
-
-    font-size: clamp(0.88rem, 2.4vw, 1rem);
+    font-size: clamp(0.88rem, 2vw, 1rem);
     line-height: 1.85;
-
     color: var(--color-text);
-
     text-align: center;
-
     opacity: 0.72;
 }
 .specials__bottom-meta {
@@ -400,10 +398,16 @@
 }
 
 .specials__bottom-actions .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     max-width: 230px;
+    min-height: 49px;
+    padding: 0 20px;
+    line-height: 1;
+    text-align: center;
 }
-
 
 /* ==========================================================================
    HOVER
@@ -412,7 +416,7 @@
 @media (hover: hover) and (pointer: fine) {
 
     .specials__bottom-img:hover .specials__bottom-small-img {
-        border-color: rgba(184, 148, 115, 0.95);
+        border-color: rgb(184, 148, 115);
 
         box-shadow:
             0 20px 45px rgba(0, 0, 0, 0.7),

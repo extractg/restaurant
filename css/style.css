@@ -127,7 +127,6 @@ select {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* --- SECONDARY (Book a table) --- */
 .btn--secondary {
     background: transparent;
     color: var(--color-accent);
@@ -278,8 +277,14 @@ select {
         gap: 40px;
     }
 
-    .hero__title{
-        font-size: clamp(48px, 6vw, 64px);
+    .hero__title {
+        max-width: 550px;
+        font-size: 2.5rem;
+    }
+
+    .hero__text {
+        max-width: 500px;
+        font-size: 1rem;
     }
 
     .hero__image-wrapper{
@@ -369,6 +374,15 @@ select {
     .chef__btn {
         max-width: 230px;
     }
+    .specials__title {
+        max-width: 500px;
+        font-size: 2.5rem;
+    }
+
+    .specials__text {
+        max-width: 400px;
+        font-size: 1rem;
+    }
     .specials__info{
         gap: 30px;
     }
@@ -386,21 +400,82 @@ select {
         max-width: 420px;
     }
 
-    .newsletter{
-        padding: 90px 0;
+
+    .newsletter {
+        padding: 85px 0;
     }
 
-    .newsletter__inner{
-        padding: 80px 40px;
-        border-radius: 24px;
+    .newsletter__inner {
+        min-height: 480px;
+
+        padding: 75px 40px;
     }
 
-    .newsletter__form{
-        max-width: 600px;
+    .newsletter__content {
+        max-width: 850px;
+
+        gap: 20px;
     }
 
-    .newsletter__title{
-        font-size: clamp(36px, 5vw, 48px);
+    .newsletter__label {
+        font-size: 0.78rem;
+
+        letter-spacing: 2.8px;
+    }
+
+    .newsletter__label::before {
+        width: 38px;
+    }
+
+    .newsletter__title {
+        max-width: 800px;
+
+        font-size: 2.6rem;
+    }
+
+    .newsletter__text {
+        max-width: 450px;
+        font-size: 1rem;
+    }
+
+    .newsletter__form {
+        max-width: 620px;
+
+        flex-direction: row;
+
+        gap: 0;
+
+        margin-top: 18px;
+
+        border: 1px solid rgba(184, 148, 115, 0.4);
+
+        background-color: rgba(12, 12, 12, 0.78);
+    }
+
+    .newsletter__input {
+        flex: 1;
+
+        border: none;
+
+        background: transparent;
+
+        padding: 18px 20px;
+    }
+
+    .newsletter__button {
+        width: auto;
+        min-width: 175px;
+
+        margin: 6px;
+
+        padding: 14px 22px;
+    }
+
+    .newsletter__note {
+        font-size: 0.72rem;
+    }
+    .newsletter__button:hover{
+            transform: translateY(0px);
     }
      .footer{
         padding: 70px 0 35px;
@@ -468,8 +543,7 @@ select {
 
     .specials__bottom-text {
         max-width: 500px;
-
-        font-size: 0.95rem;
+        font-size: 1rem;
         line-height: 1.85;
     }
     .specials__bottom-meta {
@@ -581,20 +655,22 @@ select {
 
 
     .hero__title {
-        max-width: 540px;
-        font-size: clamp(40px, 4.5vw, 64px);
-        line-height: 1.15;
+        max-width: 500px;
+        font-size: clamp(2.3rem, 4vw, 3rem);
+        line-height: 1.2;
         letter-spacing: -0.01em;
     }
 
-
     .hero__text {
         max-width: 500px;
-        margin: 0;
-        font-size: clamp(15px, 1.1vw, 18px);
-        letter-spacing: 0.3px;
-    }
 
+        margin: 0;
+
+        font-size: 1rem;
+        line-height: 1.85;
+
+        letter-spacing: 0;
+    }
 
     .hero__actions {
         justify-content: flex-start;
@@ -655,7 +731,18 @@ select {
         justify-content: flex-start;
     }
 
+    .specials__title {
+    max-width: 500px;
 
+    font-size: clamp(2.3rem, 4vw, 3rem);
+    }
+
+    .specials__text {
+        max-width: 500px;
+
+        font-size: 1rem;
+        line-height: 1.85;
+    }
     .specials__cards{
         grid-template-columns: repeat(2, 1fr);
         gap: 100px 80px;
@@ -867,13 +954,51 @@ select {
     .chef__btn {
         margin-top: 10px;
     }
-    .newsletter__inner{
-        gap: 40px;
-        padding: 90px 50px;
+    .newsletter {
+        padding: 100px 0;
     }
 
-    .newsletter__form{
+    .newsletter__inner {
+        min-height: 500px;
+
+        padding: 80px 50px;
+    }
+
+    .newsletter__content {
+        max-width: 720px;
+
+        gap: 21px;
+    }
+
+    .newsletter__label {
+        font-size: 0.8rem;
+
+        letter-spacing: 3px;
+    }
+
+    .newsletter__label::before {
+        width: 42px;
+    }
+
+    .newsletter__title {
         max-width: 650px;
+
+        font-size: 3rem;
+        line-height: 1.15;
+    }
+
+    .newsletter__text {
+        max-width: 580px;
+        font-size: 1.02rem;
+        line-height: 1.85;
+    }
+
+    .newsletter__form {
+        max-width: 650px;
+    }
+
+    .newsletter__button {
+        min-width: 185px;
     }
 }
 
@@ -892,14 +1017,17 @@ select {
         gap: 100px;
     }
 
-    .hero__title{
-        font-size: clamp(56px, 5vw, 72px);
-        max-width: 650px;
+    .hero__title {
+        max-width: 600px;
+        font-size: clamp(3.7rem, 4.2vw, 4.3rem);
+        line-height: 1.08;
+        letter-spacing: -0.015em;
     }
 
-    .hero__text{
+    .hero__text {
         max-width: 540px;
-        font-size: 19px;
+        font-size: 1.05rem;
+        line-height: 1.85;
     }
 
     .hero__image-wrapper{
@@ -910,11 +1038,18 @@ select {
         gap: 40px;
     }
 
-    .specials__title{
-        font-size: 64px;
+    .specials__title {
+        max-width: 520px;
+
+        font-size: 3.5rem;
+        line-height: 1.15;
     }
-    .specials__text{
-        font-size: 20px;
+
+    .specials__text {
+        max-width: 500px;
+
+        font-size: 1.05rem;
+        line-height: 1.85;
     }
 
     .specials__cards {
@@ -1159,22 +1294,52 @@ select {
 
         margin-top: 12px;
     }
-    .newsletter{
-        padding: 100px 0;
+    .newsletter {
+        padding: 110px 0;
     }
 
-    .newsletter__inner{
-        max-width: 1280px;
-        padding: 100px 60px;
+    .newsletter__inner {
+        min-height: 520px;
+
+        padding: 90px 60px;
     }
 
-    .newsletter__title{
-        max-width: 1000px;
-        font-size: clamp(48px, 5vw, 62px);
-    }
-
-    .newsletter__form{
+    .newsletter__content {
         max-width: 760px;
+
+        gap: 22px;
+    }
+
+    .newsletter__title {
+        max-width: 900px;
+        font-size: 3.3rem;
+    }
+
+    .newsletter__text {
+        max-width: 700px;
+        font-size: 1.05rem;
+    }
+
+    .newsletter__form {
+        max-width: 680px;
+
+        margin-top: 20px;
+    }
+
+    .newsletter__input {
+        padding: 19px 22px;
+
+        font-size: 1rem;
+    }
+
+    .newsletter__button {
+        min-width: 190px;
+
+        padding: 15px 24px;
+    }
+
+    .newsletter__note {
+        margin-top: 4px;
     }
     .footer{
         padding: 60px 0 40px;
