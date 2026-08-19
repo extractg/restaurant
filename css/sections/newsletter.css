@@ -18,7 +18,7 @@
             rgba(8, 8, 8, 0.72),
             rgba(8, 8, 8, 0.82)
         ),
-        url("../../assets/images/background_promo.svg");
+        url("../../assets/images/background_promo.png");
 
     background-size: cover;
     background-position: center;
