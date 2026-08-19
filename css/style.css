@@ -187,6 +187,82 @@ select {
         left: 150%; /* Луч пролетает сквозь всю кнопку и исчезает справа */
     }
 }
+.section-divider {
+    position: absolute;
+
+    top: 40px;
+    left: 0;
+
+    width: 100%;
+    height: 6px;
+
+    pointer-events: none;
+
+    z-index: 3;
+}
+.chef .section-divider {
+    top: 10px;
+}
+
+.section-divider::before {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 10%;
+
+    width: 80%;
+    height: 1px;
+
+    transform: translateY(-50%);
+
+    background: linear-gradient(
+        to right,
+        rgba(184, 148, 115, 0.4) 0%,
+        rgba(184, 148, 115, 0.5) 49%,
+        transparent 49%,
+        transparent 51%,
+        rgba(184, 148, 115, 0.5) 51%,
+        rgba(184, 148, 115, 0.4) 100%
+    );
+
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        #000 20%,
+        #000 80%,
+        transparent 100%
+    );
+
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        #000 20%,
+        #000 80%,
+        transparent 100%
+    );
+}
+
+.section-divider::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 6px;
+    height: 6px;
+
+    transform: translate(-50%, -50%) rotate(45deg);
+
+    background-color: #b89473;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    box-shadow: 0 0 8px rgba(184, 148, 115, 0.6);
+}
 @media (min-width: 768px){
 
     .hero{
@@ -222,18 +298,77 @@ select {
         gap: 35px;
     }
 
-    .chef__content{
-        gap: 40px;
+    .chef {
+    padding: 110px 0;
     }
 
-    .chef__list{
-        gap: 30px;
+    .chef__inner {
+        gap: 60px;
+
+        padding: 0 30px;
     }
 
-    .chef__actions{
-        gap: 40px;
+    .chef__image-wrapper {
+        max-width: 430px;
+
+        padding: 10px;
     }
 
+    .chef__image-wrapper::before {
+        top: -15px;
+        right: -15px;
+
+        width: 80px;
+        height: 80px;
+    }
+
+    .chef__image-wrapper::after {
+        left: -15px;
+        bottom: -15px;
+
+        width: 80px;
+        height: 80px;
+    }
+
+    .chef__content {
+        max-width: 600px;
+
+        gap: 20px;
+    }
+
+    .chef__title {
+        max-width: 500px;
+
+        font-size: 2.5rem;
+    }
+
+    .chef__text {
+        max-width: 520px;
+
+        font-size: 1rem;
+    }
+
+    .chef__facts {
+        max-width: 540px;
+
+        gap: 12px;
+
+        padding: 22px 0;
+    }
+
+    .chef__fact-value {
+        font-size: 1.2rem;
+    }
+
+    .chef__fact-label {
+        font-size: 0.7rem;
+
+        letter-spacing: 1.2px;
+    }
+
+    .chef__btn {
+        max-width: 230px;
+    }
     .specials__info{
         gap: 30px;
     }
@@ -285,120 +420,104 @@ select {
         align-items: center;
     }
     .specials__bottom {
-    margin-top: 120px;
-    padding: 0 40px 90px;
-}
+        margin-top: 120px;
+        padding: 0 30px 55px;
+    }
 
+    .specials__bottom-img {
+        max-width: 620px;
 
-/* ==========================================================================
-   IMAGE COMPOSITION — 768px+
-   ========================================================================== */
+        padding-bottom: 65px;
+    }
 
-.specials__bottom-img {
-    max-width: 620px;
+    .specials__bottom-img::before {
+        top: -14px;
+        right: -14px;
 
-    padding-bottom: 65px;
-}
+        width: 75px;
+        height: 75px;
+    }
+    .specials__bottom-img::after {
+        left: -14px;
+        bottom: 50px;
 
-.specials__bottom-img::before {
-    top: -14px;
-    right: -14px;
+        width: 75px;
+        height: 75px;
+    }
+    .specials__bottom-small-img {
+        right: -15px;
+        bottom: 0;
 
-    width: 75px;
-    height: 75px;
-}
-.specials__bottom-img::after {
-    left: -14px;
-    bottom: 50px;
+        width: 32%;
+        max-width: 180px;
+    }
 
-    width: 75px;
-    height: 75px;
-}
+    .specials__bottom-content {
+        max-width: 620px;
 
+        margin: 65px auto 0;
 
-/* Вторая фотография */
+        gap: 20px;
+    }
 
-.specials__bottom-small-img {
-    right: -15px;
-    bottom: 0;
+    .specials__bottom-title {
+        max-width: 540px;
 
-    width: 32%;
-    max-width: 180px;
-}
+        font-size: 2.3rem;
+    }
 
+    .specials__bottom-text {
+        max-width: 500px;
 
-/* ==========================================================================
-   CONTENT — 768px+
-   ========================================================================== */
+        font-size: 0.95rem;
+        line-height: 1.85;
+    }
+    .specials__bottom-meta {
+        gap: 13px;
 
-.specials__bottom-content {
-    max-width: 620px;
+        margin-top: 6px;
 
-    margin: 65px auto 0;
+        font-size: 0.72rem;
+        letter-spacing: 2px;
+    }
 
-    gap: 20px;
-}
+    .specials__bottom-actions {
+        flex-direction: row;
 
-.specials__bottom-title {
-    max-width: 540px;
+        width: auto;
 
-    font-size: 2.3rem;
-}
+        gap: 20px;
 
-.specials__bottom-text {
-    max-width: 500px;
+        margin-top: 22px;
+    }
 
-    font-size: 0.95rem;
-    line-height: 1.85;
-}
+    .specials__bottom-actions .btn {
+        width: 190px;
+        max-width: none;
+    }
+    .specials__card {
+        max-width: 360px;
+        height: 400px;
+    }
 
+    .specials__card-title {
+        font-size: 1.2rem;
+    }
 
-/* ==========================================================================
-   META
-   ========================================================================== */
-
-.specials__bottom-meta {
-    gap: 13px;
-
-    margin-top: 6px;
-
-    font-size: 0.72rem;
-    letter-spacing: 2px;
-}
-
-
-/* ==========================================================================
-   BUTTONS
-   ========================================================================== */
-
-.specials__bottom-actions {
-    flex-direction: row;
-
-    width: auto;
-
-    gap: 20px;
-
-    margin-top: 22px;
-}
-
-.specials__bottom-actions .btn {
-    width: 190px;
-    max-width: none;
-}
-}
+    .specials__card-text {
+        max-width: 310px;
+        font-size: 0.9rem;
+    }
+    }
 
 @media (min-width: 992px){
 
-.container {
+    .container {
         width: 100%;
         max-width: 1280px;
         margin: 0 auto;
         padding-inline: clamp(50px, 5vw, 70px);
     }
-
-
-    /* HEADER */
-
     .burger {
         display: none;
     }
@@ -415,9 +534,6 @@ select {
         display: flex;
         gap: 45px;
     }
-
-
-    /* HERO */
 
     .hero {
         padding-top: 150px;
@@ -562,7 +678,7 @@ select {
         align-items: center;
         gap: 70px;
         margin-top: 140px;
-        padding: 20px 40px 110px;
+        padding: 20px 40px 65px;
     }
 
     .specials__bottom-img {
@@ -655,21 +771,101 @@ select {
         width: 180px;
         max-width: none;
     }
-    .chef__inner{
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        gap: 60px;
+    .chef {
+        padding: 130px 0;
     }
 
-    .chef__content{
+    .chef__inner {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+
+        align-items: center;
+
+        gap: 70px;
+
+        padding: 0 40px;
+    }
+
+    .chef__content {
+        grid-column: 1;
+        grid-row: 1;
+
         align-items: flex-start;
+
+        width: 100%;
+        max-width: 520px;
+
+        margin: 0;
+
+        gap: 20px;
+
         text-align: left;
     }
-    .chef__list{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px 60px;
+
+    .chef__image-wrapper {
+        grid-column: 2;
+        grid-row: 1;
+
+        width: 100%;
+        max-width: 470px;
+
+        margin: 0 0 0 auto;
+
+        padding: 10px;
+    }
+
+    .chef__image-wrapper::before {
+        top: -16px;
+        right: -16px;
+
+        width: 90px;
+        height: 90px;
+    }
+
+    .chef__image-wrapper::after {
+        left: -16px;
+        bottom: -16px;
+
+        width: 90px;
+        height: 90px;
+    }
+
+    .chef__label {
+        justify-content: flex-start;
+    }
+
+    .chef__title {
+        max-width: 500px;
+
+        font-size: clamp(2.3rem, 4vw, 3rem);
+
+        text-align: left;
+    }
+
+    .chef__text {
+        max-width: 500px;
+
+        margin: 4px 0 0;
+
+        font-size: 1rem;
+
+        text-align: left;
+    }
+
+    .chef__facts {
+        max-width: 500px;
+
+        margin-top: 14px;
+    }
+
+    .chef__fact {
+        align-items: flex-start;
+
+        text-align: left;
+    }
+
+    .chef__btn {
+        margin-top: 10px;
     }
     .newsletter__inner{
         gap: 40px;
@@ -769,7 +965,7 @@ select {
         max-width: 1280px;
 
         margin: 160px auto 0;
-        padding: 30px 40px 130px;
+        padding: 30px 40px 75px;
     }
 
     .specials__bottom-img {
@@ -851,19 +1047,118 @@ select {
         width: 190px;
         max-width: none;
     }
-    .chef{
-        padding: 120px 0;
+    .chef {
+        padding: 150px 0;
     }
 
-    .chef__title{
-        font-size: clamp(48px, 5vw, 64px);
+    .chef__inner {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+
+        align-items: center;
+
+        gap: 120px;
+
+        padding: 0 50px;
     }
 
-    .chef__text{
+    .chef__content {
+        grid-column: 1;
+        grid-row: 1;
+
+        max-width: 540px;
+
+        gap: 22px;
+    }
+
+    .chef__image-wrapper {
+        grid-column: 2;
+        grid-row: 1;
+
+        width: 100%;
+        max-width: 450px;
+
+        margin: 0 0 0 auto;
+
+        padding: 12px;
+    }
+
+    .chef__image-wrapper::before {
+        top: -18px;
+        right: -18px;
+
+        width: 95px;
+        height: 95px;
+    }
+
+    .chef__image-wrapper::after {
+        left: -18px;
+        bottom: -18px;
+
+        width: 95px;
+        height: 95px;
+    }
+
+    .chef__label {
+        justify-content: flex-start;
+
+        font-size: 0.8rem;
+
+        letter-spacing: 3px;
+    }
+
+    .chef__label::before {
+        width: 42px;
+    }
+
+    .chef__title {
+        max-width: 520px;
+
+        font-size: 3.5rem;
+        line-height: 1.15;
+
+        text-align: left;
+    }
+
+    .chef__text {
         max-width: 500px;
-        font-size: 19px;
+
+        margin: 4px 0 0;
+
+        font-size: 1.05rem;
+        line-height: 1.85;
+
+        text-align: left;
     }
 
+    .chef__facts {
+        max-width: 520px;
+
+        margin-top: 16px;
+
+        padding: 24px 0;
+    }
+
+    .chef__fact {
+        align-items: flex-start;
+
+        text-align: left;
+    }
+
+    .chef__fact-value {
+        font-size: 1.3rem;
+    }
+
+    .chef__fact-label {
+        font-size: 0.72rem;
+
+        letter-spacing: 1.3px;
+    }
+
+    .chef__btn {
+        max-width: 230px;
+
+        margin-top: 12px;
+    }
     .newsletter{
         padding: 100px 0;
     }

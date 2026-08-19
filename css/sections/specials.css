@@ -1,6 +1,7 @@
 .specials {
     position: relative;
     padding: 90px 0;
+    overflow: hidden;
 }
 
 .specials__top {
@@ -10,53 +11,6 @@
     overflow: hidden;
 }
 
-.specials::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 10%;
-    width: 80%;
-    height: 1px;
-    transform: translateY(40px);
-    background: linear-gradient(
-        to right,
-        rgba(184, 148, 115, 0.4) 0%,
-        rgba(184, 148, 115, 0.5) 49%,
-        transparent 49%,
-        transparent 51%,
-        rgba(184, 148, 115, 0.5) 51%,
-        rgba(184, 148, 115, 0.4) 100%
-    );
-    -webkit-mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        #000 20%,
-        #000 80%,
-        transparent 100%
-    );
-    mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        #000 20%,
-        #000 80%,
-        transparent 100%
-    );
-    z-index: 3;
-}
-
-.specials::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 6px;
-    height: 6px;
-    transform: translate(-50%, 38px) rotate(45deg);
-    background-color: #b89473;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 8px rgba(184, 148, 115, 0.6);
-    z-index: 4;
-}
 .specials__info {
     display: flex;
     flex-direction: column;
@@ -236,10 +190,9 @@
 }
 
 .specials__bottom {
-    margin-top: 120px;
-    padding: 0 20px 70px;
+    margin-top: 100px;
+    padding: 0 20px 0px;
 }
-
 
 /* ==========================================================================
    IMAGE COMPOSITION
@@ -313,59 +266,30 @@
         0 0 30px rgba(184, 148, 115, 0.05);
 }
 
-
-/* Вторая фотография интерьера */
-
 .specials__bottom-small-img {
     position: absolute;
-
     right: -8px;
     bottom: 0;
-
     z-index: 3;
-
-    /* Было 30% / 145px — делаем немного крупнее */
     width: 34%;
     max-width: 165px;
-
     aspect-ratio: 3 / 4;
-
     object-fit: cover;
     object-position: center;
-
     padding: 5px;
-
     background-color: #161616;
-
     border: 1px solid rgba(184, 148, 115, 0.65);
     border-radius: 2px;
-
     box-shadow:
         0 18px 40px rgba(0, 0, 0, 0.65),
         0 0 20px rgba(184, 148, 115, 0.08);
-
-    /*
-       Оставляем лёгкий наклон,
-       но больше НЕ анимируем transform.
-    */
     transform: rotate(1.5deg);
-
-    /* Помогает избежать мерцания */
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-
-    /*
-       Анимируем только рамку и тень.
-       Картинка физически не двигается.
-    */
     transition:
         border-color 0.4s ease,
         box-shadow 0.4s ease;
 }
-
-/* ==========================================================================
-   CONTENT
-   ========================================================================== */
 
 .specials__bottom-content {
     display: flex;
@@ -404,16 +328,13 @@
     opacity: 0.7;
 }
 
-
-/* Заголовок */
-
 .specials__bottom-title {
     width: 100%;
-    max-width: 430px;
+    max-width: 540px;
 
     font-family: "Playfair Display", serif;
 
-    font-size: clamp(1.65rem, 6vw, 2rem);
+    font-size: clamp(1.65rem, 5.5vw, 2.15rem);
     line-height: 1.2;
     font-weight: 700;
 
@@ -424,16 +345,13 @@
     text-align: center;
 }
 
-
-/* Текст */
-
 .specials__bottom-text {
     width: 100%;
-    max-width: 420px;
+    max-width: 540px;
 
     margin: 4px auto 0;
 
-    font-size: clamp(0.88rem, 2vw, 1rem);
+    font-size: clamp(0.88rem, 2.4vw, 1rem);
     line-height: 1.85;
 
     color: var(--color-text);
@@ -442,11 +360,6 @@
 
     opacity: 0.72;
 }
-
-/* ==========================================================================
-   EST. 2018 • EUROPEAN CUISINE
-   ========================================================================== */
-
 .specials__bottom-meta {
     display: flex;
     align-items: center;
