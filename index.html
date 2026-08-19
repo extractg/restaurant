@@ -45,11 +45,17 @@
           </nav>
           <div class="header__actions">
             <button class="header__btn btn btn--secondary">Profile</button>
-            <button class="burger" id="burger">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
+              <button
+                  class="burger"
+                  id="burger"
+                  type="button"
+                  aria-label="Open menu"
+                  aria-expanded="false"
+              >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </button>
           </div>
         </div>
       </div>
@@ -342,108 +348,124 @@
       </div>
     </section>
     <footer class="footer">
+      <div class="section-divider footer__divider" aria-hidden="true"></div>
       <div class="container">
-        <div class="footer__inner" data-aos="fade-left">
-          <div class="footer__column footer__column--info">
-            <a href="#" class="footer__logo">
+        <div class="footer__inner" data-aos="fade-up">
+          <!-- BRAND -->
+          <div class="footer__brand">
+            <a href="index.html" class="footer__logo">
               <img
-                src="assets/images/logo.svg"
-                alt="Restaurant"
+                src="assets/images/logo.png"
+                alt="Deliciora"
                 class="footer__logo-img"
               />
             </a>
+
             <p class="footer__text">
-              Bringing together modern flavors, elegant dining, and
-              unforgettable experiences for every guest who visits our
-              restaurant.
+              European-inspired dining, seasonal ingredients, and memorable
+              evenings crafted around every table.
             </p>
-            <div class="footer__hours">
-              <h3 class="footer__hours-title">OPENING HOURS</h3>
-              <div class="footer__hours-list">
-                <div class="footer__hours-item">
-                  <span class="footer__hours-day"> Monday - Friday </span>
-                  <span class="footer__hours-time"> 8:00 am to 9:00 pm </span>
-                </div>
-                <div class="footer__hours-item">
-                  <span class="footer__hours-day"> Saturday </span>
-                  <span class="footer__hours-time"> 8:00 am to 9:00 pm </span>
-                </div>
-                <div class="footer__hours-item">
-                  <span class="footer__hours-day"> Sunday </span>
-                  <span class="footer__hours-time footer__hours-time--closed">
-                    CLOSED
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="footer__menu">
-            <div class="footer__column">
-              <h3 class="footer__title">Navigation</h3>
-              <ul class="footer__list">
-                <li class="footer__item">
-                  <a href="#" class="footer__link"> Menu </a>
-                </li>
-                <li class="footer__item">
-                  <a href="#" class="footer__link"> About us </a>
-                </li>
-                <li class="footer__item">
-                  <a href="#" class="footer__link"> Contact us </a>
-                </li>
-                <li class="footer__item">
-                  <a href="#" class="footer__link"> Main dishes </a>
-                </li>
-              </ul>
-            </div>
-            <div class="footer__column">
-              <h3 class="footer__title">Dishes</h3>
-              <ul class="footer__list">
-                <li class="footer__item">
-                  <a href="#" class="footer__link"> Fish & Viggies </a>
-                </li>
-                <li class="footer__item">
-                  <a href="#" class="footer__link"> Tofu Chili </a>
-                </li>
-                <li class="footer__item">
-                  <a href="#" class="footer__link"> Egg & Cucumber</a>
-                </li>
-                <li class="footer__item">
-                  <a href="#" class="footer__link"> Lumpia w/Sauce</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="footer__column footer__column--social">
-            <h3 class="footer__title">Follow us</h3>
 
             <div class="footer__socials">
-              <a href="#" class="footer__social">
+              <a href="#" class="footer__social" aria-label="Facebook">
                 <i class="fa-brands fa-facebook-f"></i>
               </a>
 
-              <a href="#" class="footer__social">
+              <a href="#" class="footer__social" aria-label="Instagram">
                 <i class="fa-brands fa-instagram"></i>
               </a>
 
-              <a href="#" class="footer__social">
+              <a href="#" class="footer__social" aria-label="Twitter">
                 <i class="fa-brands fa-twitter"></i>
               </a>
             </div>
           </div>
+
+          <!-- EXPLORE -->
+          <div class="footer__column footer__explore">
+            <h3 class="footer__title">Explore</h3>
+
+            <ul class="footer__list">
+              <li class="footer__item">
+                <a href="#" class="footer__link">Menu</a>
+              </li>
+
+              <li class="footer__item">
+                <a href="#" class="footer__link">Our Story</a>
+              </li>
+
+              <li class="footer__item">
+                <a href="#" class="footer__link">Our Chef</a>
+              </li>
+
+              <li class="footer__item">
+                <a href="#" class="footer__link">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- VISIT -->
+          <div class="footer__column footer__column__visit">
+            <h3 class="footer__title">Visit</h3>
+
+            <p class="footer__location">Riga, Latvia</p>
+
+            <div class="footer__hours">
+              <div class="footer__hours-item">
+                <span class="footer__hours-day">Mon — Fri</span>
+                <span class="footer__hours-time">12:00 — 23:00</span>
+              </div>
+
+              <div class="footer__hours-item">
+                <span class="footer__hours-day">Saturday</span>
+                <span class="footer__hours-time">13:00 — 00:00</span>
+              </div>
+
+              <div class="footer__hours-item">
+                <span class="footer__hours-day">Sunday</span>
+                <span class="footer__hours-time">13:00 — 22:00</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- RESERVATION -->
+          <div class="footer__column footer__column__reservation">
+            <h3 class="footer__title">Reservations</h3>
+
+            <p class="footer__reservation-text">
+              Planning an evening with us? Reserve your table in advance.
+            </p>
+
+            <a href="#" class="footer__reservation-link">
+              Book a table
+              <span>→</span>
+            </a>
+          </div>
         </div>
+
+        <!-- BOTTOM -->
         <div class="footer__bottom">
           <p class="footer__copyright">
-            © 2026 Restaurant. All rights reserved.
+            © 2026 Deliciora. All rights reserved.
           </p>
 
           <div class="footer__bottom-links">
-            <a href="#" class="footer__bottom-link">Terms of Service</a>
-            <a href="#" class="footer__bottom-link">Privacy Policy</a>
+            <a href="#" class="footer__bottom-link"> Privacy Policy </a>
+
+            <a href="#" class="footer__bottom-link"> Terms of Service </a>
           </div>
         </div>
       </div>
-      <!-- container -->
     </footer>
+    <button
+        class="back-to-top"
+        id="backToTop"
+        type="button"
+        aria-label="Back to top"
+    >
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <script src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
