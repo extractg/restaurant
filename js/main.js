@@ -5,6 +5,14 @@ const navLinks = document.querySelectorAll(".nav__link");
 const body = document.body;
 const html = document.documentElement;
 
+
+if (backToTop) {
+backToTop.addEventListener("click", function () {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
 window.addEventListener("scroll", function () {
     const isAtBottom =
         window.innerHeight + window.scrollY >=
@@ -16,13 +24,8 @@ window.addEventListener("scroll", function () {
         backToTop.classList.remove("is-visible");
     }
 });
+}
 
-backToTop.addEventListener("click", function () {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-});
 
 burger.addEventListener("click", function () {
     burger.classList.toggle("active");
