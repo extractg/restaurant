@@ -32,7 +32,7 @@
             <ul class="nav__list">
               <li class="nav__items"><a href="../index.html" class="nav__link">Home</a></li>
               <li class="nav__items">
-                <a href="pages/products.html" class="nav__link">Products</a>
+                <a href="products.html" class="nav__link">Products</a>
               </li>
               <li class="nav__items">
                 <a href="favorites.html" class="nav__link">Favorites</a>
@@ -59,6 +59,94 @@
         </div>
       </div>
     </header>
+    <main>
+    <section class="products">
+        <div class="container">
+
+            <div class="products__header">
+                <span class="products__label">Our Menu</span>
+
+                <h1 class="products__title">
+                    Discover Our Dishes
+                </h1>
+
+                <p class="products__text">
+                    Explore our selection of carefully crafted dishes,
+                    prepared with fresh ingredients and inspired by flavors
+                    from around the world.
+                </p>
+            </div>
+
+            <div class="products__controls">
+
+                <div class="products__search">
+                    <input
+                        type="text"
+                        class="products__search-input"
+                        id="searchInput"
+                        placeholder="Search dishes..."
+                        autocomplete="off"
+                    />
+
+                    <button
+                        class="products__search-button"
+                        type="button"
+                        aria-label="Search dishes"
+                    >
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+
+                <div class="products__categories">
+                    <button
+                        class="products__category active"
+                        data-category="all"
+                    >
+                        All
+                    </button>
+
+                    <button
+                        class="products__category"
+                        data-category="Beef"
+                    >
+                        Beef
+                    </button>
+
+                    <button
+                        class="products__category"
+                        data-category="Chicken"
+                    >
+                        Chicken
+                    </button>
+
+                    <button
+                        class="products__category"
+                        data-category="Seafood"
+                    >
+                        Seafood
+                    </button>
+
+                    <button
+                        class="products__category"
+                        data-category="Dessert"
+                    >
+                        Dessert
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="products__status" id="productsStatus"></div>
+
+            <div class="products__grid" id="productsGrid">
+                <!-- Блюда сюда будет добавлять JavaScript -->
+            </div>
+
+        </div>
+    </section>
+</main>
     <script src="../js/main.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/products.js"></script>
 </body>
 </html>
