@@ -197,39 +197,26 @@
     padding: 0 20px 0px;
 }
 
-/* ==========================================================================
-   IMAGE COMPOSITION
-   ========================================================================== */
 
 .specials__bottom-img {
     position: relative;
-
     width: 100%;
     max-width: 520px;
-
     margin: 0 auto;
-
-    /* Место для второй фотографии снизу */
     padding-bottom: 50px;
 }
 
 
 .specials__bottom-img::before {
     content: "";
-
     position: absolute;
-
     top: clamp(-10px, -1vw, -18px);
     right: clamp(-10px, -1vw, -18px);
-
     width: clamp(50px, 6vw, 90px);
     height: clamp(50px, 6vw, 90px);
-
     border-top: 1px solid rgba(184, 148, 115, 0.65);
     border-right: 1px solid rgba(184, 148, 115, 0.65);
-
     pointer-events: none;
-
     z-index: 0;
 }
 
@@ -263,10 +250,9 @@
     object-fit: cover;
 
     border-radius: 3px;
-
     box-shadow:
-        0 22px 50px rgba(0, 0, 0, 0.45),
-        0 0 30px rgba(184, 148, 115, 0.05);
+        16px 16px 22px -18px rgba(0, 0, 0, 0.45),
+        -10px -10px 20px -18px rgba(0, 0, 0, 0.28);
 }
 
 .specials__bottom-small-img {
@@ -284,8 +270,7 @@
     border: 1px solid rgba(184, 148, 115, 0.65);
     border-radius: 2px;
     box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.65),
-        0 0 20px rgba(184, 148, 115, 0.08);
+        10px 14px 22px -10px rgba(0, 0, 0, 0.42);
     transform: rotate(1.5deg);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
@@ -414,12 +399,10 @@
    ========================================================================== */
 
 @media (hover: hover) and (pointer: fine) {
-
     .specials__bottom-img:hover .specials__bottom-small-img {
         border-color: rgb(184, 148, 115);
 
         box-shadow:
-            0 20px 45px rgba(0, 0, 0, 0.7),
-            0 0 22px rgba(184, 148, 115, 0.16);
+            4px 6px 12px -8px rgba(0, 0, 0, 0.35);
     }
 }
