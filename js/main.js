@@ -1,6 +1,9 @@
 const backToTop = document.getElementById("backToTop");
 const burger = document.getElementById("burger");
 const nav = document.querySelector(".nav");
+const navLinks = document.querySelectorAll(".nav__link");
+const body = document.body;
+const html = document.documentElement;
 
 window.addEventListener("scroll", function () {
     const isAtBottom =
@@ -24,4 +27,14 @@ backToTop.addEventListener("click", function () {
 burger.addEventListener("click", function () {
     burger.classList.toggle("active");
     nav.classList.toggle("active");
+    body.classList.toggle("no-scroll");
+    html.classList.toggle("no-scroll");
+});
+navLinks.forEach((link) =>{
+link.addEventListener("click", () => {
+    burger.classList.remove("active");
+    nav.classList.remove("active");
+    body.classList.remove("no-scroll");
+    html.classList.remove("no-scroll");
 })
+});

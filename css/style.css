@@ -278,6 +278,10 @@ select {
 
     transform: translateY(-3px);
 }
+html.no-scroll,
+body.no-scroll {
+    overflow: hidden;
+}
 @media (max-width: 455px) {
     .footer__inner {
         column-gap: 18px;
@@ -797,28 +801,100 @@ select {
         margin: 0 auto;
         padding-inline: clamp(50px, 5vw, 70px);
     }
-    .burger {
+.burger {
         display: none;
     }
 
     .nav {
         position: static;
+
         width: auto;
         height: auto;
-        background-color: transparent;
+
         display: block;
+
+        background: transparent;
+
+        overflow: visible;
+
+        transform: none;
+        transition: none;
+
+        z-index: auto;
+    }
+
+    /* Убираем декор мобильного nav */
+
+    .nav::before,
+    .nav::after {
+        display: none;
     }
 
     .nav__list {
+        position: static;
+
         display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        width: auto;
+
         gap: 45px;
+
+        margin: 0;
+        padding: 0;
+
+        transform: none;
     }
+
+    /* Убираем MENU и линию */
+
+    .nav__list::before,
+    .nav__list::after {
+        display: none;
+    }
+
+    .nav__link {
+        display: inline-block;
+
+        color: #e7e7e7;
+
+        font-size: 1rem;
+
+        transform: none;
+    }
+
+    /* Убираем 01, 02, 03, 04 */
+
+    .nav__link::before {
+        display: none;
+    }
+
+    /* Возвращаем обычную линию hover */
+
+    .nav__link::after {
+        left: 0;
+        bottom: -6px;
+
+        width: 0;
+        height: 2px;
+    }
+
+    .nav__link:hover {
+        color: var(--color-accent);
+
+        transform: none;
+    }
+
+    .nav__link:hover::after {
+        width: 100%;
+    }
+
 
     .hero {
         padding-top: 150px;
         padding-bottom: 100px;
     }
-
     .hero::before {
         left: auto;
         right: 0;

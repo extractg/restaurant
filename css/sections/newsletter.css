@@ -13,19 +13,39 @@
 
     padding: 70px 20px;
 
-    background-image:
-        linear-gradient(
-            rgba(8, 8, 8, 0.72),
-            rgba(8, 8, 8, 0.82)
-        ),
-        url("../../assets/images/background_promo.png");
-
+    background-image: url("../../assets/images/background_promo.png");
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 
     overflow: hidden;
 }
 
+
+/* =========================
+   BACKGROUND OVERLAY
+========================= */
+
+.newsletter__inner::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        rgba(8, 8, 8, 0.72),
+        rgba(8, 8, 8, 0.82)
+    );
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
 
 .newsletter__content {
     position: relative;
@@ -42,6 +62,11 @@
 
     text-align: center;
 }
+
+
+/* =========================
+   LABEL
+========================= */
 
 .newsletter__label {
     display: flex;
@@ -70,6 +95,11 @@
     opacity: 0.7;
 }
 
+
+/* =========================
+   TITLE
+========================= */
+
 .newsletter__title {
     width: 100%;
     max-width: 800px;
@@ -85,6 +115,11 @@
     color: var(--color-title);
 }
 
+
+/* =========================
+   TEXT
+========================= */
+
 .newsletter__text {
     width: 100%;
     max-width: 400px;
@@ -99,6 +134,11 @@
     opacity: 0.78;
 }
 
+
+/* =========================
+   FORM
+========================= */
+
 .newsletter__form {
     width: 100%;
     max-width: 540px;
@@ -110,6 +150,11 @@
 
     margin-top: 14px;
 }
+
+
+/* =========================
+   INPUT
+========================= */
 
 .newsletter__input {
     width: 100%;
@@ -146,18 +191,32 @@
     box-shadow: 0 0 18px rgba(184, 148, 115, 0.08);
 }
 
+
+/* =========================
+   BUTTON
+========================= */
+
 .newsletter__button {
     width: 100%;
+
     padding: 17px 20px;
+
     border: 1px solid rgba(184, 148, 115, 0.65);
+
     background-color: rgba(32, 22, 16, 0.82);
+
     font-family: inherit;
     font-size: 0.8rem;
     font-weight: 600;
+
     letter-spacing: 1.2px;
+
     color: #f2ede8;
+
     text-transform: uppercase;
+
     cursor: pointer;
+
     transition:
         background-color 0.3s ease,
         color 0.3s ease,
@@ -169,8 +228,11 @@
 .newsletter__button:hover {
     background-color: #917559;
     border-color: #b89473;
+
     color: #111;
+
     transform: translateY(-2px);
+
     box-shadow:
         0 8px 22px rgba(0, 0, 0, 0.25),
         0 0 18px rgba(184, 148, 115, 0.12);
@@ -180,10 +242,18 @@
     transform: translateY(0);
 }
 
+
+/* =========================
+   NOTE
+========================= */
+
 .newsletter__note {
     margin-top: 2px;
+
     font-size: 0.7rem;
     letter-spacing: 0.5px;
+
     color: var(--color-text);
+
     opacity: 0.5;
 }

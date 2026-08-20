@@ -42,7 +42,7 @@
 .nav {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
 
     width: 100%;
     height: 100vh;
@@ -51,18 +51,26 @@
     justify-content: center;
     align-items: center;
 
-    background:
-        #141414;
+    background: #141414;
 
     overflow: hidden;
 
     z-index: 10;
 
-    transition: right 0.45s ease;
+    /* Меню находится справа за пределами экрана */
+    transform: translate3d(100%, 0, 0);
+
+    /* Подготавливаем браузер к анимации */
+    will-change: transform;
+    backface-visibility: hidden;
+
+    /* Более мягкое движение */
+    transition:
+        transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .nav.active {
-    right: 0;
+    transform: translate3d(0, 0, 0);
 }
 
 
@@ -118,6 +126,7 @@
     padding: 45px 0 0;
 
     list-style: none;
+
     transform: translateY(-60px);
 }
 
@@ -130,7 +139,9 @@
     position: absolute;
     top: -25px;
     left: 0;
+
     color: #b89473;
+
     font-size: 0.70rem;
     font-weight: 500;
     letter-spacing: 4px;
@@ -177,7 +188,7 @@
 
     transition:
         color 0.3s ease,
-        transform 0.3s ease;
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 
@@ -228,7 +239,8 @@
 
     background: #b89473;
 
-    transition: width 0.35s ease;
+    transition:
+        width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .nav__link:hover {
@@ -277,7 +289,6 @@
 
     position: relative;
 
-    /* Бургер должен быть выше открытого меню */
     z-index: 1001;
 
     padding: 0;
@@ -299,10 +310,13 @@
     background-color: #b89473;
     border-radius: 2px;
 
+    /* Полоски будут двигаться и исчезать */
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+
     transition:
-        transform 0.3s ease,
-        opacity 0.3s ease,
-        background-color 0.3s ease;
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.2s ease;
 }
 
 
@@ -311,7 +325,7 @@
 ========================= */
 
 .burger.active span:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
+    transform: translate3d(0, 9px, 0) rotate(45deg);
 }
 
 .burger.active span:nth-child(2) {
@@ -319,5 +333,5 @@
 }
 
 .burger.active span:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
+    transform: translate3d(0, -9px, 0) rotate(-45deg);
 }
