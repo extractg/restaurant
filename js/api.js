@@ -23,8 +23,6 @@ async function getProducts(category) {
         };
     });
 
-    console.log(products);
-
     return products;
 }
 

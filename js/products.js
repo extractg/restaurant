@@ -5,7 +5,9 @@ const searchInput = document.getElementById("searchInput");
 
 function displayProducts(productsArray) {
     const productsHTML = productsArray.map((product) => {
-        const { title, price, category, image } = product;
+        const { id, title, price, category, image } = product;
+        const isFavorite = favorites.includes(id)
+        
 
         return `
             <article class="product-card">
@@ -13,8 +15,8 @@ function displayProducts(productsArray) {
                 <div class="product-card__image">
                     <img src="${image}" alt="${title}" loading="lazy">
 
-                    <button class="product-card__favorite">
-                        <i class="fa-regular fa-heart"></i>
+                    <button class="product-card__favorite ${isFavorite ? "active" : ""} " data-id="${id}">
+                        <i class="${isFavorite ? "fa-solid" : "fa-regular"} fa-regular fa-heart"></i>
                     </button>
                 </div>
 
@@ -40,6 +42,7 @@ function displayProducts(productsArray) {
 }
 let allProducts = [];
 let selectedCategory = "all";
+let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
 categoryButtons.forEach((button) =>{
     button.addEventListener("click", () =>{
@@ -55,11 +58,11 @@ categoryButtons.forEach((button) =>{
             return;
         }
 
-        const filtererdProducts = allProducts.filter((product) => {
+        const filteredProducts = allProducts.filter((product) => {
            return product.category === selectedCategory
         });
 
-        displayProducts(filtererdProducts)
+        displayProducts(filteredProducts)
     });
 });
 
@@ -78,6 +81,34 @@ searchInput.addEventListener("input", () => {
     });
     displayProducts(searchedProducts);
     
+});
+productsGrid.addEventListener("click", (event) => {
+    const favoriteButton = event.target.closest(".product-card__favorite");
+
+    if (!favoriteButton) {
+        return;
+    }
+
+    const mealId = favoriteButton.dataset.id;
+    const favoriteIcon = favoriteButton.querySelector(".fa-heart");
+
+    if (!favorites.includes(mealId)) {
+        favorites.push(mealId);
+
+        favoriteIcon.classList.remove("fa-regular");
+        favoriteIcon.classList.add("fa-solid");
+        favoriteButton.classList.add("active");
+    } else {
+        favorites = favorites.filter((id) => {
+            return mealId !== id;
+        });
+        favoriteIcon.classList.remove("fa-solid");
+        favoriteIcon.classList.add("fa-regular");
+        favoriteButton.classList.remove("active");
+    }
+
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+    console.log(favorites);
 });
 
 async function initProducts() {
