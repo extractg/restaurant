@@ -1,0 +1,1960 @@
+/* ========================================
+   FAVORITES PAGE
+======================================== */
+
+.favorites {
+    min-height: 100vh;
+    padding: 140px 0 80px;
+    background: #0f0f0f;
+}
+
+.favorites .container,
+.collection-insights .container,
+.taste .container,
+.recommendations .container {
+    width: 100%;
+}
+
+
+/* ========================================
+   SHARED EYEBROWS
+======================================== */
+
+.favorites__eyebrow,
+.collection-insights__eyebrow,
+.taste__eyebrow,
+.recommendations__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 14px;
+
+    color: #b89473;
+
+    font-size: 0.72rem;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.favorites__eyebrow::before,
+.collection-insights__eyebrow::before,
+.taste__eyebrow::before,
+.recommendations__eyebrow::before {
+    content: "";
+
+    width: 32px;
+    height: 1px;
+
+    flex-shrink: 0;
+
+    background: #b89473;
+}
+
+
+/* ========================================
+   FAVORITES HEADER
+======================================== */
+
+.favorites__header {
+    width: 100%;
+    max-width: 650px;
+
+    margin-bottom: 55px;
+}
+
+.favorites__title {
+    margin: 0 0 16px;
+
+    color: var(--color-title);
+
+    font-family: "Playfair Display", "David Libre", serif;
+
+    font-size: clamp(2.2rem, 9vw, 3rem);
+    font-weight: 500;
+
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.favorites__text {
+    width: 100%;
+    max-width: 540px;
+
+    color: var(--color-text);
+
+    font-size: 0.95rem;
+    line-height: 1.8;
+
+    opacity: 0.7;
+}
+
+
+/* ========================================
+   SAVED DISHES HEADER
+======================================== */
+
+.favorites__content {
+    width: 100%;
+}
+
+.favorites__section-header {
+    width: 100%;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+
+    border-bottom: 1px solid rgba(184, 148, 115, 0.16);
+}
+
+.favorites__label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #b89473;
+
+    font-size: 0.68rem;
+    font-weight: 600;
+
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+}
+
+.favorites__subtitle {
+    margin: 0;
+
+    color: #e7d1bd;
+
+    font-family: "Playfair Display", "David Libre", serif;
+
+    font-size: 1.65rem;
+    font-weight: 500;
+
+    line-height: 1.15;
+}
+
+.favorites__count {
+    flex-shrink: 0;
+
+    padding-bottom: 3px;
+
+    color: #c7a98d;
+
+    font-size: 0.72rem;
+    font-weight: 500;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    opacity: 0.8;
+}
+
+
+/* ========================================
+   FAVORITES GRID
+======================================== */
+
+.favorites__grid {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+}
+
+
+/* ========================================
+   FAVORITE CARD
+======================================== */
+
+.favorite-card {
+    position: relative;
+
+    width: 100%;
+    max-width: 390px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background: #151515;
+
+    border: 1px solid rgba(184, 148, 115, 0.18);
+
+    transition:
+        border-color 0.5s ease,
+        box-shadow 0.5s ease,
+        transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.favorite-card:hover {
+    border-color: rgba(184, 148, 115, 0.45);
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.28),
+        0 0 20px rgba(184, 148, 115, 0.035);
+}
+
+
+/* ========================================
+   FAVORITE CARD IMAGE
+======================================== */
+
+.favorite-card__image {
+    position: relative;
+
+    width: 100%;
+    height: 210px;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+    background: #111;
+
+    line-height: 0;
+}
+
+.favorite-card__image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transform: scale(1.001);
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+    transition:
+        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.favorite-card:hover .favorite-card__image img {
+    transform: scale(1.025);
+}
+
+.favorite-card__image::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to bottom,
+        transparent 55%,
+        rgba(15, 15, 15, 0.38) 100%
+    );
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   FAVORITE BUTTON
+======================================== */
+
+.favorite-card__favorite {
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    z-index: 2;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #b89473;
+
+    background: #b89473;
+
+    color: #111;
+
+    font-size: 0.9rem;
+
+    backdrop-filter: blur(6px);
+
+    transition:
+        background-color 0.4s ease,
+        border-color 0.4s ease,
+        color 0.4s ease;
+}
+
+.favorite-card__favorite i {
+    display: block;
+    line-height: 1;
+}
+
+.favorite-card__favorite:hover {
+    background: #c6a585;
+    border-color: #c6a585;
+}
+
+
+/* ========================================
+   FAVORITE CONTENT
+======================================== */
+
+.favorite-card__content {
+    width: 100%;
+
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    padding: 21px;
+
+    background: #151515;
+}
+
+.favorite-card__category {
+    margin-bottom: 7px;
+
+    color: #b89473;
+
+    font-size: 0.67rem;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.favorite-card__title {
+    margin: 0;
+
+    color: #f1e7dd;
+
+    font-family: "Playfair Display", "David Libre", serif;
+
+    font-size: 1.42rem;
+    font-weight: 500;
+
+    line-height: 1.2;
+}
+
+
+/* ========================================
+   CUISINE
+======================================== */
+
+.favorite-card__meta {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 9px;
+
+    color: #c7a98d;
+
+    font-size: 0.72rem;
+    font-weight: 500;
+
+    letter-spacing: 0.6px;
+}
+
+.favorite-card__meta-dot {
+    width: 3px;
+    height: 3px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #b89473;
+}
+
+
+/* ========================================
+   SHORT DESCRIPTION
+======================================== */
+
+.favorite-card__description {
+    display: -webkit-box;
+
+    margin: 15px 0 17px;
+
+    overflow: hidden;
+
+    color: var(--color-text);
+
+    font-size: 0.8rem;
+    line-height: 1.65;
+
+    opacity: 0.6;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+
+/* ========================================
+   INGREDIENTS
+======================================== */
+
+.favorite-card__ingredients {
+    margin-bottom: 20px;
+}
+
+.favorite-card__ingredients-title {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #b89473;
+
+    font-size: 0.61rem;
+    font-weight: 600;
+
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+
+    opacity: 0.85;
+}
+
+.favorite-card__ingredients-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 7px;
+}
+
+.favorite-card__ingredient {
+    padding: 5px 8px;
+
+    border: 1px solid rgba(184, 148, 115, 0.16);
+
+    color: #c7c1bb;
+
+    font-size: 0.66rem;
+    line-height: 1;
+
+    background: rgba(255, 255, 255, 0.012);
+}
+
+
+/* ========================================
+   CARD BOTTOM
+======================================== */
+
+.favorite-card__bottom {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    margin-top: auto;
+    padding-top: 15px;
+
+    border-top: 1px solid rgba(184, 148, 115, 0.12);
+}
+
+.favorite-card__price {
+    flex-shrink: 0;
+
+    color: #d8ac84;
+
+    font-size: 0.96rem;
+    font-weight: 500;
+}
+
+.favorite-card__link {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--color-text);
+
+    font-family: inherit;
+
+    font-size: 0.68rem;
+    font-weight: 500;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    opacity: 0.75;
+
+    cursor: pointer;
+
+    transition:
+        color 0.4s ease,
+        opacity 0.4s ease,
+        gap 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.favorite-card__link:hover {
+    gap: 10px;
+
+    color: #d8ac84;
+
+    opacity: 1;
+}
+
+
+/* ========================================
+   EMPTY FAVORITES
+======================================== */
+
+.favorites__empty {
+    width: 100%;
+    max-width: 520px;
+
+    margin: 35px auto 0;
+    padding: 45px 22px;
+
+    text-align: center;
+
+    background: #141414;
+
+    border: 1px solid rgba(184, 148, 115, 0.16);
+}
+
+.favorites__empty[hidden] {
+    display: none;
+}
+
+.favorites__empty::before {
+    content: "♡";
+
+    display: block;
+
+    margin-bottom: 14px;
+
+    color: #b89473;
+
+    font-family: "Playfair Display", serif;
+    font-size: 2rem;
+}
+
+.favorites__empty-title {
+    margin: 0;
+
+    color: #e7d1bd;
+
+    font-family: "Playfair Display", "David Libre", serif;
+
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.favorites__empty-text {
+    max-width: 360px;
+
+    margin: 12px auto 22px;
+
+    color: var(--color-text);
+
+    font-size: 0.88rem;
+    line-height: 1.7;
+
+    opacity: 0.65;
+}
+
+
+/* ========================================
+   COLLECTION INSIGHTS
+======================================== */
+
+.collection-insights {
+    width: 100%;
+
+    padding: 75px 0;
+
+    background: #101010;
+}
+
+.collection-insights__header {
+    width: 100%;
+    max-width: 600px;
+
+    margin-bottom: 34px;
+}
+
+.collection-insights__title {
+    margin: 0 0 12px;
+
+    color: #e7d1bd;
+
+    font-family: "Playfair Display", "David Libre", serif;
+
+    font-size: clamp(1.9rem, 7vw, 2.5rem);
+    font-weight: 500;
+
+    line-height: 1.1;
+}
+
+.collection-insights__text {
+    max-width: 520px;
+
+    color: var(--color-text);
+
+    font-size: 0.88rem;
+    line-height: 1.75;
+
+    opacity: 0.62;
+}
+
+.collection-insights__grid {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    border-top: 1px solid rgba(184, 148, 115, 0.15);
+    border-left: 1px solid rgba(184, 148, 115, 0.15);
+}
+
+.collection-stat {
+    position: relative;
+
+    min-width: 0;
+    min-height: 120px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 20px;
+
+    border-right: 1px solid rgba(184, 148, 115, 0.15);
+    border-bottom: 1px solid rgba(184, 148, 115, 0.15);
+
+    background: rgba(255, 255, 255, 0.008);
+}
+
+.collection-stat__value {
+    margin-bottom: 8px;
+
+    overflow: hidden;
+
+    color: #d8ac84;
+
+    font-family: "Playfair Display", "David Libre", serif;
+
+    font-size: 1.8rem;
+    font-weight: 500;
+
+    line-height: 1.1;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.collection-stat__label {
+    color: var(--color-text);
+
+    font-size: 0.61rem;
+    font-weight: 500;
+
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    opacity: 0.5;
+}
+
+
+/* ========================================
+   YOUR TASTE
+======================================== */
+
+.taste {
+    width: 100%;
+
+    padding: 80px 0;
+
+    background: #121212;
+
+    border-top: 1px solid rgba(184, 148, 115, 0.08);
+    border-bottom: 1px solid rgba(184, 148, 115, 0.08);
+}
+
+.taste__header {
+    width: 100%;
+    max-width: 620px;
+
+    margin-bottom: 38px;
+}
+
+.taste__title,
+.recommendations__title {
+    margin: 0 0 14px;
+
+    color: #e7d1bd;
+
+    font-family: "Playfair Display", "David Libre", serif;
+
+    font-size: clamp(2rem, 8vw, 2.7rem);
+    font-weight: 500;
+
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.taste__text,
+.recommendations__text {
+    width: 100%;
+    max-width: 540px;
+
+    color: var(--color-text);
+
+    font-size: 0.9rem;
+    line-height: 1.8;
+
+    opacity: 0.68;
+}
+
+
+/* ========================================
+   TASTE STATS
+======================================== */
+
+.taste__stats {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+
+    margin-bottom: 18px;
+}
+
+.taste-card {
+    position: relative;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 135px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 22px;
+
+    overflow: hidden;
+
+    background: #171717;
+
+    border: 1px solid rgba(184, 148, 115, 0.15);
+
+    transition:
+        border-color 0.4s ease,
+        background-color 0.4s ease;
+}
+
+.taste-card::after {
+    content: "";
+
+    position: absolute;
+
+    right: -40px;
+    bottom: -65px;
+
+    width: 125px;
+    height: 125px;
+
+    border: 1px solid rgba(184, 148, 115, 0.08);
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.taste-card:hover {
+    border-color: rgba(184, 148, 115, 0.35);
+}
+
+.taste-card__label {
+    position: relative;
+
+    z-index: 1;
+
+    color: #c7a98d;
+
+    font-size: 0.68rem;
+    font-weight: 500;
+
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+.taste-card__value {
+    position: relative;
+
+    z-index: 1;
+
+    color: #d8ac84;
+
+    font-family: "Playfair Display", "David Libre", serif;
+
+    font-size: 1.9rem;
+    font-weight: 500;
+
+    line-height: 1;
+}
+
+
+/* ========================================
+   TASTE TRACKER
+======================================== */
+
+.taste__tracker {
+    width: 100%;
+    min-width: 0;
+
+    padding: 22px;
+
+    background: #171717;
+
+    border: 1px solid rgba(184, 148, 115, 0.15);
+}
+
+.taste__tracker-header {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid rgba(184, 148, 115, 0.12);
+}
+
+.taste__tracker-title {
+    margin: 0;
+
+    color: #e7d1bd;
+
+    font-family: "Playfair Display", "David Libre", serif;
+
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.taste__tracker-label {
+    flex-shrink: 0;
+
+    color: #b89473;
+
+    font-size: 0.65rem;
+    font-weight: 500;
+
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+
+    opacity: 0.8;
+}
+
+.taste__categories {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.taste-category {
+    width: 100%;
+}
+
+.taste-category__top {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 8px;
+}
+
+.taste-category__name {
+    color: var(--color-text);
+
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.taste-category__percentage {
+    flex-shrink: 0;
+
+    color: #d8ac84;
+
+    font-size: 0.76rem;
+    font-weight: 500;
+}
+
+.taste-category__bar {
+    width: 100%;
+    height: 3px;
+
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.taste-category__progress {
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #8f6d50,
+        #d8ac84
+    );
+
+    transition:
+        width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+/* ========================================
+   RECOMMENDATIONS
+======================================== */
+
+.recommendations {
+    width: 100%;
+
+    padding: 80px 0 100px;
+
+    background: #0f0f0f;
+}
+
+.recommendations__header {
+    width: 100%;
+    max-width: 650px;
+
+    margin-bottom: 38px;
+}
+
+.recommendations__grid {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+}
+
+
+/* ========================================
+   RECOMMENDATION CARD
+======================================== */
+
+.recommendation-card {
+    position: relative;
+
+    width: 100%;
+    max-width: 380px;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    background: #151515;
+
+    border: 1px solid rgba(184, 148, 115, 0.18);
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+.recommendation-card__image {
+    width: 100%;
+    height: 210px;
+
+    overflow: hidden;
+
+    background: #111;
+}
+
+.recommendation-card__image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transform: scale(1.001);
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+    transition:
+        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.recommendation-card__content {
+    padding: 20px;
+}
+
+.recommendation-card__category {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #b89473;
+
+    font-size: 0.68rem;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.recommendation-card__title {
+    margin: 0;
+
+    color: #f1e7dd;
+
+    font-family: "Playfair Display", "David Libre", serif;
+
+    font-size: 1.3rem;
+    font-weight: 500;
+
+    line-height: 1.2;
+}
+
+.recommendation-card:hover {
+    border-color: rgba(184, 148, 115, 0.42);
+
+    box-shadow:
+        0 16px 35px rgba(0, 0, 0, 0.24),
+        0 0 18px rgba(184, 148, 115, 0.03);
+}
+
+.recommendation-card:hover .recommendation-card__image img {
+    transform: scale(1.025);
+}
+
+
+/* ========================================
+   DISH MODAL
+======================================== */
+
+.dish-modal {
+    position: fixed;
+    inset: 0;
+
+    z-index: 2000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(5, 5, 5, 0.86);
+
+    backdrop-filter: blur(8px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
+
+.dish-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dish-modal__content {
+    position: relative;
+
+    width: 100%;
+    max-width: 1050px;
+    max-height: 88vh;
+
+    overflow-y: auto;
+
+    background: #141414;
+
+    border: 1px solid rgba(184, 148, 115, 0.25);
+
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+
+    transform: translateY(20px) scale(0.985);
+
+    transition:
+        transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dish-modal.active .dish-modal__content {
+    transform: translateY(0) scale(1);
+}
+
+.dish-modal__close {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    z-index: 4;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(184, 148, 115, 0.35);
+
+    background: rgba(15, 15, 15, 0.9);
+
+    color: #d8ac84;
+
+    font-size: 1.1rem;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.dish-modal__close:hover {
+    background: #b89473;
+    color: #111;
+}
+
+.dish-modal__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.dish-modal__visual {
+    position: relative;
+
+    width: 100%;
+    height: 270px;
+
+    overflow: hidden;
+
+    background: #111;
+}
+
+.dish-modal__visual img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+.dish-modal__visual::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to bottom,
+        transparent 55%,
+        rgba(20, 20, 20, 0.5)
+    );
+
+    pointer-events: none;
+}
+
+.dish-modal__info {
+    padding: 28px 22px 30px;
+}
+
+.dish-modal__eyebrow {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #b89473;
+
+    font-size: 0.66rem;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.dish-modal__title {
+    margin: 0 0 8px;
+
+    color: #f1e7dd;
+
+    font-family: "Playfair Display", "David Libre", serif;
+
+    font-size: clamp(2rem, 8vw, 3rem);
+    font-weight: 500;
+
+    line-height: 1.1;
+}
+
+.dish-modal__area {
+    display: block;
+
+    margin-bottom: 25px;
+
+    color: #c7a98d;
+
+    font-size: 0.78rem;
+}
+
+.dish-modal__section {
+    padding-top: 20px;
+    margin-top: 20px;
+
+    border-top: 1px solid rgba(184, 148, 115, 0.13);
+}
+
+.dish-modal__section-title {
+    margin: 0 0 14px;
+
+    color: #b89473;
+
+    font-size: 0.66rem;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.dish-modal__ingredients {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 8px;
+}
+
+.dish-modal__ingredient {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding-bottom: 7px;
+
+    color: var(--color-text);
+
+    font-size: 0.78rem;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+
+    opacity: 0.75;
+}
+
+.dish-modal__measure {
+    flex-shrink: 0;
+
+    color: #c7a98d;
+}
+
+.dish-modal__instructions {
+    color: var(--color-text);
+
+    font-size: 0.82rem;
+    line-height: 1.8;
+
+    opacity: 0.68;
+}
+
+.dish-modal__actions {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.dish-modal__action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 42px;
+
+    padding: 0 18px;
+
+    border: 1px solid rgba(184, 148, 115, 0.4);
+
+    color: #d8ac84;
+
+    font-size: 0.68rem;
+    font-weight: 500;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.dish-modal__action:hover {
+    background: #b89473;
+    color: #111;
+}
+
+
+/* ========================================
+   600px
+======================================== */
+
+@media (min-width: 600px) {
+
+    .favorites__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .favorite-card {
+        max-width: none;
+        margin: 0;
+    }
+
+    .favorite-card__image {
+        height: 190px;
+    }
+
+    .taste__stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .recommendations__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .recommendation-card {
+        max-width: none;
+        margin: 0;
+    }
+
+    .dish-modal__ingredients {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        column-gap: 25px;
+    }
+}
+
+
+/* ========================================
+   768px
+======================================== */
+
+@media (min-width: 768px) {
+
+    .favorites {
+        padding: 160px 0 95px;
+    }
+
+    .favorites__header {
+        margin-bottom: 65px;
+    }
+
+    .favorites__eyebrow,
+    .collection-insights__eyebrow,
+    .taste__eyebrow,
+    .recommendations__eyebrow {
+        font-size: 0.76rem;
+    }
+
+    .favorites__title {
+        font-size: 3.4rem;
+    }
+
+    .favorites__text {
+        font-size: 1rem;
+    }
+
+    .favorites__subtitle {
+        font-size: 1.9rem;
+    }
+
+    .favorites__count {
+        font-size: 0.78rem;
+    }
+
+    .favorite-card__image {
+        height: 205px;
+    }
+
+    .favorite-card__content {
+        padding: 23px;
+    }
+
+    .favorite-card__category {
+        font-size: 0.7rem;
+    }
+
+    .favorite-card__title {
+        font-size: 1.55rem;
+    }
+
+    .favorite-card__description {
+        font-size: 0.84rem;
+    }
+
+    .collection-insights {
+        padding: 90px 0;
+    }
+
+    .collection-insights__title {
+        font-size: 2.7rem;
+    }
+
+    .collection-insights__text {
+        font-size: 0.95rem;
+    }
+
+    .collection-stat {
+        min-height: 140px;
+        padding: 25px;
+    }
+
+    .collection-stat__value {
+        font-size: 2.2rem;
+    }
+
+    .collection-stat__label {
+        font-size: 0.68rem;
+    }
+
+    .taste {
+        padding: 95px 0;
+    }
+
+    .taste__header {
+        margin-bottom: 45px;
+    }
+
+    .taste__title,
+    .recommendations__title {
+        font-size: 2.8rem;
+    }
+
+    .taste__text,
+    .recommendations__text {
+        font-size: 1rem;
+    }
+
+    .taste-card {
+        min-height: 150px;
+        padding: 25px;
+    }
+
+    .taste-card__label {
+        font-size: 0.72rem;
+    }
+
+    .taste-card__value {
+        font-size: 2.2rem;
+    }
+
+    .taste__tracker {
+        padding: 26px;
+    }
+
+    .taste__tracker-title {
+        font-size: 1.2rem;
+    }
+
+    .taste-category__name {
+        font-size: 0.88rem;
+    }
+
+    .taste-category__percentage {
+        font-size: 0.82rem;
+    }
+
+    .recommendations {
+        padding: 95px 0 115px;
+    }
+
+    .recommendations__header {
+        margin-bottom: 45px;
+    }
+
+    .recommendation-card__image {
+        height: 220px;
+    }
+
+    .dish-modal__visual {
+        height: 350px;
+    }
+
+    .dish-modal__info {
+        padding: 35px;
+    }
+}
+
+
+/* ========================================
+   992px
+======================================== */
+
+@media (min-width: 992px) {
+
+    .favorites {
+        padding: 175px 0 105px;
+    }
+
+    .favorites__header {
+        max-width: 720px;
+        margin-bottom: 70px;
+    }
+
+    .favorites__title {
+        font-size: 4rem;
+    }
+
+    .favorites__section-header {
+        margin-bottom: 32px;
+    }
+
+    .favorites__label {
+        font-size: 0.74rem;
+    }
+
+    .favorites__subtitle {
+        font-size: 2rem;
+    }
+
+    .favorites__count {
+        font-size: 0.82rem;
+    }
+
+
+    /* THREE COMPACT CARDS */
+
+    .favorites__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        gap: 22px;
+    }
+
+    .favorite-card {
+        min-width: 0;
+    }
+
+    .favorite-card__image {
+        height: 190px;
+    }
+
+    .favorite-card__content {
+        padding: 21px;
+    }
+
+    .favorite-card__title {
+        font-size: 1.5rem;
+    }
+
+    .favorite-card__description {
+        font-size: 0.82rem;
+    }
+
+    .favorite-card__ingredient {
+        font-size: 0.64rem;
+    }
+
+
+    /* COLLECTION */
+
+    .collection-insights {
+        padding: 100px 0;
+    }
+
+    .collection-insights__header {
+        max-width: 650px;
+
+        margin-bottom: 42px;
+    }
+
+    .collection-insights__title {
+        font-size: 3rem;
+    }
+
+    .collection-insights__grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .collection-stat {
+        min-height: 155px;
+
+        padding: 28px;
+    }
+
+    .collection-stat__value {
+        font-size: 2.4rem;
+    }
+
+    .collection-stat__label {
+        font-size: 0.72rem;
+    }
+
+
+    /* TASTE */
+
+    .taste {
+        padding: 105px 0;
+    }
+
+    .taste__header,
+    .recommendations__header {
+        max-width: 680px;
+    }
+
+    .taste__title,
+    .recommendations__title {
+        font-size: 3.1rem;
+    }
+
+    .taste__stats {
+        gap: 20px;
+    }
+
+    .taste-card {
+        min-height: 160px;
+
+        padding: 28px;
+    }
+
+    .taste-card__label {
+        font-size: 0.76rem;
+    }
+
+    .taste-card__value {
+        font-size: 2.4rem;
+    }
+
+    .taste__tracker {
+        padding: 30px;
+    }
+
+    .taste__tracker-title {
+        font-size: 1.3rem;
+    }
+
+    .taste-category__name {
+        font-size: 0.92rem;
+    }
+
+    .taste-category__percentage {
+        font-size: 0.86rem;
+    }
+
+
+    /* RECOMMENDATIONS */
+
+    .recommendations {
+        padding: 105px 0 125px;
+    }
+
+    .recommendations__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        gap: 24px;
+    }
+
+    .recommendation-card__image {
+        height: 220px;
+    }
+
+    .recommendation-card__content {
+        padding: 22px;
+    }
+
+    .recommendation-card__title {
+        font-size: 1.5rem;
+    }
+
+
+    /* MODAL */
+
+    .dish-modal__layout {
+        grid-template-columns:
+            minmax(320px, 0.85fr)
+            minmax(0, 1.15fr);
+    }
+
+    .dish-modal__visual {
+        position: sticky;
+        top: 0;
+
+        height: 100%;
+        min-height: 650px;
+    }
+
+    .dish-modal__info {
+        padding: 50px 45px;
+    }
+
+    .dish-modal__title {
+        font-size: 3.2rem;
+    }
+
+    .dish-modal__instructions {
+        font-size: 0.88rem;
+    }
+}
+
+
+/* ========================================
+   1200px
+======================================== */
+
+@media (min-width: 1200px) {
+
+    .favorites {
+        padding: 185px 0 115px;
+    }
+
+    .favorites__header {
+        margin-bottom: 75px;
+    }
+
+    .favorites__title {
+        font-size: 4.4rem;
+    }
+
+    .favorites__eyebrow,
+    .collection-insights__eyebrow,
+    .taste__eyebrow,
+    .recommendations__eyebrow {
+        font-size: 0.8rem;
+    }
+
+    .favorites__subtitle {
+        font-size: 2.15rem;
+    }
+
+    .favorites__count {
+        font-size: 0.86rem;
+    }
+
+    .favorites__grid {
+        gap: 26px;
+    }
+
+    /*
+       Intentionally NOT increasing image height.
+       Cards stay compact on large screens.
+    */
+
+    .favorite-card__image {
+        height: 200px;
+    }
+
+    .favorite-card__content {
+        padding: 23px;
+    }
+
+    .favorite-card__category {
+        font-size: 0.72rem;
+    }
+
+    .favorite-card__title {
+        font-size: 1.58rem;
+    }
+
+    .favorite-card__meta {
+        font-size: 0.76rem;
+    }
+
+    .favorite-card__description {
+        font-size: 0.86rem;
+    }
+
+    .favorite-card__ingredients-title {
+        font-size: 0.65rem;
+    }
+
+    .favorite-card__ingredient {
+        font-size: 0.68rem;
+    }
+
+    .favorite-card__price {
+        font-size: 1.02rem;
+    }
+
+    .favorite-card__link {
+        font-size: 0.72rem;
+    }
+
+
+    /* COLLECTION */
+
+    .collection-insights {
+        padding: 110px 0;
+    }
+
+    .collection-insights__title {
+        font-size: 3.2rem;
+    }
+
+    .collection-stat {
+        min-height: 165px;
+
+        padding: 30px;
+    }
+
+    .collection-stat__value {
+        font-size: 2.6rem;
+    }
+
+    .collection-stat__label {
+        font-size: 0.76rem;
+    }
+
+
+    /* TASTE */
+
+    .taste {
+        padding: 115px 0;
+    }
+
+    .taste__title,
+    .recommendations__title {
+        font-size: 3.3rem;
+    }
+
+    .taste-card {
+        min-height: 170px;
+
+        padding: 30px;
+    }
+
+    .taste-card__label {
+        font-size: 0.8rem;
+    }
+
+    .taste-card__value {
+        font-size: 2.6rem;
+    }
+
+    .taste__tracker {
+        padding: 32px;
+    }
+
+    .taste__tracker-title {
+        font-size: 1.4rem;
+    }
+
+    .taste__tracker-label {
+        font-size: 0.76rem;
+    }
+
+    .taste-category__name {
+        font-size: 0.96rem;
+    }
+
+    .taste-category__percentage {
+        font-size: 0.9rem;
+    }
+
+
+    /* RECOMMENDATIONS */
+
+    .recommendations {
+        padding: 115px 0 135px;
+    }
+
+    .recommendations__grid {
+        gap: 28px;
+    }
+
+    .recommendation-card__image {
+        height: 230px;
+    }
+
+    .recommendation-card__category {
+        font-size: 0.76rem;
+    }
+
+    .recommendation-card__title {
+        font-size: 1.6rem;
+    }
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 420px) {
+
+    .favorites__section-header {
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .favorites__count {
+        padding-bottom: 0;
+    }
+
+    .collection-insights__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .favorite-card__image {
+        height: 200px;
+    }
+
+    .dish-modal {
+        padding: 10px;
+    }
+
+    .dish-modal__visual {
+        height: 230px;
+    }
+
+    .dish-modal__info {
+        padding: 25px 18px;
+    }
+}

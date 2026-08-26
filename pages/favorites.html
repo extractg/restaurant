@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=David+Libre:wght@400;500;700&display=swap"
+        rel="stylesheet"
+    />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/pages/favorites.css" />
+    <link
+        rel="icon"
+        type="image/png"
+        href="../assets/images/favicon.png"
+    />
+    <title>Products | Deliciora</title>
+</head>
+<body>
+    <header class="header">
+      <div class="container">
+        <div class="header__inner">
+          <a href="../index.html"
+            ><img src="../assets/images/logo.png" alt="Logo" class="header__logo"
+          /></a>
+          <nav class="nav">
+            <ul class="nav__list">
+              <li class="nav__items"><a href="../index.html" class="nav__link">Home</a></li>
+              <li class="nav__items">
+                <a href="products.html" class="nav__link">Products</a>
+              </li>
+              <li class="nav__items">
+                <a href="favorites.html" class="nav__link">Favorites</a>
+              </li>
+              <li class="nav__items">
+                <a href="../index.html#contacts" class="nav__link">Contacts</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="header__actions">
+            <a class="header__btn btn btn--secondary" href="profile.html">Profile</a>
+              <button
+                  class="burger"
+                  id="burger"
+                  type="button"
+                  aria-label="Open menu"
+                  aria-expanded="false"
+              >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </button>
+          </div>
+        </div>
+      </div>
+    </header>
+<main>
+    <main>
+    <section class="favorites">
+        <div class="container">
+
+            <div class="favorites__header">
+                <span class="favorites__eyebrow">
+                    Your Collection
+                </span>
+
+                <h1 class="favorites__title">
+                    Your Favorite Dishes
+                </h1>
+
+                <p class="favorites__text">
+                    A personal collection of the dishes you love most,
+                    saved in one place.
+                </p>
+            </div>
+
+
+            <div class="favorites__content">
+
+                <div class="favorites__section-header">
+                    <div>
+                        <span class="favorites__label">
+                            Saved
+                        </span>
+
+                        <h2 class="favorites__subtitle">
+                            Saved Dishes
+                        </h2>
+                    </div>
+
+                    <span
+                        class="favorites__count"
+                        id="favoritesCount"
+                    >
+                        0 dishes
+                    </span>
+                </div>
+
+
+                <div
+                    class="favorites__grid"
+                    id="favoritesGrid"
+                >
+                    <!-- Favorite cards will be rendered here -->
+                </div>
+
+
+                <div
+                    class="favorites__empty"
+                    id="favoritesEmpty"
+                    hidden
+                >
+                    <h2 class="favorites__empty-title">
+                        Your collection is empty
+                    </h2>
+
+                    <p class="favorites__empty-text">
+                        Discover our menu and save the dishes
+                        that catch your eye.
+                    </p>
+
+                    <a
+                        href="products.html"
+                        class="btn btn--primary"
+                    >
+                        Explore dishes
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="taste">
+        <div class="container">
+
+            <div class="taste__header">
+                <span class="taste__eyebrow">
+                    Your Preferences
+                </span>
+
+                <h2 class="taste__title">
+                    Your Taste
+                </h2>
+
+                <p class="taste__text">
+                    A closer look at the flavors and dishes
+                    that define your collection.
+                </p>
+            </div>
+
+
+            <div class="taste__stats">
+
+                <article class="taste-card">
+                    <span class="taste-card__label">
+                        Saved Dishes
+                    </span>
+
+                    <strong
+                        class="taste-card__value"
+                        id="tasteTotal"
+                    >
+                        0
+                    </strong>
+                </article>
+
+
+                <article class="taste-card">
+                    <span class="taste-card__label">
+                        Favorite Category
+                    </span>
+
+                    <strong
+                        class="taste-card__value"
+                        id="favoriteCategory"
+                    >
+                        —
+                    </strong>
+                </article>
+
+            </div>
+
+
+            <div class="taste__tracker">
+                <div class="taste__tracker-header">
+                    <h3 class="taste__tracker-title">
+                        Taste Profile
+                    </h3>
+
+                    <span class="taste__tracker-label">
+                        By category
+                    </span>
+                </div>
+
+                <div
+                    class="taste__categories"
+                    id="tasteCategories"
+                >
+                    <!-- Category statistics will be rendered here -->
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="recommendations">
+        <div class="container">
+
+            <div class="recommendations__header">
+                <span class="recommendations__eyebrow">
+                    Selected For You
+                </span>
+
+                <h2 class="recommendations__title">
+                    You May Also Like
+                </h2>
+
+                <p class="recommendations__text">
+                    Dishes selected based on the flavors
+                    and categories you save most.
+                </p>
+            </div>
+
+
+            <div
+                class="recommendations__grid"
+                id="recommendationsGrid"
+            >
+                <!-- Recommendations will be rendered here -->
+            </div>
+
+        </div>
+    </section>
+</main>
+</main>
+    <footer class="footer" id="contacts">
+      <div class="section-divider footer__divider" aria-hidden="true"></div>
+      <div class="container">
+        <div class="footer__inner" data-aos="fade-up">
+          <!-- BRAND -->
+          <div class="footer__brand">
+            <a href="index.html" class="footer__logo">
+              <img
+                src="../assets/images/logo.png"
+                alt="Deliciora"
+                class="footer__logo-img"
+              />
+            </a>
+
+            <p class="footer__text">
+              European-inspired dining, seasonal ingredients, and memorable
+              evenings crafted around every table.
+            </p>
+
+            <div class="footer__socials">
+              <a href="#" class="footer__social" aria-label="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+
+              <a href="#" class="footer__social" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+
+              <a href="#" class="footer__social" aria-label="Twitter">
+                <i class="fa-brands fa-twitter"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- EXPLORE -->
+          <div class="footer__column footer__explore">
+            <h3 class="footer__title">Explore</h3>
+
+            <ul class="footer__list">
+              <li class="footer__item">
+                <a href="#" class="footer__link">Menu</a>
+              </li>
+
+              <li class="footer__item">
+                <a href="#" class="footer__link">Our Story</a>
+              </li>
+
+              <li class="footer__item">
+                <a href="#" class="footer__link">Our Chef</a>
+              </li>
+
+              <li class="footer__item">
+                <a href="pages/products.html" class="footer__link">Products</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- VISIT -->
+          <div class="footer__column footer__visit">
+            <h3 class="footer__title">Visit</h3>
+
+            <p class="footer__location">Riga, Latvia</p>
+
+            <div class="footer__hours">
+              <div class="footer__hours-item">
+                <span class="footer__hours-day">Mon — Fri</span>
+                <span class="footer__hours-time">12:00 — 23:00</span>
+              </div>
+
+              <div class="footer__hours-item">
+                <span class="footer__hours-day">Saturday</span>
+                <span class="footer__hours-time">13:00 — 00:00</span>
+              </div>
+
+              <div class="footer__hours-item">
+                <span class="footer__hours-day">Sunday</span>
+                <span class="footer__hours-time">13:00 — 22:00</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- RESERVATION -->
+          <div class="footer__column footer__reservation">
+            <h3 class="footer__title">Reservations</h3>
+
+            <p class="footer__reservation-text">
+              Planning an evening with us? Reserve your table in advance.
+            </p>
+
+            <a href="#" class="footer__reservation-link">
+              Book a table
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- BOTTOM -->
+        <div class="footer__bottom">
+          <p class="footer__copyright">
+            © 2026 Deliciora. All rights reserved.
+          </p>
+
+          <div class="footer__bottom-links">
+            <a href="#" class="footer__bottom-link"> Privacy Policy </a>
+
+            <a href="#" class="footer__bottom-link"> Terms of Service </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <button
+        class="back-to-top"
+        id="backToTop"
+        type="button"
+        aria-label="Back to top"
+    >
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <script src="../js/main.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/favorites.js"></script>
+</body>
+</html>  
