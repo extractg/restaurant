@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from '../assets/images/logo.png'
 const Footer = () =>{
     return(
@@ -10,13 +11,13 @@ const Footer = () =>{
   <div className="container">
     <div className="footer__inner" data-aos="fade-up">
       <div className="footer__brand">
-        <a href="index.html" className="footer__logo">
+        <Link to="/" className="footer__logo">
           <img
             src={logo}
             alt="Deliciora"
             className="footer__logo-img"
           />
-        </a>
+        </Link>
 
         <p className="footer__text">
           European-inspired dining, seasonal ingredients, and memorable

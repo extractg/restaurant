@@ -1,19 +1,18 @@
-import Header from './components/header.jsx'
-import Hero from './components/hero.jsx'
-import Specials from './components/specials.jsx'
-import Chef from './components/chef.jsx'
-import Newsletter from './components/newsletter.jsx'
-import Footer from './components/footer.jsx'
+import Header from "./components/Header.jsx";
+import Footer from "./components/Footer.jsx";
+import Products from "./pages/Products.jsx";
+import Home from "./pages/Home.jsx";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
 
   return (
     <>
     <Header />
-    <Hero />
-    <Specials />
-    <Chef />
-    <Newsletter />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/products" element={<Products />} />
+    </Routes>
     <Footer />
 
   </>
