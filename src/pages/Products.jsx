@@ -1,6 +1,9 @@
-//import DishCard from "../components/DishCard.jsx";
+import { useState, useEffect } from "react";
+import ProductCard from "../components/ProductCard.jsx";
+import { getProducts } from "../api/productsApi.js";
 
 function Products() {
+    const [allProducts, setAllProducts] = useState([]);
   return (
     <section className="products">
       <div className="container">
