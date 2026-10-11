@@ -17,10 +17,6 @@ const DishCard = (props) => {
         <p className="specials__card-text">
           {props.description}
         </p>
-
-        <span className="specials__card-price">
-          €{props.price}
-        </span>
       </div>
     </div>
   );

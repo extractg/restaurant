@@ -18,7 +18,6 @@ const dishes = [
       "Juicy prime ribeye steak grilled to perfection, served with aromatic rosemary butter and roasted seasonal garlic.",
     image: ribeyeSteak,
     delay: 100,
-    price: 32,
   },
   {
     id: 2,
@@ -27,7 +26,6 @@ const dishes = [
       "Crispy-skinned Atlantic salmon fillet resting on a bed of creamy asparagus risotto and drizzled with lemon-herb oil.",
     image: Pan_Seared_Salmon,
     delay: 200,
-    price: 25,
   },
   {
     id: 3,
@@ -36,7 +34,6 @@ const dishes = [
       "Handcrafted fettuccine tossed in a rich, velvety wild mushroom cream sauce and infused with premium black truffle oil.",
     image: Truffle_Mushroom,
     delay: 300,
-    price: 50,
   },
   {
     id: 4,
@@ -45,7 +42,6 @@ const dishes = [
       "Creamy Italian burrata cheese paired with sweet heirloom tomatoes, fresh basil leaves, and finished with a balsamic glaze.",
     image: Burrata_Heirloom,
     delay: 400,
-    price: 15,
   },
 ];
 
@@ -104,7 +100,6 @@ const Specials = () => {
                   image={dish.image}
                   title={dish.title}
                   description={dish.description}
-                  price={dish.price}
                 />
               </SwiperSlide>
             ))}
