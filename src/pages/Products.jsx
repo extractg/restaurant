@@ -5,6 +5,7 @@
   function Products() {
       const [allProducts, setAllProducts] = useState([]);
       const [selectedCategory, setSelectedCategory] = useState("all");
+      const [searchTerm, setSearchTerm] = useState("");
         useEffect(() => {
           const loadProducts = async () => {
             const categories = ["Beef", "Chicken", "Seafood", "Dessert"];
@@ -23,6 +24,11 @@
         const filteredProducts = 
         selectedCategory === "all" ? allProducts : allProducts.filter((product) =>{
           return product.category === selectedCategory;
+        });
+        const searchedProducts = filteredProducts.filter((product) => {
+        return product.title
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase());
         });
 
     return (
@@ -52,6 +58,8 @@
                 id="searchInput"
                 placeholder="Search dishes..."
                 autoComplete="off"
+                value={searchTerm}
+                onChange={(event) => setSearchTerm(event.target.value)}
               />
 
               <button
@@ -135,7 +143,7 @@
             className="products__grid"
             id="productsGrid"
           >
-            {filteredProducts.map((product) => {
+            {searchedProducts.map((product) => {
               return (
                 <ProductCard
                   key={product.id}
