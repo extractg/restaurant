@@ -1,6 +1,3 @@
-/* ========================================
-   FAVORITES PAGE
-======================================== */
 
 .favorites {
     min-height: 100vh;
@@ -14,12 +11,6 @@
 .recommendations .container {
     width: 100%;
 }
-
-
-/* ========================================
-   SHARED EYEBROWS
-======================================== */
-
 .favorites__eyebrow,
 .collection-insights__eyebrow,
 .taste__eyebrow,

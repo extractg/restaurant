@@ -11,7 +11,9 @@ const ProductCard = (props) => {
         <button
           className={
             props.isFavorite ? "product-card__favorite active" : "product-card__favorite"
+            
           }
+          onClick={() => props.onFavoriteClick(props.id)}
           type="button"
         >
           <i

@@ -6,6 +6,8 @@
       const [allProducts, setAllProducts] = useState([]);
       const [selectedCategory, setSelectedCategory] = useState("all");
       const [searchTerm, setSearchTerm] = useState("");
+      const [favorites, setFavorites] = useState([]);
+      
         useEffect(() => {
           const loadProducts = async () => {
             const categories = ["Beef", "Chicken", "Seafood", "Dessert"];
@@ -30,6 +32,17 @@
           .toLowerCase()
           .includes(searchTerm.toLowerCase());
         });
+        const toggleFavorite = (id) => {
+            if (favorites.includes(id)) {
+                setFavorites(
+                    favorites.filter((favoriteId) => {
+                        return favoriteId !== id;
+                    })
+                );
+            } else {
+                setFavorites([...favorites, id]);
+            }
+        };
 
     return (
       <section className="products">
@@ -152,6 +165,8 @@
                   image={product.image}
                   category={product.category}
                   price={product.price}
+                  onFavoriteClick={toggleFavorite}
+                  isFavorite={favorites.includes(product.id)}
                 />
               );
             })}
