@@ -6,7 +6,13 @@
       const [allProducts, setAllProducts] = useState([]);
       const [selectedCategory, setSelectedCategory] = useState("all");
       const [searchTerm, setSearchTerm] = useState("");
-      const [favorites, setFavorites] = useState([]);
+      const [favorites, setFavorites] = useState(() => {
+      const savedFavorites = localStorage.getItem("favorites");
+      return savedFavorites ? JSON.parse(savedFavorites) : [];
+      });
+      useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+    }, [favorites]);
       
         useEffect(() => {
           const loadProducts = async () => {
@@ -43,7 +49,6 @@
                 setFavorites([...favorites, id]);
             }
         };
-
     return (
       <section className="products">
         <div className="container">
