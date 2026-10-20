@@ -52,13 +52,13 @@ const Header = () => {
               </li>
 
               <li className="nav__items">
-                <a
-                  href="pages/favorites.html"
-                  className="nav__link"
-                  onClick={closeMenu}
-                >
-                  Favorites
-                </a>
+                  <Link
+                      to="/favorites"
+                      className="nav__link"
+                      onClick={closeMenu}
+                  >
+                      Favorites
+                  </Link>
               </li>
 
               <li className="nav__items">

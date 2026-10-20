@@ -2,17 +2,10 @@
   import ProductCard from "../components/ProductCard.jsx";
   import { getProducts } from "../api/productsApi.js";
 
-  function Products() {
+  function Products({ favorites, toggleFavorite }) {
       const [allProducts, setAllProducts] = useState([]);
       const [selectedCategory, setSelectedCategory] = useState("all");
       const [searchTerm, setSearchTerm] = useState("");
-      const [favorites, setFavorites] = useState(() => {
-      const savedFavorites = localStorage.getItem("favorites");
-      return savedFavorites ? JSON.parse(savedFavorites) : [];
-      });
-      useEffect(() => {
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-    }, [favorites]);
       
         useEffect(() => {
           const loadProducts = async () => {
@@ -38,17 +31,7 @@
           .toLowerCase()
           .includes(searchTerm.toLowerCase());
         });
-        const toggleFavorite = (id) => {
-            if (favorites.includes(id)) {
-                setFavorites(
-                    favorites.filter((favoriteId) => {
-                        return favoriteId !== id;
-                    })
-                );
-            } else {
-                setFavorites([...favorites, id]);
-            }
-        };
+        
     return (
       <section className="products">
         <div className="container">
