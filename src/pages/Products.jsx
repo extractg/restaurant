@@ -1,27 +1,10 @@
-  import { useState, useEffect } from "react";
-  import ProductCard from "../components/ProductCard.jsx";
-  import { getProducts } from "../api/productsApi.js";
+import { useState } from "react";
+import ProductCard from "../components/ProductCard.jsx";
 
-  function Products({ favorites, toggleFavorite }) {
-      const [allProducts, setAllProducts] = useState([]);
+  function Products({ favorites, toggleFavorite, allProducts }) {
       const [selectedCategory, setSelectedCategory] = useState("all");
       const [searchTerm, setSearchTerm] = useState("");
       
-        useEffect(() => {
-          const loadProducts = async () => {
-            const categories = ["Beef", "Chicken", "Seafood", "Dessert"];
-
-            const requests = categories.map((category) => {
-              return getProducts(category);
-            });
-            const results = await Promise.all(requests);
-            const products = results.flat();
-            setAllProducts(products);
-
-          };
-
-          loadProducts();
-        }, []);
         const filteredProducts = 
         selectedCategory === "all" ? allProducts : allProducts.filter((product) =>{
           return product.category === selectedCategory;

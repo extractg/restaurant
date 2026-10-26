@@ -7,8 +7,10 @@ import BackToTop from "./components/BackToTop.jsx";
 import Home from "./pages/Home.jsx";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { getProducts } from "./api/productsApi.js";
 
 function App() {
+    const [allProducts, setAllProducts] = useState([]);
     const [favorites, setFavorites] = useState(() => {
         const savedFavorites = localStorage.getItem("favorites");
         return savedFavorites ? JSON.parse(savedFavorites) : [];
@@ -27,6 +29,21 @@ function App() {
             setFavorites([...favorites, id]);
         }
     };
+      useEffect(() => {
+              const loadProducts = async () => {
+                const categories = ["Beef", "Chicken", "Seafood", "Dessert"];
+    
+                const requests = categories.map((category) => {
+                  return getProducts(category);
+                });
+                const results = await Promise.all(requests);
+                const products = results.flat();
+                setAllProducts(products);
+    
+              };
+    
+              loadProducts();
+            }, []);
     return (
         <>
             <ScrollToTop />
@@ -39,6 +56,7 @@ function App() {
                         <Products
                             favorites={favorites}
                             toggleFavorite={toggleFavorite}
+                            allProducts={allProducts}
                         />
                     }
                 />
@@ -48,6 +66,7 @@ function App() {
                         <Favorites
                             favorites={favorites}
                             toggleFavorite={toggleFavorite}
+                            allProducts={allProducts}
                         />
                     }
                 />
