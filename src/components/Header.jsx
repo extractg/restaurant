@@ -75,25 +75,34 @@ const Header = () => {
           </nav>
 
           <div className="header__actions">
-            <a
-              className="header__btn btn btn--secondary"
-              href="pages/profile.html"
-            >
-              Profile
-            </a>
+              <div className="header__language">
+                  <button
+                      className="header__language-btn active"
+                      type="button"
+                  >
+                      EN
+                  </button>
 
-            <button
-              className={menuOpen ? "burger active" : "burger"}
-              onClick={() => setMenuOpen(!menuOpen)}
-              id="burger"
-              type="button"
-              aria-label="Open menu"
-              aria-expanded={menuOpen}
-            >
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
+                  <button
+                      className="header__language-btn"
+                      type="button"
+                  >
+                      LV
+                  </button>
+              </div>
+
+              <button
+                  className={menuOpen ? "burger active" : "burger"}
+                  onClick={() => setMenuOpen(!menuOpen)}
+                  id="burger"
+                  type="button"
+                  aria-label="Open menu"
+                  aria-expanded={menuOpen}
+              >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </button>
           </div>
 
         </div>

@@ -197,7 +197,45 @@
 .burger.active span:nth-child(3) {
     transform: translate3d(0, -9px, 0) rotate(-45deg);
 }
+.header__language {
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    border: 1px solid rgba(184, 148, 115, 0.35);
+    border-radius: 2px;
+    background: rgba(15, 14, 13, 0.35);
+}
 
+.header__language-btn {
+    position: relative;
+    min-width: 42px;
+    padding: 7px 11px;
+    border: 0;
+    border-radius: 1px;
+    background: transparent;
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--color-muted);
+    cursor: pointer;
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
+}
+
+.header__language-btn + .header__language-btn {
+    border-left: 1px solid rgba(184, 148, 115, 0.18);
+}
+
+.header__language-btn.active {
+    background: rgba(95, 77, 60, 0.55);
+    color: var(--color-title);
+}
+
+.header__language-btn:hover:not(.active) {
+    color: var(--color-accent-light);
+}
 @media (min-width: 768px) {
     .nav__list {
         width: min(400px, 70%);

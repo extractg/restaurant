@@ -101,91 +101,133 @@ button {
 .btn {
     position: relative;
     z-index: 1;
-    padding: 0.9em 2.4em;
+    padding: 0.95em 2.5em;
     border-radius: 2px;
     overflow: hidden;
-    font-size: clamp(0.875rem, 1vw, 1rem);
-    font-weight: 500;
-    letter-spacing: 0.06em;
+    font-size: clamp(0.8rem, 1vw, 0.9rem);
+    font-weight: 600;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     white-space: nowrap;
     cursor: pointer;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     transition:
-        background 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-        border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-        color 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-        box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-        transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .btn:active {
-    transform: translateY(1px) !important;
+    transform: translateY(1px);
 }
+
+/* PRIMARY */
 
 .btn--primary {
-    border: 1px solid var(--primary-btn-color);
-    background: #1c1510;
-    color: #ffffff;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(184, 148, 115, 0.5);
+    background: #1a1714;
+    color: var(--color-title);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 }
 
-.btn--secondary {
-    border: 1px solid rgba(184, 148, 115, 0.5);
-    background: transparent;
-    color: var(--color-accent);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+.btn--primary::before,
+.btn--primary::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
+    transition:
+        width 0.3s ease,
+        height 0.3s ease,
+        border-color 0.3s ease;
+}
+
+/* левый нижний угол */
+
+.btn--primary::before {
+    left: 4px;
+    bottom: 4px;
+    border-left: 1px solid rgba(208, 173, 138, 0.65);
+    border-bottom: 1px solid rgba(208, 173, 138, 0.65);
+}
+
+/* правый верхний угол */
+
+.btn--primary::after {
+    top: 4px;
+    right: 4px;
+    border-top: 1px solid rgba(208, 173, 138, 0.65);
+    border-right: 1px solid rgba(208, 173, 138, 0.65);
 }
 
 .btn--primary:hover {
-    border-color: var(--color-accent);
-    background: var(--primary-btn-color);
-    box-shadow: 0 12px 25px rgba(95, 77, 60, 0.3);
-    transform: translateY(-2px);
+    border-color: rgba(208, 173, 138, 0.78);
+    background: #211b17;
+    color: #ffffff;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.24);
 }
 
-.btn--secondary:hover {
-    border-color: var(--color-accent);
-    background: rgba(184, 148, 115, 0.03);
-    box-shadow: 0 12px 25px rgba(184, 148, 115, 0.2);
-    transform: translateY(-2px);
+.btn--primary:hover::before,
+.btn--primary:hover::after {
+    width: 24px;
+    height: 24px;
+    border-color: var(--color-accent-light);
+}
+
+/* SECONDARY */
+
+.btn--secondary {
+    border: 1px solid rgba(184, 148, 115, 0.42);
+    background: transparent;
+    color: var(--color-accent-light);
 }
 
 .btn--secondary::before,
-.btn--primary::before {
+.btn--secondary::after {
     content: "";
     position: absolute;
-    top: 0;
-    left: -100%;
-    z-index: 2;
-    width: 60px;
-    height: 100%;
-    background: linear-gradient(
-        to right,
-        transparent 0%,
-        rgba(255, 255, 255, 0.25) 50%,
-        transparent 100%
-    );
-    transform: skewX(-25deg);
+    width: 16px;
+    height: 16px;
     pointer-events: none;
+    transition:
+        width 0.3s ease,
+        height 0.3s ease,
+        border-color 0.3s ease;
+}
+
+/* левый верхний угол */
+
+.btn--secondary::before {
+    top: 4px;
+    left: 4px;
+    border-top: 1px solid rgba(208, 173, 138, 0.65);
+    border-left: 1px solid rgba(208, 173, 138, 0.65);
+}
+
+/* правый нижний угол */
+
+.btn--secondary::after {
+    right: 4px;
+    bottom: 4px;
+    border-right: 1px solid rgba(208, 173, 138, 0.65);
+    border-bottom: 1px solid rgba(208, 173, 138, 0.65);
+}
+
+.btn--secondary:hover {
+    border-color: rgba(184, 148, 115, 0.72);
+    background: rgba(184, 148, 115, 0.055);
+    color: var(--color-title);
 }
 
 .btn--secondary:hover::before,
-.btn--primary:hover::before {
-    animation: shine 0.75s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+.btn--secondary:hover::after {
+    width: 24px;
+    height: 24px;
+    border-color: var(--color-accent-light);
 }
-
-@keyframes shine {
-    0% {
-        left: -100%;
-    }
-
-    100% {
-        left: 150%;
-    }
-}
-
 .section-divider {
     position: absolute;
     top: 40px;
