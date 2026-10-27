@@ -4,6 +4,7 @@ import "../css/pages/favorites.css";
 
 function Favorites({ favorites, toggleFavorite, allProducts }) {
     const [searchTerm, setSearchTerm] = useState("");
+    const [sortType, setSortType] = useState("default");
 
     const favoriteProducts = allProducts.filter((product) => {
         return favorites.includes(product.id);
@@ -14,7 +15,22 @@ function Favorites({ favorites, toggleFavorite, allProducts }) {
             .toLowerCase()
             .includes(searchTerm.toLowerCase());
     });
-
+    const sortedFavorites = [...searchedFavorites];
+    if (sortType === "price-low") {
+        sortedFavorites.sort((a, b) => {
+            return a.price - b.price;
+        });
+    }
+    if (sortType === "price-high") {
+        sortedFavorites.sort((a, b) => {
+            return b.price - a.price;
+        });
+    }
+    if (sortType === "name") {
+        sortedFavorites.sort((a, b) => {
+            return a.title.localeCompare(b.title);
+        });
+    }
     return (
         <main className="favorites">
             <section className="favorites__hero">
@@ -67,15 +83,26 @@ function Favorites({ favorites, toggleFavorite, allProducts }) {
                                 }
                             />
                         </div>
+                        <select
+                            className="favorites__sort"
+                            value={sortType}
+                            onChange={(event) => setSortType(event.target.value)}
+                        >
+                            <option value="default">Default</option>
+                            <option value="name">Name A-Z</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                        </select>
                     </div>
+
 
                     <div className="favorites__grid">
                         {favoriteProducts.length === 0 ? (
                             <p>No favorites yet</p>
-                        ) : searchedFavorites.length === 0 ? (
+                        ) : sortedFavorites.length === 0 ? (
                             <p>No dishes found</p>
                         ) : (
-                            searchedFavorites.map((product) => {
+                            sortedFavorites.map((product) => {
                                 return (
                                     <ProductCard
                                         key={product.id}
