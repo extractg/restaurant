@@ -48,8 +48,7 @@ const dishes = [
 const Specials = () => {
   return (
     <section className="specials">
-      <div className="section-divider" aria-hidden="true"></div>
-
+    
       <div className="container">
         <div className="specials__top">
           <div className="specials__info" data-aos="fade-up">

@@ -2,16 +2,52 @@
     position: relative;
     padding: 100px 0;
     overflow: hidden;
+    isolation: isolate;
+    background-color: var(--color-bg);
+}
+
+.chef::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: url("../../assets/images/chef_background.png") center / cover no-repeat;
+    filter: brightness(0.72) saturate(0.8);
+    pointer-events: none;
+}
+
+.chef::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        180deg,
+        var(--color-bg) 0%,
+        rgba(15, 14, 13, 0.98) 4%,
+        rgba(15, 14, 13, 0.9) 9%,
+        rgba(15, 14, 13, 0.68) 15%,
+        rgba(15, 14, 13, 0.38) 22%,
+        rgba(15, 14, 13, 0.12) 30%,
+        transparent 38%,
+        transparent 70%,
+        rgba(15, 14, 13, 0.12) 78%,
+        rgba(15, 14, 13, 0.4) 86%,
+        rgba(15, 14, 13, 0.72) 92%,
+        var(--color-bg) 100%
+    );
+    pointer-events: none;
 }
 
 .chef__inner {
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 50px;
     padding: 0 20px;
 }
-
 .chef__content {
     display: flex;
     flex-direction: column;
@@ -30,7 +66,7 @@
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 2.5px;
-    color: #b89473;
+    color: var(--color-accent);
     text-transform: uppercase;
 }
 
@@ -38,7 +74,7 @@
     content: "";
     width: 32px;
     height: 1px;
-    background-color: #b89473;
+    background-color: var(--color-accent);
     opacity: 0.7;
 }
 
@@ -62,7 +98,7 @@
     line-height: 1.85;
     color: var(--color-text);
     text-align: center;
-    opacity: 0.72;
+    opacity: 0.82;
 }
 
 .chef__facts {
@@ -101,7 +137,7 @@
     font-size: clamp(0.9rem, 3.5vw, 1.15rem);
     line-height: 1.2;
     font-weight: 600;
-    color: #b89473;
+    color: var(--color-accent);
 }
 
 .chef__fact-label {
