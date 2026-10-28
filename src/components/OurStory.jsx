@@ -1,4 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import {
+    motion,
+    useScroll,
+    useSpring,
+    useTransform,
+} from "motion/react";
 
 import restaurantPhoto from "../assets/images/restaurant_photo.png";
 import restaurantInside from "../assets/images/restaurant_inside.png";
@@ -36,65 +42,140 @@ const storyChapters = [
     },
 ];
 
+    const StoryChapter = ({
+        chapter,
+        index,
+    }) => {
+        const chapterRef = useRef(null);
+
+    const { scrollYProgress } = useScroll({
+        target: chapterRef,
+        offset: ["start 90%", "end 10%"],
+    });
+
+    const smoothChapterProgress = useSpring(scrollYProgress, {
+        stiffness: 75,
+        damping: 22,
+        mass: 0.45,
+        restDelta: 0.001,
+    });
+
+    const imageOpacity = useTransform(
+        smoothChapterProgress,
+        [0, 0.25, 0.5, 0.75, 1],
+        [0.45, 0.78, 1, 0.82, 0.55],
+    );
+
+    const imageY = useTransform(
+        smoothChapterProgress,
+        [0, 0.5, 1],
+        [34, 0, -18],
+    );
+
+    const imageScale = useTransform(
+        smoothChapterProgress,
+        [0, 0.5, 1],
+        [0.975, 1, 0.985],
+    );
+
+    const contentOpacity = useTransform(
+        smoothChapterProgress,
+        [0, 0.25, 0.5, 0.75, 1],
+        [0.4, 0.75, 1, 0.84, 0.6],
+    );
+
+    const contentY = useTransform(
+        smoothChapterProgress,
+        [0, 0.5, 1],
+        [28, 0, -14],
+    );
+    return (
+    <article
+        ref={chapterRef}
+        className={`our-story__chapter ${
+            index % 2 !== 0
+                ? "our-story__chapter--reverse"
+                : ""
+        }`}
+    >
+        <motion.div
+            className="our-story__chapter-image"
+            style={{
+                opacity: imageOpacity,
+                y: imageY,
+                scale: imageScale,
+            }}
+        >
+            <img
+                src={chapter.image}
+                alt={chapter.imageAlt}
+            />
+
+            <span className="our-story__chapter-number">
+                {chapter.number}
+            </span>
+        </motion.div>
+
+        <motion.div
+            className="our-story__chapter-content"
+            style={{
+                opacity: contentOpacity,
+                y: contentY,
+            }}
+        >
+            <span className="our-story__chapter-year">
+                {chapter.year}
+            </span>
+
+            <span className="our-story__chapter-label">
+                {chapter.label}
+            </span>
+
+            <h3 className="our-story__chapter-title">
+                {chapter.title}
+            </h3>
+
+            <p className="our-story__chapter-text">
+                {chapter.text}
+            </p>
+        </motion.div>
+    </article>
+    );
+};
+
 const OurStory = () => {
     const [storyOpen, setStoryOpen] = useState(false);
-    const [timelineProgress, setTimelineProgress] = useState(0);
 
     const timelineRef = useRef(null);
 
-    useEffect(() => {
-        if (!storyOpen) {
-            return;
-        }
+    const { scrollYProgress } = useScroll({
+        target: timelineRef,
+        offset: ["start 50%", "end 50%"],
+    });
 
-        const handleScroll = () => {
-            const timeline = timelineRef.current;
+    const smoothTimelineProgress = useSpring(scrollYProgress, {
+        stiffness: 120,
+        damping: 30,
+        mass: 0.35,
+        restDelta: 0.001,
+    });
+    const timelineLightPosition = useTransform(
+        smoothTimelineProgress,
+        [0, 0.88, 1],
+        ["0%", "95%", "95%"],
+    );
 
-            if (!timeline) {
-                return;
-            }
 
-            const rect = timeline.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-
-            const start = windowHeight * 0.72;
-            const end = windowHeight * 0.3;
-
-            const totalDistance = rect.height + start - end;
-            const travelled = start - rect.top;
-
-            const progress = Math.min(
-                Math.max(travelled / totalDistance, 0),
-                1
-            );
-
-            setTimelineProgress(progress);
-        };
-
-        handleScroll();
-
-        window.addEventListener("scroll", handleScroll, {
-            passive: true,
-        });
-
-        window.addEventListener("resize", handleScroll);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-            window.removeEventListener("resize", handleScroll);
-        };
-    }, [storyOpen]);
 
     const toggleStory = () => {
-        if (storyOpen) {
-            setTimelineProgress(0);
-        }
-
-        setStoryOpen(!storyOpen);
+        setStoryOpen((current) => !current);
     };
 
     return (
-        <section className="our-story" id="our-story">
+        <section
+            className="our-story"
+            id="our-story"
+        >
             <div className="container">
                 <div className="our-story__intro">
                     <div className="our-story__visual">
@@ -159,99 +240,66 @@ const OurStory = () => {
                     </div>
                 </div>
 
-                <div
-                    ref={timelineRef}
-                    className={
+                <motion.div
+                    className="our-story__timeline"
+                    initial={false}
+                    animate={
                         storyOpen
-                            ? "our-story__timeline is-open"
-                            : "our-story__timeline"
+                            ? {
+                                  height: "auto",
+                                  opacity: 1,
+                                  marginTop: "140px",
+                              }
+                            : {
+                                  height: 0,
+                                  opacity: 0,
+                                  marginTop: 0,
+                              }
                     }
+                    transition={{
+                        height: {
+                            duration: 0.75,
+                            ease: [0.22, 1, 0.36, 1],
+                        },
+                        opacity: {
+                            duration: storyOpen ? 0.55 : 0.3,
+                            delay: storyOpen ? 0.12 : 0,
+                        },
+                        marginTop: {
+                            duration: 0.75,
+                            ease: [0.22, 1, 0.36, 1],
+                        },
+                    }}
                 >
+                    <div
+                        ref={timelineRef}
+                        className="our-story__timeline-inner"
+                    >
                     <div
                         className="our-story__timeline-line"
                         aria-hidden="true"
                     >
-                        <span
-                            className="our-story__timeline-progress"
+                        <motion.span
+                            className="our-story__timeline-light"
                             style={{
-                                height: `${timelineProgress * 100}%`,
+                                top: timelineLightPosition,
                             }}
-                        ></span>
-
-                        <span
-                            className="our-story__timeline-glow"
-                            style={{
-                                top: `${timelineProgress * 100}%`,
-                                opacity:
-                                    timelineProgress > 0 &&
-                                    timelineProgress < 1
-                                        ? 1
-                                        : 0,
-                            }}
-                        ></span>
+                        ></motion.span>
                     </div>
 
-                    <div className="our-story__chapters">
-                        {storyChapters.map((chapter, index) => {
-                            const markerPosition =
-                                storyChapters.length === 1
-                                    ? 0
-                                    : index /
-                                      (storyChapters.length - 1);
-
-                            const isActive =
-                                timelineProgress >= markerPosition;
-
-                            return (
-                                <article
-                                    className={`our-story__chapter ${
-                                        index % 2 !== 0
-                                            ? "our-story__chapter--reverse"
-                                            : ""
-                                    }`}
-                                    key={chapter.id}
-                                >
-                                    <div
-                                        className={`our-story__chapter-marker ${
-                                            isActive ? "is-active" : ""
-                                        }`}
-                                    >
-                                        <span></span>
-                                    </div>
-
-                                    <div className="our-story__chapter-image">
-                                        <img
-                                            src={chapter.image}
-                                            alt={chapter.imageAlt}
-                                        />
-
-                                        <span className="our-story__chapter-number">
-                                            {chapter.number}
-                                        </span>
-                                    </div>
-
-                                    <div className="our-story__chapter-content">
-                                        <span className="our-story__chapter-year">
-                                            {chapter.year}
-                                        </span>
-
-                                        <span className="our-story__chapter-label">
-                                            {chapter.label}
-                                        </span>
-
-                                        <h3 className="our-story__chapter-title">
-                                            {chapter.title}
-                                        </h3>
-
-                                        <p className="our-story__chapter-text">
-                                            {chapter.text}
-                                        </p>
-                                    </div>
-                                </article>
-                            );
-                        })}
+                        <div className="our-story__chapters">
+                            {storyChapters.map(
+                                (chapter, index) => (
+                                    <StoryChapter
+                                        key={chapter.id}
+                                        chapter={chapter}
+                                        index={index}
+                                    />
+                                ),
+                            )}
+                        </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

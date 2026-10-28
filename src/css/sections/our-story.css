@@ -144,32 +144,82 @@
 
 .our-story__timeline {
     position: relative;
-    display: grid;
-    grid-template-rows: 0fr;
-    margin-top: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition:
-        grid-template-rows 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-        margin-top 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.5s ease,
-        visibility 0.5s ease;
+    overflow: hidden;
 }
 
-.our-story__timeline.is-open {
-    grid-template-rows: 1fr;
-    margin-top: clamp(100px, 9vw, 150px);
-    opacity: 1;
-    visibility: visible;
+.our-story__timeline-inner {
+    position: relative;
+    padding-top: 70px;
 }
 
 .our-story__chapters {
     position: relative;
-    min-height: 0;
-    overflow: hidden;
 }
 
 .our-story__timeline-line {
+    position: absolute;
+    top: 0;
+    bottom: 20px;
+    left: 8px;
+    z-index: 3;
+    width: 1px;
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(184, 148, 115, 0.08) 4%,
+        rgba(184, 148, 115, 0.14) 18%,
+        rgba(184, 148, 115, 0.16) 50%,
+        rgba(184, 148, 115, 0.14) 82%,
+        rgba(184, 148, 115, 0.08) 96%,
+        transparent 100%
+    );
+    box-shadow:
+        0 0 12px rgba(184, 148, 115, 0.025),
+        0 0 30px rgba(184, 148, 115, 0.012);
+    pointer-events: none;
+}
+
+.our-story__timeline-line::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 4px;
+    width: 1px;
+    background: linear-gradient(
+        180deg,
+        transparent,
+        rgba(184, 148, 115, 0.025) 15%,
+        rgba(184, 148, 115, 0.045) 50%,
+        rgba(184, 148, 115, 0.025) 85%,
+        transparent
+    );
+}
+
+.our-story__timeline-light {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 5;
+    width: 2px;
+    height: clamp(120px, 10vw, 200px);
+    border-radius: 999px;
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(184, 148, 115, 0.06) 10%,
+        rgba(208, 173, 138, 0.4) 28%,
+        rgba(232, 198, 164, 0.85) 44%,
+        rgba(244, 215, 184, 1) 50%,
+        rgba(232, 198, 164, 0.85) 56%,
+        rgba(208, 173, 138, 0.4) 72%,
+        rgba(184, 148, 115, 0.06) 90%,
+        transparent 100%
+    );
+    will-change: top;
+}
+
+.our-story__timeline-light::before {
     display: none;
 }
 
@@ -177,16 +227,12 @@
     position: relative;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 0 0 105px;
+    gap: 36px;
+    padding: 0 0 105px 38px;
 }
 
 .our-story__chapter:last-child {
     padding-bottom: 0;
-}
-
-.our-story__chapter-marker {
-    display: none;
 }
 
 .our-story__chapter-image {
@@ -195,13 +241,29 @@
     max-width: 560px;
     aspect-ratio: 1.05;
     overflow: hidden;
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.12);
+    will-change: transform, opacity;
+}
+
+.our-story__chapter-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        180deg,
+        rgba(15, 14, 13, 0.02),
+        rgba(15, 14, 13, 0.08)
+    );
+    pointer-events: none;
 }
 
 .our-story__chapter-image::after {
     content: "";
     position: absolute;
     inset: 0;
-    border: 1px solid rgba(184, 148, 115, 0.12);
+    z-index: 2;
+    border: 1px solid rgba(184, 148, 115, 0.1);
     pointer-events: none;
 }
 
@@ -209,15 +271,19 @@
     position: absolute;
     right: 18px;
     bottom: 10px;
+    z-index: 3;
     color: rgba(255, 250, 245, 0.14);
     font-family: "David Libre", serif;
     font-size: clamp(4rem, 16vw, 7rem);
     line-height: 1;
+    pointer-events: none;
 }
 
 .our-story__chapter-content {
+    position: relative;
     align-self: center;
     max-width: 520px;
+    will-change: transform, opacity;
 }
 
 .our-story__chapter-year {
@@ -244,6 +310,7 @@
     font-weight: 500;
     line-height: 1.08;
     letter-spacing: 0.015em;
+    text-shadow: 0 0 30px rgba(230, 221, 213, 0.015);
 }
 
 .our-story__chapter-text {
@@ -276,9 +343,17 @@
         font-size: 1rem;
     }
 
+    .our-story__timeline-inner {
+        padding-top: 80px;
+    }
+
+    .our-story__timeline-line {
+        left: 10px;
+    }
+
     .our-story__chapter {
         gap: 52px;
-        padding-bottom: 135px;
+        padding: 0 0 135px 46px;
     }
 
     .our-story__chapter-image {
@@ -324,60 +399,15 @@
         margin-top: 28px;
     }
 
-    .our-story__timeline.is-open {
-        margin-top: clamp(120px, 10vw, 165px);
+    .our-story__timeline-inner {
+        padding-top: 110px;
     }
 
     .our-story__timeline-line {
-        position: absolute;
         top: 0;
-        bottom: 0;
+        bottom: 150px;
         left: 50%;
-        z-index: 3;
-        display: block;
-        width: 1px;
-        background: rgba(184, 148, 115, 0.14);
         transform: translateX(-50%);
-    }
-
-    .our-story__timeline-progress {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 1px;
-        height: 0;
-        background: linear-gradient(
-            180deg,
-            rgba(208, 173, 138, 0.72) 0%,
-            var(--color-accent-light) 45%,
-            var(--color-accent) 100%
-        );
-        box-shadow:
-            0 0 8px rgba(184, 148, 115, 0.28),
-            0 0 18px rgba(184, 148, 115, 0.12);
-        transition: height 0.08s linear;
-    }
-
-    .our-story__timeline-glow {
-        position: absolute;
-        left: 50%;
-        z-index: 4;
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: var(--color-accent-light);
-        box-shadow:
-            0 0 8px rgba(208, 173, 138, 0.75),
-            0 0 18px rgba(184, 148, 115, 0.42),
-            0 0 30px rgba(184, 148, 115, 0.18);
-        transform: translate(-50%, -50%);
-        transition:
-            top 0.08s linear,
-            opacity 0.25s ease;
-    }
-
-    .our-story__chapters {
-        overflow: hidden;
     }
 
     .our-story__chapter {
@@ -385,63 +415,24 @@
         align-items: center;
         gap: clamp(95px, 10vw, 160px);
         min-height: 620px;
-        padding-bottom: 150px;
+        padding: 0 0 150px;
     }
 
     .our-story__chapter:last-child {
         padding-bottom: 0;
     }
 
-    .our-story__chapter--reverse .our-story__chapter-image {
+    .our-story__chapter--reverse
+        .our-story__chapter-image {
         grid-column: 2;
         justify-self: end;
     }
 
-    .our-story__chapter--reverse .our-story__chapter-content {
+    .our-story__chapter--reverse
+        .our-story__chapter-content {
         grid-column: 1;
         grid-row: 1;
         justify-self: end;
-    }
-
-    .our-story__chapter-marker {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        z-index: 5;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 17px;
-        height: 17px;
-        border: 1px solid rgba(184, 148, 115, 0.34);
-        background: var(--color-bg);
-        transform: translate(-50%, -50%) rotate(45deg);
-        transition:
-            border-color 0.45s ease,
-            background-color 0.45s ease,
-            box-shadow 0.45s ease;
-    }
-
-    .our-story__chapter-marker span {
-        width: 5px;
-        height: 5px;
-        background: rgba(184, 148, 115, 0.26);
-        transition:
-            background-color 0.45s ease,
-            box-shadow 0.45s ease;
-    }
-
-    .our-story__chapter-marker.is-active {
-        border-color: rgba(208, 173, 138, 0.92);
-        background: #18130f;
-        box-shadow:
-            0 0 10px rgba(184, 148, 115, 0.2),
-            0 0 24px rgba(184, 148, 115, 0.08);
-    }
-
-    .our-story__chapter-marker.is-active span {
-        background: var(--color-accent-light);
-        box-shadow: 0 0 8px rgba(208, 173, 138, 0.55);
     }
 
     .our-story__chapter-image {
@@ -476,6 +467,14 @@
     .our-story__text {
         max-width: 580px;
         font-size: 1.02rem;
+    }
+
+    .our-story__timeline-inner {
+        padding-top: 125px;
+    }
+
+    .our-story__timeline-line {
+        bottom: 160px;
     }
 
     .our-story__chapter {
@@ -516,6 +515,16 @@
         line-height: 1.9;
     }
 
+    .our-story__timeline-inner {
+        padding-top: 135px;
+    }
+
+    .our-story__timeline-line {
+        bottom: 360px;
+    }
+    .our-story__timeline-light {
+    height: 250px;
+    }
     .our-story__chapter {
         min-height: 720px;
         padding-bottom: 185px;
@@ -535,34 +544,9 @@
 }
 
 @media (max-width: 991px) {
-    .our-story__timeline.is-open {
-        margin-top: 100px;
-    }
-
-    .our-story__chapters {
-        padding-left: 28px;
-    }
-
-    .our-story__chapters::before {
-        content: "";
-        position: absolute;
+    .our-story__timeline-line {
         top: 0;
-        bottom: 0;
-        left: 4px;
-        width: 1px;
-        background: rgba(184, 148, 115, 0.15);
-    }
-
-    .our-story__chapter::before {
-        content: "";
-        position: absolute;
-        top: 20px;
-        left: -28px;
-        width: 9px;
-        height: 9px;
-        border: 1px solid rgba(184, 148, 115, 0.65);
-        background: var(--color-bg);
-        transform: rotate(45deg);
+        bottom: 20px;
     }
 }
 
@@ -584,9 +568,10 @@
         display: none;
     }
 
-    .our-story__timeline.is-open {
-        margin-top: 90px;
+    .our-story__timeline-inner {
+        padding-top: 60px;
     }
+
 
     .our-story__chapter {
         padding-bottom: 100px;
@@ -617,6 +602,10 @@
     .our-story__meta {
         gap: 10px;
         font-size: 0.62rem;
+    }
+
+    .our-story__timeline-inner {
+        padding-top: 52px;
     }
 
     .our-story__chapter {
