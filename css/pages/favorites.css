@@ -69,9 +69,6 @@
     margin: 0 0 16px;
 
     color: var(--color-title);
-
-    font-family: "Playfair Display", "David Libre", serif;
-
     font-size: clamp(2.2rem, 9vw, 3rem);
     font-weight: 500;
 
@@ -131,14 +128,9 @@
 
 .favorites__subtitle {
     margin: 0;
-
     color: #e7d1bd;
-
-    font-family: "Playfair Display", "David Libre", serif;
-
     font-size: 1.65rem;
     font-weight: 500;
-
     line-height: 1.15;
 }
 
@@ -343,9 +335,6 @@
     margin: 0;
 
     color: #f1e7dd;
-
-    font-family: "Playfair Display", "David Libre", serif;
-
     font-size: 1.42rem;
     font-weight: 500;
 
@@ -495,7 +484,6 @@
 
     color: var(--color-text);
 
-    font-family: inherit;
 
     font-size: 0.68rem;
     font-weight: 500;
@@ -553,7 +541,6 @@
 
     color: #b89473;
 
-    font-family: "Playfair Display", serif;
     font-size: 2rem;
 }
 
@@ -561,8 +548,6 @@
     margin: 0;
 
     color: #e7d1bd;
-
-    font-family: "Playfair Display", "David Libre", serif;
 
     font-size: 1.5rem;
     font-weight: 500;
@@ -605,8 +590,6 @@
     margin: 0 0 12px;
 
     color: #e7d1bd;
-
-    font-family: "Playfair Display", "David Libre", serif;
 
     font-size: clamp(1.9rem, 7vw, 2.5rem);
     font-weight: 500;
@@ -660,8 +643,6 @@
 
     color: #d8ac84;
 
-    font-family: "Playfair Display", "David Libre", serif;
-
     font-size: 1.8rem;
     font-weight: 500;
 
@@ -711,9 +692,6 @@
     margin: 0 0 14px;
 
     color: #e7d1bd;
-
-    font-family: "Playfair Display", "David Libre", serif;
-
     font-size: clamp(2rem, 8vw, 2.7rem);
     font-weight: 500;
 
@@ -815,9 +793,6 @@
     z-index: 1;
 
     color: #d8ac84;
-
-    font-family: "Playfair Display", "David Libre", serif;
-
     font-size: 1.9rem;
     font-weight: 500;
 
@@ -859,9 +834,6 @@
     margin: 0;
 
     color: #e7d1bd;
-
-    font-family: "Playfair Display", "David Libre", serif;
-
     font-size: 1.1rem;
     font-weight: 500;
 }
@@ -1046,9 +1018,6 @@
     margin: 0;
 
     color: #f1e7dd;
-
-    font-family: "Playfair Display", "David Libre", serif;
-
     font-size: 1.3rem;
     font-weight: 500;
 
@@ -1223,9 +1192,6 @@
     margin: 0 0 8px;
 
     color: #f1e7dd;
-
-    font-family: "Playfair Display", "David Libre", serif;
-
     font-size: clamp(2rem, 8vw, 3rem);
     font-weight: 500;
 

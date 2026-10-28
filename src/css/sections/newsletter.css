@@ -62,7 +62,6 @@
 .newsletter__title {
     width: 100%;
     max-width: 800px;
-    font-family: "Playfair Display", serif;
     font-size: clamp(1.65rem, 6vw, 2.2rem);
     line-height: 1.2;
     font-weight: 700;
@@ -95,7 +94,7 @@
     border: 1px solid rgba(184, 148, 115, 0.4);
     outline: none;
     background-color: rgba(12, 12, 12, 0.78);
-    font-family: inherit;
+
     font-size: 0.95rem;
     color: var(--color-title);
     transition:
@@ -120,7 +119,7 @@
     padding: 17px 20px;
     border: 1px solid rgba(184, 148, 115, 0.65);
     background-color: rgba(32, 22, 16, 0.82);
-    font-family: inherit;
+
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 1.2px;

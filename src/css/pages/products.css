@@ -40,10 +40,7 @@
 
 .products__title {
     margin-bottom: 16px;
-
     color: var(--color-title);
-
-    font-family: "Playfair Display", "David Libre", serif;
     font-size: clamp(2.2rem, 9vw, 3rem);
     font-weight: 500;
     line-height: 1.1;
@@ -334,7 +331,6 @@
 
 .product-card__title {
     color: var(--color-title);
-    font-family: "Playfair Display", "David Libre", serif;
     font-size: 1.35rem;
     font-weight: 500;
     line-height: 1.2;

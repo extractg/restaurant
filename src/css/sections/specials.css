@@ -21,7 +21,7 @@
 .specials__title {
     width: 100%;
     max-width: 430px;
-    font-family: "Playfair Display", serif;
+
     font-size: clamp(1.65rem, 6vw, 2rem);
     line-height: 1.2;
     font-weight: 700;
@@ -248,7 +248,6 @@
 .specials__bottom-title {
     width: 100%;
     max-width: 540px;
-    font-family: "Playfair Display", serif;
     font-size: clamp(1.65rem, 5.5vw, 2.15rem);
     line-height: 1.2;
     font-weight: 700;

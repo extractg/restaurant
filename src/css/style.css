@@ -20,6 +20,22 @@
     --color-chocolate-dark: #3d3027;
     --primary-btn-color: #5f4d3c;
     --secondary-btn-color: #b89473;
+        --section-space: clamp(110px, 10vw, 180px);
+    --section-space-large: clamp(140px, 13vw, 220px);
+}
+.hero,
+.specials,
+.story,
+.chef,
+.newsletter {
+    padding-top: var(--section-space);
+    padding-bottom: var(--section-space);
+}
+.story,
+.chef {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
 }
 
 *,
@@ -38,7 +54,6 @@ body {
 body {
     min-height: 100vh;
     background: var(--color-bg);
-    font-family: "Playfair Display", "David Libre", serif;
     line-height: 1.5;
     color: var(--color-text);
     -webkit-font-smoothing: antialiased;

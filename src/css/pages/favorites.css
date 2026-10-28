@@ -41,29 +41,20 @@
 
 .favorites__title {
     max-width: 700px;
-
     margin: 0 0 22px;
-
     color: #f1e7dd;
-
-    font-family: "Playfair Display", "David Libre", serif;
     font-size: 4rem;
     font-weight: 500;
-
     line-height: 1.08;
     letter-spacing: -0.025em;
 }
 
 .favorites__text {
     max-width: 570px;
-
     margin: 0;
-
     color: var(--color-text);
-
     font-size: 1rem;
     line-height: 1.8;
-
     opacity: 0.68;
 }
 
@@ -100,13 +91,9 @@
 
 .favorites__subtitle {
     margin: 0;
-
     color: #e7d1bd;
-
-    font-family: "Playfair Display", "David Libre", serif;
     font-size: 2rem;
     font-weight: 500;
-
     line-height: 1.15;
 }
 
@@ -166,17 +153,11 @@
 
 .favorites__search input {
     width: 100%;
-
     padding: 0;
-
     border: 0;
     outline: 0;
-
     background: transparent;
-
     color: #f1e7dd;
-
-    font-family: inherit;
     font-size: 0.82rem;
 }
 
@@ -188,20 +169,12 @@
 .favorites__sort {
     min-width: 180px;
     min-height: 46px;
-
     padding: 0 15px;
-
     outline: 0;
-
     background: #151515;
-
     border: 1px solid rgba(184, 148, 115, 0.18);
-
     color: #c7a98d;
-
-    font-family: inherit;
     font-size: 0.78rem;
-
     cursor: pointer;
 }
 
@@ -240,13 +213,9 @@
 
 .favorites__footer-title {
     margin: 0 0 12px;
-
     color: #e7d1bd;
-
-    font-family: "Playfair Display", "David Libre", serif;
     font-size: 2rem;
     font-weight: 500;
-
     line-height: 1.2;
 }
 

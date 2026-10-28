@@ -42,7 +42,6 @@
 .hero__title {
     width: 100%;
     max-width: 550px;
-    font-family: "Playfair Display", serif;
     font-size: clamp(1.65rem, 6vw, 2rem);
     line-height: 1.2;
     font-weight: 700;
