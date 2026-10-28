@@ -1,10 +1,12 @@
 @import url("sections/header.css");
 @import url("sections/hero.css");
 @import url("sections/specials.css");
+@import url("sections/our-story.css");
 @import url("sections/chef.css");
 @import url("sections/newsletter.css");
 @import url("sections/footer.css");
 @import url("pages/products.css");
+
 
 :root {
     --color-bg: #0f0e0d;

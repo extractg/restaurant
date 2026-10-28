@@ -47,7 +47,7 @@ const dishes = [
 
 const Specials = () => {
   return (
-    <section className="specials">
+    <section className="specials" id="specials">
     
       <div className="container">
         <div className="specials__top">

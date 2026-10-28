@@ -1,12 +1,53 @@
-import { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import {
+    Link,
+    NavLink,
+    useLocation,
+    useNavigate,
+} from "react-router-dom";
+
 import logo from "../assets/images/logo.png";
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
+    const navigate = useNavigate();
+    const location = useLocation();
+
     const closeMenu = () => {
         setMenuOpen(false);
+    };
+
+    const scrollToSection = (sectionId) => {
+        closeMenu();
+
+        if (location.pathname !== "/") {
+            navigate(`/#${sectionId}`);
+            return;
+        }
+
+        const section = document.getElementById(sectionId);
+
+        if (section) {
+            section.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        }
+    };
+
+    const goHome = () => {
+        closeMenu();
+
+        if (location.pathname !== "/") {
+            navigate("/");
+            return;
+        }
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
     };
 
     useEffect(() => {
@@ -19,11 +60,35 @@ const Header = () => {
         };
     }, [menuOpen]);
 
+    useEffect(() => {
+        if (location.pathname !== "/" || !location.hash) {
+            return;
+        }
+
+        const sectionId = location.hash.replace("#", "");
+
+        const timer = setTimeout(() => {
+            const section = document.getElementById(sectionId);
+
+            if (section) {
+                section.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                });
+            }
+        }, 50);
+
+        return () => clearTimeout(timer);
+    }, [location.pathname, location.hash]);
+
     return (
         <header className="header">
             <div className="container">
                 <div className="header__inner">
-                    <Link to="/">
+                    <Link
+                        to="/"
+                        onClick={closeMenu}
+                    >
                         <img
                             src={logo}
                             alt="Deliciora"
@@ -34,18 +99,37 @@ const Header = () => {
                     <nav className={menuOpen ? "nav active" : "nav"}>
                         <ul className="nav__list">
                             <li className="nav__items">
-                                <NavLink
-                                    to="/"
-                                    end
-                                    className={({ isActive }) =>
-                                        isActive
-                                            ? "nav__link active"
-                                            : "nav__link"
-                                    }
-                                    onClick={closeMenu}
+                                <button
+                                    type="button"
+                                    className="nav__link"
+                                    onClick={goHome}
                                 >
                                     Home
-                                </NavLink>
+                                </button>
+                            </li>
+
+                            <li className="nav__items">
+                                <button
+                                    type="button"
+                                    className="nav__link"
+                                    onClick={() =>
+                                        scrollToSection("specials")
+                                    }
+                                >
+                                    Specials
+                                </button>
+                            </li>
+
+                            <li className="nav__items">
+                                <button
+                                    type="button"
+                                    className="nav__link"
+                                    onClick={() =>
+                                        scrollToSection("our-story")
+                                    }
+                                >
+                                    Our Story
+                                </button>
                             </li>
 
                             <li className="nav__items">
@@ -58,7 +142,7 @@ const Header = () => {
                                     }
                                     onClick={closeMenu}
                                 >
-                                    Products
+                                    Menu
                                 </NavLink>
                             </li>
 
@@ -77,13 +161,15 @@ const Header = () => {
                             </li>
 
                             <li className="nav__items">
-                                <a
-                                    href="#contacts"
+                                <button
+                                    type="button"
                                     className="nav__link"
-                                    onClick={closeMenu}
+                                    onClick={() =>
+                                        scrollToSection("contacts")
+                                    }
                                 >
                                     Contacts
-                                </a>
+                                </button>
                             </li>
                         </ul>
                     </nav>
