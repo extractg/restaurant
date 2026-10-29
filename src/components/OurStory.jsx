@@ -6,8 +6,11 @@ import {
     useTransform,
 } from "motion/react";
 
-import restaurantPhoto from "../assets/images/restaurant_photo.png";
-import restaurantInside from "../assets/images/restaurant_inside.png";
+import restaurantPhoto from "../assets/images/restaurant-photo.png";
+import restaurantInside from "../assets/images/restaurant-small.png";
+import restaurantKitchen from "../assets/images/restaurant-kitchen.png";
+import restaurantChef from "../assets/images/restaurant-chef.png";
+import restaurantBuilding from "../assets/images/restaurant-building.png";
 
 const storyChapters = [
     {
@@ -17,7 +20,7 @@ const storyChapters = [
         label: "THE BEGINNING",
         title: "A Small Idea Became Deliciora",
         text: "Deliciora began with a simple belief — that a restaurant should be more than a place to eat. It should be a place where atmosphere, thoughtful cooking, and genuine hospitality come together around one table.",
-        image: restaurantPhoto,
+        image: restaurantBuilding,
         imageAlt: "The beginning of Deliciora",
     },
     {
@@ -27,8 +30,8 @@ const storyChapters = [
         label: "THE PHILOSOPHY",
         title: "Food With a Purpose",
         text: "Our approach is rooted in European cuisine, seasonal ingredients, and respect for simplicity. Every dish is designed to feel familiar yet refined, allowing quality ingredients and carefully balanced flavours to remain at the centre.",
-        image: restaurantInside,
-        imageAlt: "Deliciora culinary philosophy",
+        image: restaurantKitchen,
+        imageAlt: "Fresh ingredients, herbs and spices used in Deliciora cuisine",
     },
     {
         id: 3,
@@ -37,7 +40,7 @@ const storyChapters = [
         label: "DELICIORA TODAY",
         title: "A Place Built Around the Table",
         text: "Today, Deliciora continues to evolve while staying true to the idea that started it all — creating memorable evenings through food, atmosphere, and the people gathered around every table.",
-        image: restaurantPhoto,
+        image: restaurantChef,
         imageAlt: "Deliciora restaurant today",
     },
 ];
