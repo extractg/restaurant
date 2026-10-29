@@ -167,16 +167,6 @@
         opacity 0.3s ease;
 }
 
-.nav__link:hover {
-    color: rgba(208, 173, 138, 0.88);
-    transform: translateX(6px);
-}
-
-.nav__link:hover::after {
-    opacity: 1;
-    transform: scaleX(1);
-}
-
 .nav__link.active {
     color: rgba(208, 173, 138, 0.88);
 }
@@ -185,6 +175,7 @@
     opacity: 1;
     transform: scaleX(1);
 }
+
 .header__actions {
     display: flex;
     align-items: center;
@@ -272,8 +263,20 @@
     color: var(--color-title);
 }
 
-.header__language-btn:hover:not(.active) {
-    color: var(--color-accent-light);
+@media (hover: hover) and (pointer: fine) {
+    .nav__link:hover {
+        color: rgba(208, 173, 138, 0.88);
+        transform: translateX(6px);
+    }
+
+    .nav__link:hover::after {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+
+    .header__language-btn:hover:not(.active) {
+        color: var(--color-accent-light);
+    }
 }
 
 @media (min-width: 768px) {
@@ -403,14 +406,15 @@
         content: "";
         position: absolute;
         left: 0;
-        bottom: -4px;
+        bottom: -6px;
         width: 100%;
         height: 1px;
+        border-radius: 999px;
         background: linear-gradient(
             90deg,
-            rgba(184, 148, 115, 0.22) 0%,
-            rgba(208, 173, 138, 0.7) 50%,
-            rgba(184, 148, 115, 0.22) 100%
+            rgba(184, 148, 115, 0.3) 0%,
+            rgba(208, 173, 138, 0.9) 50%,
+            rgba(184, 148, 115, 0.3) 100%
         );
         opacity: 0;
         pointer-events: none;
@@ -419,16 +423,6 @@
         transition:
             transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
             opacity 0.25s ease;
-    }
-
-    .nav__link:hover {
-        color: rgba(255, 250, 245, 0.95);
-        transform: none;
-    }
-
-    .nav__link:hover::after {
-        opacity: 1;
-        transform: scaleX(1);
     }
 
     .nav__link.active {
@@ -443,5 +437,17 @@
 
     .header__actions {
         margin-left: clamp(28px, 3vw, 48px);
+    }
+}
+
+@media (min-width: 992px) and (hover: hover) and (pointer: fine) {
+    .nav__link:hover {
+        color: rgba(255, 250, 245, 0.95);
+        transform: none;
+    }
+
+    .nav__link:hover::after {
+        opacity: 1;
+        transform: scaleX(1);
     }
 }
