@@ -4,6 +4,7 @@ import Products from "./pages/Products.jsx";
 import Favorites from "./pages/Favorites.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import BackToTop from "./components/BackToTop.jsx";
+import DishDetails from "./pages/DishDetails.jsx";
 import Home from "./pages/Home.jsx";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
@@ -44,36 +45,45 @@ function App() {
     
               loadProducts();
             }, []);
-    return (
-        <>
-            <ScrollToTop />
-            <Header />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route
-                    path="/products"
-                    element={
-                        <Products
-                            favorites={favorites}
-                            toggleFavorite={toggleFavorite}
-                            allProducts={allProducts}
+            return (
+                <>
+                    <ScrollToTop />
+                    <Header />
+
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+
+                        <Route
+                            path="/products"
+                            element={
+                                <Products
+                                    favorites={favorites}
+                                    toggleFavorite={toggleFavorite}
+                                    allProducts={allProducts}
+                                />
+                            }
                         />
-                    }
-                />
-                <Route
-                    path="/favorites"
-                    element={
-                        <Favorites
-                            favorites={favorites}
-                            toggleFavorite={toggleFavorite}
-                            allProducts={allProducts}
+
+                        <Route
+                            path="/products/:id"
+                            element={<DishDetails />}
                         />
-                    }
-                />
-            </Routes>
-            <Footer />
-            <BackToTop />
-        </>
-    );
+
+                        <Route
+                            path="/favorites"
+                            element={
+                                <Favorites
+                                    favorites={favorites}
+                                    toggleFavorite={toggleFavorite}
+                                    allProducts={allProducts}
+                                />
+                            }
+                        />
+                    </Routes>
+
+                    <Footer />
+                    <BackToTop />
+                </>
+            );
 }
 export default App;
