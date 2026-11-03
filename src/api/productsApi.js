@@ -29,6 +29,9 @@ export async function getProductById(id) {
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`;
 
     const response = await fetch(url);
+    if (!response.ok) {
+    throw new Error("Failed to load product")
+    }
     const data = await response.json();
     return data;
 }

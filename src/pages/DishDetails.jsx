@@ -28,12 +28,42 @@ function DishDetails() {
         return <p>Loading...</p>;
     }
 
-    return (
-        <main>
-            <h1>{product.strMeal}</h1>
-            <p>{product.strCategory}</p>
-        </main>
-    );
+return (
+    <main className="dish-details">
+        <div className="container">
+            <button className="dish-details__back">
+                ← Back to menu
+            </button>
+
+            <div className="dish-details__inner">
+                <div className="dish-details__image">
+                    <img
+                        src={product.strMealThumb}
+                        alt={product.strMeal}
+                    />
+                </div>
+
+                <div className="dish-details__content">
+                    <span className="dish-details__category">
+                        {product.strCategory}
+                    </span>
+
+                    <h1 className="dish-details__title">
+                        {product.strMeal}
+                    </h1>
+
+                    <p className="dish-details__area">
+                        {product.strArea} cuisine
+                    </p>
+
+                    <p className="dish-details__description">
+                        {product.strInstructions}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+);
 }
 
 export default DishDetails;
