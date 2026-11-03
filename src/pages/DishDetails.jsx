@@ -5,21 +5,33 @@ import { getProductById } from "../api/productsApi.js";
 function DishDetails() {
     const params = useParams();
     const [product, setProduct] = useState(null);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         async function loadProduct() {
-            const data = await getProductById(params.id);
-            setProduct(data);
+            try {
+                const data = await getProductById(params.id);
+                setProduct(data.meals[0]);
+            } catch (error) {
+                setError(error);
+            }
         }
 
         loadProduct();
     }, [params.id]);
-    console.log(product);
+
+    if (error) {
+        return <p>Something went wrong.</p>;
+    }
+
+    if (product === null) {
+        return <p>Loading...</p>;
+    }
 
     return (
         <main>
-            <h1>Dish Details</h1>
-            <p>{params.id}</p>
+            <h1>{product.strMeal}</h1>
+            <p>{product.strCategory}</p>
         </main>
     );
 }
