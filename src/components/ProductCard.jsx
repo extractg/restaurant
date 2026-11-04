@@ -4,26 +4,36 @@ const ProductCard = (props) => {
   return (
     <article className="product-card" onClick={() => navigate(`/products/${props.id}`)}>
       <div className="product-card__image">
-        <img
-          src={props.image}
-          alt={props.title}
-          loading="lazy"
-        />
+          <img
+              src={props.image}
+              alt={props.title}
+              loading="lazy"
+          />
 
-        <button
-          className={
-            props.isFavorite ? "product-card__favorite active" : "product-card__favorite"
-            
-          }
-          onClick={() => props.onFavoriteClick(props.id)}
-          type="button"
-        >
-          <i
-            className={
-              props.isFavorite ? "fa-solid fa-heart" : "fa-regular fa-heart"
-            }
-          ></i>
-        </button>
+          <button
+              className={
+                  props.isFavorite
+                      ? "product-card__favorite active"
+                      : "product-card__favorite"
+              }
+              onClick={(event) => {
+                  event.stopPropagation();
+                  props.onFavoriteClick(props.id);
+              }}
+              type="button"
+          >
+              <i
+                  className={
+                      props.isFavorite
+                          ? "fa-solid fa-heart"
+                          : "fa-regular fa-heart"
+                  }
+              ></i>
+          </button>
+
+          <span className="product-card__view">
+              View Dish
+          </span>
       </div>
 
       <div className="product-card__content">

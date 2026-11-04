@@ -12,10 +12,10 @@ createRoot(document.getElementById("root")).render(
         <ReactLenis
             root
             options={{
-                duration: 1.15,
+                lerp: 0.14,
                 smoothWheel: true,
-                wheelMultiplier: 0.9,
-                touchMultiplier: 1.5,
+                wheelMultiplier: 1,
+                touchMultiplier: 1.2,
                 anchors: true,
                 stopInertiaOnNavigate: true,
             }}
