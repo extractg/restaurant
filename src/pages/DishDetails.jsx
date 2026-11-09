@@ -2,8 +2,28 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProductById } from "../api/productsApi.js";
 
+function getIngredients(product) {
+    const ingredients = [];
+
+    for (let i = 1; i <= 20; i++) {
+        const ingredient = product[`strIngredient${i}`];
+        const measure = product[`strMeasure${i}`];
+
+        if (ingredient) {
+            ingredients.push({
+                name: ingredient,
+                measure: measure,
+                image: `https://www.themealdb.com/images/ingredients/${ingredient}.png`,
+            });
+        }
+    }
+
+    return ingredients;
+}
+
 function DishDetails() {
     const params = useParams();
+
     const [product, setProduct] = useState(null);
     const [error, setError] = useState(null);
 
@@ -11,6 +31,11 @@ function DishDetails() {
         async function loadProduct() {
             try {
                 const data = await getProductById(params.id);
+
+                if (!data.meals || data.meals.length === 0) {
+                    throw new Error("Product not found");
+                }
+
                 setProduct(data.meals[0]);
             } catch (error) {
                 setError(error);
@@ -28,42 +53,85 @@ function DishDetails() {
         return <p>Loading...</p>;
     }
 
-return (
-    <main className="dish-details">
-        <div className="container">
-            <button className="dish-details__back">
-                ← Back to menu
-            </button>
+    const ingredients = getIngredients(product);
 
-            <div className="dish-details__inner">
-                <div className="dish-details__image">
-                    <img
-                        src={product.strMealThumb}
-                        alt={product.strMeal}
-                    />
-                </div>
+    const tags = product.strTags
+        ? product.strTags.split(",")
+        : [];
 
-                <div className="dish-details__content">
-                    <span className="dish-details__category">
-                        {product.strCategory}
-                    </span>
+    return (
+        <main className="dish-details">
+            <div className="container">
+                <h1>{product.strMeal}</h1>
 
-                    <h1 className="dish-details__title">
-                        {product.strMeal}
-                    </h1>
+                <img
+                    src={product.strMealThumb}
+                    alt={product.strMeal}
+                />
 
-                    <p className="dish-details__area">
-                        {product.strArea} cuisine
-                    </p>
+                <section className="dish-details__ingredients">
+                    <h2>Ingredients</h2>
 
-                    <p className="dish-details__description">
-                        {product.strInstructions}
-                    </p>
-                </div>
+                    <div className="dish-details__ingredients-grid">
+                        {ingredients.map((ingredient) => {
+                            return (
+                                <div
+                                    className="dish-details__ingredient"
+                                    key={ingredient.name}
+                                >
+                                    <img
+                                        src={ingredient.image}
+                                        alt={ingredient.name}
+                                    />
+
+                                    <p>{ingredient.name}</p>
+                                    <p>{ingredient.measure}</p>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </section>
+
+                <section className="dish-details__preparation">
+                    <h2>Preparation</h2>
+
+                    <p>{product.strInstructions}</p>
+                </section>
+
+                <section className="dish-details__details">
+                    <h2>Details</h2>
+
+                    <div className="dish-details__details-grid">
+                        <div>
+                            <span>Origin</span>
+                            <p>{product.strArea}</p>
+                        </div>
+
+                        <div>
+                            <span>Category</span>
+                            <p>{product.strCategory}</p>
+                        </div>
+
+                        {tags.length > 0 && (
+                            <div>
+                                <span>Tags</span>
+
+                                <div className="dish-details__tags">
+                                    {tags.map((tag) => {
+                                        return (
+                                            <span key={tag}>
+                                                {tag}
+                                            </span>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </section>
             </div>
-        </div>
-    </main>
-);
+        </main>
+    );
 }
 
 export default DishDetails;
