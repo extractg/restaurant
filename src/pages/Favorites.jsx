@@ -1,13 +1,39 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import ProductCard from "../components/ProductCard.jsx";
+
 import "../css/pages/favorites.css";
 
 function Favorites({ favorites, toggleFavorite, allProducts }) {
     const [searchTerm, setSearchTerm] = useState("");
     const [sortType, setSortType] = useState("default");
+    const [isSortOpen, setIsSortOpen] = useState(false);
 
     const navigate = useNavigate();
+
+    const sortOptions = [
+        {
+            value: "default",
+            label: "Default",
+        },
+        {
+            value: "name",
+            label: "Name A-Z",
+        },
+        {
+            value: "price-low",
+            label: "Price: Low to High",
+        },
+        {
+            value: "price-high",
+            label: "Price: High to Low",
+        },
+    ];
+
+    const selectedSort = sortOptions.find((option) => {
+        return option.value === sortType;
+    });
 
     const favoriteProducts = allProducts.filter((product) => {
         return favorites.includes(product.id);
@@ -65,7 +91,10 @@ function Favorites({ favorites, toggleFavorite, allProducts }) {
 
                         <div className="favorites__hero-meta">
                             <span className="favorites__hero-number">
-                                {String(favoriteProducts.length).padStart(2, "0")}
+                                {String(favoriteProducts.length).padStart(
+                                    2,
+                                    "0",
+                                )}
                             </span>
 
                             <div className="favorites__hero-meta-content">
@@ -217,29 +246,73 @@ function Favorites({ favorites, toggleFavorite, allProducts }) {
                                         Sort By
                                     </span>
 
-                                    <select
-                                        className="favorites__sort"
-                                        value={sortType}
-                                        onChange={(event) =>
-                                            setSortType(event.target.value)
-                                        }
+                                    <div
+                                        className={`favorites__sort-dropdown ${
+                                            isSortOpen ? "active" : ""
+                                        }`}
                                     >
-                                        <option value="default">
-                                            Default
-                                        </option>
+                                        <button
+                                            className="favorites__sort"
+                                            type="button"
+                                            aria-haspopup="listbox"
+                                            aria-expanded={isSortOpen}
+                                            onClick={() =>
+                                                setIsSortOpen(!isSortOpen)
+                                            }
+                                        >
+                                            <span>
+                                                {selectedSort?.label ??
+                                                    "Default"}
+                                            </span>
 
-                                        <option value="name">
-                                            Name A-Z
-                                        </option>
+                                            <i className="fa-solid fa-chevron-down"></i>
+                                        </button>
 
-                                        <option value="price-low">
-                                            Price: Low to High
-                                        </option>
+                                        {isSortOpen && (
+                                            <div
+                                                className="favorites__sort-menu"
+                                                role="listbox"
+                                            >
+                                                {sortOptions.map((option) => {
+                                                    const isSelected =
+                                                        sortType ===
+                                                        option.value;
 
-                                        <option value="price-high">
-                                            Price: High to Low
-                                        </option>
-                                    </select>
+                                                    return (
+                                                        <button
+                                                            key={option.value}
+                                                            className={`favorites__sort-option ${
+                                                                isSelected
+                                                                    ? "active"
+                                                                    : ""
+                                                            }`}
+                                                            type="button"
+                                                            role="option"
+                                                            aria-selected={
+                                                                isSelected
+                                                            }
+                                                            onClick={() => {
+                                                                setSortType(
+                                                                    option.value,
+                                                                );
+                                                                setIsSortOpen(
+                                                                    false,
+                                                                );
+                                                            }}
+                                                        >
+                                                            <span>
+                                                                {option.label}
+                                                            </span>
+
+                                                            {isSelected && (
+                                                                <i className="fa-solid fa-check"></i>
+                                                            )}
+                                                        </button>
+                                                    );
+                                                })}
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
 
