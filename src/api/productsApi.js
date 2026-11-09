@@ -2,7 +2,18 @@ export async function getProducts(category) {
     const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
 
     const response = await fetch(url);
+
+    if (!response.ok) {
+        throw new Error(
+            `Failed to load ${category} products: ${response.status}`
+        );
+    }
+
     const data = await response.json();
+
+    if (!data.meals) {
+        return [];
+    }
 
     const filteredMeals = data.meals.filter((meal) => {
         return !excludedMealIds.includes(meal.idMeal);
@@ -25,14 +36,24 @@ export async function getProducts(category) {
 
     return products;
 }
+
 export async function getProductById(id) {
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`;
 
     const response = await fetch(url);
+
     if (!response.ok) {
-    throw new Error("Failed to load product")
+        throw new Error(
+            `Failed to load product: ${response.status}`
+        );
     }
+
     const data = await response.json();
+
+    if (!data.meals || data.meals.length === 0) {
+        throw new Error("Product not found");
+    }
+
     return data;
 }
 
@@ -46,5 +67,5 @@ const excludedMealIds = [
     "53276",
     "53406",
     "53522",
-    "53281"
+    "53281",
 ];
