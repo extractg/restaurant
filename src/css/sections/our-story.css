@@ -1,8 +1,8 @@
 .our-story {
     position: relative;
     padding: clamp(90px, 8vw, 140px) 0;
-    background: var(--color-bg);
     overflow: hidden;
+    background: var(--color-bg);
 }
 
 .our-story__intro {
@@ -55,15 +55,15 @@
     bottom: 0;
     width: 42%;
     aspect-ratio: 1 / 1.16;
-    border: 6px solid var(--color-bg);
     overflow: hidden;
+    border: 6px solid var(--color-bg);
     box-shadow: 0 24px 50px rgba(0, 0, 0, 0.26);
 }
 
 .our-story__year {
     position: absolute;
-    left: 18px;
     bottom: 10px;
+    left: 18px;
     color: rgba(208, 173, 138, 0.62);
     font-family: "Jost", sans-serif;
     font-size: 0.66rem;
@@ -122,8 +122,8 @@
 
 .our-story__meta {
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
+    align-items: center;
     gap: 13px;
     margin-top: 24px;
     color: rgba(208, 173, 138, 0.7);
@@ -136,6 +136,7 @@
 .our-story__meta-dot {
     width: 5px;
     height: 5px;
+    flex-shrink: 0;
     background: var(--color-accent);
     transform: rotate(45deg);
 }
@@ -218,7 +219,7 @@
         rgba(184, 148, 115, 0.06) 90%,
         transparent 100%
     );
-    will-change: top;
+    pointer-events: none;
 }
 
 .our-story__timeline-light::before {
@@ -244,7 +245,6 @@
     aspect-ratio: 1.05;
     overflow: hidden;
     box-shadow: 0 22px 55px rgba(0, 0, 0, 0.12);
-    will-change: transform, opacity;
 }
 
 .our-story__chapter-image::before {
@@ -286,7 +286,6 @@
     align-self: center;
     width: 100%;
     max-width: 520px;
-    will-change: transform, opacity;
 }
 
 .our-story__chapter-year {
@@ -341,10 +340,6 @@
         padding-bottom: 38px;
     }
 
-    .our-story__image-main {
-        width: 88%;
-    }
-
     .our-story__image-small {
         width: 40%;
         border-width: 5px;
@@ -394,66 +389,6 @@
 
     .our-story__chapter-text {
         font-size: 0.9rem;
-    }
-}
-
-@media (min-width: 421px) and (max-width: 599px) {
-    .our-story__intro {
-        padding-inline: 22px;
-    }
-
-    .our-story__visual {
-        width: 86%;
-        max-width: 410px;
-    }
-
-    .our-story__chapter {
-        padding-right: 22px;
-        padding-left: 42px;
-    }
-
-    .our-story__chapter-image {
-        width: 84%;
-        max-width: 380px;
-    }
-}
-
-@media (min-width: 600px) and (max-width: 767px) {
-    .our-story__intro {
-        padding-inline: 28px;
-    }
-
-    .our-story__visual {
-        width: 82%;
-        max-width: 480px;
-    }
-
-    .our-story__chapter {
-        padding-right: 28px;
-        padding-left: 46px;
-    }
-
-    .our-story__chapter-image {
-        width: 82%;
-        max-width: 440px;
-    }
-}
-
-@media (max-width: 767px) {
-    .our-story {
-        padding: 90px 0 100px;
-    }
-
-    .our-story__year {
-        display: none;
-    }
-
-    .our-story__timeline-inner {
-        padding-top: 60px;
-    }
-
-    .our-story__chapter {
-        padding-bottom: 100px;
     }
 }
 
@@ -575,18 +510,12 @@
         padding: 0 0 150px;
     }
 
-    .our-story__chapter:last-child {
-        padding-bottom: 0;
-    }
-
-    .our-story__chapter--reverse
-        .our-story__chapter-image {
+    .our-story__chapter--reverse .our-story__chapter-image {
         grid-column: 2;
         justify-self: end;
     }
 
-    .our-story__chapter--reverse
-        .our-story__chapter-content {
+    .our-story__chapter--reverse .our-story__chapter-content {
         grid-column: 1;
         grid-row: 1;
         justify-self: end;
@@ -640,71 +569,7 @@
         padding-bottom: 170px;
     }
 
-    .our-story__chapter-image {
-        width: 88%;
-    }
-
     .our-story__chapter-title {
         font-size: 3.45rem;
-    }
-}
-
-@media (min-width: 1600px) {
-    .our-story {
-        padding: 135px 0 150px;
-    }
-
-    .our-story__intro {
-        min-height: 690px;
-    }
-
-    .our-story__visual {
-        max-width: 650px;
-    }
-
-    .our-story__title {
-        font-size: 5rem;
-    }
-
-    .our-story__text {
-        max-width: 600px;
-        font-size: 1.05rem;
-        line-height: 1.9;
-    }
-
-    .our-story__timeline-inner {
-        padding-top: 135px;
-    }
-
-    .our-story__timeline-line {
-        bottom: 360px;
-    }
-
-    .our-story__timeline-light {
-        height: 250px;
-    }
-
-    .our-story__chapter {
-        min-height: 720px;
-        padding-bottom: 185px;
-    }
-
-    .our-story__chapter-content {
-        max-width: 550px;
-    }
-
-    .our-story__chapter-title {
-        font-size: 3.75rem;
-    }
-
-    .our-story__chapter-text {
-        font-size: 1.04rem;
-    }
-}
-
-@media (max-width: 991px) {
-    .our-story__timeline-line {
-        top: 0;
-        bottom: 20px;
     }
 }

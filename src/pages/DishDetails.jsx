@@ -28,6 +28,7 @@ function DishDetails() {
     const [product, setProduct] = useState(null);
     const [error, setError] = useState(null);
     const [showAllIngredients, setShowAllIngredients] = useState(false);
+    const [showFullPreparation, setShowFullPreparation] = useState(false);
 
     useEffect(() => {
         async function loadProduct() {
@@ -241,8 +242,36 @@ function DishDetails() {
                         </div>
                     </div>
 
-                    <div className="dish-details__preparation-text">
+                    <div
+                        className={
+                            showFullPreparation
+                                ? "dish-details__preparation-text is-expanded"
+                                : "dish-details__preparation-text"
+                        }
+                    >
                         <p>{product.strInstructions}</p>
+
+                        <button
+                            className="dish-details__preparation-toggle"
+                            type="button"
+                            onClick={() =>
+                                setShowFullPreparation(!showFullPreparation)
+                            }
+                        >
+                            <span className="dish-details__toggle-line"></span>
+
+                            <span className="dish-details__toggle-text">
+                                {showFullPreparation
+                                    ? "Show Less"
+                                    : "Read Full Preparation"}
+                            </span>
+
+                            <span className="dish-details__toggle-icon">
+                                {showFullPreparation ? "−" : "+"}
+                            </span>
+
+                            <span className="dish-details__toggle-line"></span>
+                        </button>
                     </div>
                 </section>
 
