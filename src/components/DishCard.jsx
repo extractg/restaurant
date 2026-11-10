@@ -1,25 +1,38 @@
-const DishCard = (props) => {
-  return (
-    <div className="specials__card">
-      <div className="specials__card-image">
-        <img
-          src={props.image}
-          alt={props.title}
-          className="specials__card-img"
-        />
-      </div>
+const DishCard = ({ image, title, description, number }) => {
+    return (
+        <article className="specials__card">
+            <div className="specials__card-image">
+                <img
+                    src={image}
+                    alt={title}
+                    className="specials__card-img"
+                    draggable="false"
+                />
 
-      <div className="specials__card-content">
-        <h3 className="specials__card-title">
-          {props.title}
-        </h3>
+                <span
+                    className="specials__card-number"
+                    aria-hidden="true"
+                >
+                    {number}
+                </span>
+            </div>
 
-        <p className="specials__card-text">
-          {props.description}
-        </p>
-      </div>
-    </div>
-  );
+            <div className="specials__card-content">
+                <h3 className="specials__card-title">
+                    {title}
+                </h3>
+
+                <p className="specials__card-text">
+                    {description}
+                </p>
+
+                <span
+                    className="specials__card-line"
+                    aria-hidden="true"
+                ></span>
+            </div>
+        </article>
+    );
 };
 
-export default DishCard;  
+export default DishCard;
