@@ -1,16 +1,23 @@
+import { useEffect, useRef } from "react";
+
 import DishCard from "./DishCard";
 
 import ribeyeSteak from "../assets/images/Ribeye_Steak.png";
 import Truffle_Mushroom from "../assets/images/Truffle_Mushroom.png";
 import Pan_Seared_Salmon from "../assets/images/Pan_Seared_Salmon.png";
 import Burrata_Heirloom from "../assets/images/Burrata_ Heirloom.png";
+
+import Duck_Breast from "../assets/images/Roasted_Duck.png";
+import Seared_Scallops from "../assets/images/Seared_Scallops.png";
+import Wild_Mushroom_Risotto from "../assets/images/Wild_Mushroom_Risotto.png";
+import Chocolate_Fondant from "../assets/images/Chocolate_Fondant.png";
+
 import restaurantPhoto from "../assets/images/restaurant_photo.png";
 import restaurantInside from "../assets/images/restaurant_inside.png";
 
 import { motion } from "motion/react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
 
 import "swiper/css";
 
@@ -47,7 +54,59 @@ const dishes = [
             "Creamy Italian burrata cheese paired with sweet heirloom tomatoes, fresh basil leaves, and finished with a balsamic glaze.",
         image: Burrata_Heirloom,
     },
+    {
+        id: 5,
+        number: "05",
+        title: "Duck Breast with Cherry Jus",
+        description:
+            "Tender duck breast served with a rich cherry jus, silky root vegetable purée, and delicate seasonal herbs.",
+        image: Duck_Breast,
+    },
+    {
+        id: 6,
+        number: "06",
+        title: "Seared Scallops",
+        description:
+            "Golden seared scallops paired with cauliflower purée, brown butter, fresh herbs, and a bright citrus finish.",
+        image: Seared_Scallops,
+    },
+    {
+        id: 7,
+        number: "07",
+        title: "Wild Mushroom Risotto",
+        description:
+            "Creamy Arborio rice with wild mushrooms, aged Parmesan, fresh thyme, and a delicate touch of truffle.",
+        image: Wild_Mushroom_Risotto,
+    },
+    {
+        id: 8,
+        number: "08",
+        title: "Chocolate Fondant",
+        description:
+            "Warm dark chocolate fondant with a molten center, complemented by vanilla cream and seasonal berries.",
+        image: Chocolate_Fondant,
+    },
 ];
+
+const repeatedDishes = [
+    ...dishes.map((dish) => ({
+        ...dish,
+        copy: 0,
+    })),
+
+    ...dishes.map((dish) => ({
+        ...dish,
+        copy: 1,
+    })),
+
+    ...dishes.map((dish) => ({
+        ...dish,
+        copy: 2,
+    })),
+];
+
+const DISHES_COUNT = dishes.length;
+const START_INDEX = DISHES_COUNT;
 
 const viewport = {
     once: true,
@@ -125,6 +184,81 @@ const contentReveal = {
 };
 
 const Specials = () => {
+    const swiperRef = useRef(null);
+    const autoplayTimerRef = useRef(null);
+    const resumeTimerRef = useRef(null);
+
+    const stopAutoplay = () => {
+        if (autoplayTimerRef.current) {
+            clearInterval(autoplayTimerRef.current);
+            autoplayTimerRef.current = null;
+        }
+    };
+
+    const startAutoplay = () => {
+        stopAutoplay();
+
+        autoplayTimerRef.current = setInterval(() => {
+            const swiper = swiperRef.current;
+
+            if (!swiper || swiper.destroyed) {
+                return;
+            }
+
+            swiper.slideNext(700);
+        }, 3800);
+    };
+
+    const restartAutoplayLater = () => {
+        stopAutoplay();
+
+        if (resumeTimerRef.current) {
+            clearTimeout(resumeTimerRef.current);
+        }
+
+        resumeTimerRef.current = setTimeout(() => {
+            startAutoplay();
+        }, 1800);
+    };
+
+    const normalizeSliderPosition = (swiper) => {
+        if (!swiper || swiper.destroyed) {
+            return;
+        }
+
+        const currentIndex = swiper.activeIndex;
+
+        if (currentIndex < DISHES_COUNT) {
+            swiper.slideTo(
+                currentIndex + DISHES_COUNT,
+                0,
+                false
+            );
+
+            return;
+        }
+
+        if (currentIndex >= DISHES_COUNT * 2) {
+            swiper.slideTo(
+                currentIndex - DISHES_COUNT,
+                0,
+                false
+            );
+        }
+    };
+
+    useEffect(() => {
+        startAutoplay();
+
+        return () => {
+            stopAutoplay();
+
+            if (resumeTimerRef.current) {
+                clearTimeout(resumeTimerRef.current);
+            }
+        };
+    }, []);
+
     return (
         <section
             className="specials"
@@ -163,44 +297,63 @@ const Specials = () => {
                     >
                         <Swiper
                             className="specials__cards"
-                            modules={[Autoplay]}
-                            slidesPerView={1.12}
-                            spaceBetween={18}
-                            centeredSlides={false}
-                            loop={true}
-                            speed={750}
+                            initialSlide={START_INDEX}
+                            slidesPerView={1.22}
+                            spaceBetween={16}
+                            centeredSlides={true}
+                            speed={700}
                             grabCursor={true}
+                            followFinger={true}
+                            threshold={4}
+                            touchRatio={1}
+                            resistance={false}
                             watchSlidesProgress={true}
-                            autoplay={{
-                                delay: 3800,
-                                disableOnInteraction: false,
-                                pauseOnMouseEnter: true,
+                            observer={true}
+                            observeParents={true}
+                            onSwiper={(swiper) => {
+                                swiperRef.current = swiper;
+                            }}
+                            onTouchStart={() => {
+                                stopAutoplay();
+                            }}
+                            onSliderFirstMove={() => {
+                                stopAutoplay();
+                            }}
+                            onTouchEnd={() => {
+                                restartAutoplayLater();
+                            }}
+                            onTransitionEnd={(swiper) => {
+                                normalizeSliderPosition(swiper);
                             }}
                             breakpoints={{
                                 480: {
                                     slidesPerView: 1.35,
                                     spaceBetween: 20,
+                                    centeredSlides: true,
                                 },
 
                                 768: {
-                                    slidesPerView: 2,
-                                    spaceBetween: 26,
+                                    slidesPerView: 2.2,
+                                    spaceBetween: 24,
+                                    centeredSlides: true,
                                 },
 
                                 992: {
-                                    slidesPerView: 2.5,
-                                    spaceBetween: 30,
+                                    slidesPerView: 2.6,
+                                    spaceBetween: 28,
+                                    centeredSlides: true,
                                 },
 
                                 1200: {
                                     slidesPerView: 3,
-                                    spaceBetween: 34,
+                                    spaceBetween: 30,
+                                    centeredSlides: false,
                                 },
                             }}
                         >
-                            {dishes.map((dish) => (
+                            {repeatedDishes.map((dish) => (
                                 <SwiperSlide
-                                    key={dish.id}
+                                    key={`${dish.copy}-${dish.id}`}
                                     className="specials__item"
                                 >
                                     <DishCard

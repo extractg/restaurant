@@ -72,7 +72,7 @@
     position: relative;
     width: 100%;
     margin-top: 8px;
-    padding: 20px 16px 34px;
+    padding: 16px 14px 28px;
     overflow: hidden;
 }
 
@@ -83,7 +83,7 @@
     top: 0;
     bottom: 0;
     z-index: 10;
-    width: 16px;
+    width: 14px;
     pointer-events: none;
 }
 
@@ -92,7 +92,7 @@
     background: linear-gradient(
         90deg,
         var(--color-bg) 0%,
-        rgba(15, 14, 13, 0.75) 35%,
+        rgba(15, 14, 13, 0.65) 35%,
         transparent 100%
     );
 }
@@ -102,20 +102,23 @@
     background: linear-gradient(
         270deg,
         var(--color-bg) 0%,
-        rgba(15, 14, 13, 0.75) 35%,
+        rgba(15, 14, 13, 0.65) 35%,
         transparent 100%
     );
 }
 
 .specials__cards .swiper-wrapper {
     align-items: stretch;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .specials__item {
     display: flex;
-    width: min(82vw, 310px);
     height: auto;
-    padding-block: 5px;
+    padding-block: 4px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .specials__card {
@@ -123,7 +126,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 440px;
+    height: 410px;
     overflow: hidden;
     border: 1px solid rgba(184, 148, 115, 0.24);
     border-radius: 3px;
@@ -137,8 +140,10 @@
     cursor: grab;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     box-shadow:
-        0 18px 42px rgba(0, 0, 0, 0.16),
+        0 16px 36px rgba(0, 0, 0, 0.16),
         inset 0 1px 0 rgba(255, 255, 255, 0.015);
     transition:
         border-color 0.3s ease,
@@ -151,11 +156,14 @@
 
 .specials__card-image {
     position: relative;
-    flex: 0 0 58%;
+    flex: 0 0 57%;
     width: 100%;
-    height: 58%;
+    height: 57%;
     overflow: hidden;
     background-color: var(--color-bg-deep);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .specials__card-image::before {
@@ -163,13 +171,12 @@
     position: absolute;
     inset: 0;
     z-index: 1;
-    background:
-        linear-gradient(
-            180deg,
-            rgba(12, 11, 10, 0.02) 0%,
-            transparent 45%,
-            rgba(12, 11, 10, 0.52) 100%
-        );
+    background: linear-gradient(
+        180deg,
+        rgba(12, 11, 10, 0.02) 0%,
+        transparent 45%,
+        rgba(12, 11, 10, 0.48) 100%
+    );
     pointer-events: none;
 }
 
@@ -196,25 +203,23 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
-    backface-visibility: hidden;
-    transform: translateZ(0);
     pointer-events: none;
-    transition:
-        transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-        filter 0.35s ease;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    image-rendering: auto;
 }
 
 .specials__card-number {
     position: absolute;
-    right: 16px;
-    bottom: 14px;
+    right: 15px;
+    bottom: 13px;
     z-index: 3;
     display: flex;
     align-items: center;
     gap: 8px;
     color: var(--color-accent-light);
     font-family: "Jost", sans-serif;
-    font-size: 0.65rem;
+    font-size: 0.63rem;
     font-weight: 500;
     line-height: 1;
     letter-spacing: 0.18em;
@@ -235,9 +240,9 @@
     flex: 1;
     flex-direction: column;
     align-items: flex-start;
-    gap: 11px;
+    gap: 10px;
     width: 100%;
-    padding: 20px 21px 22px;
+    padding: 18px 19px 20px;
     text-align: left;
 }
 
@@ -245,7 +250,7 @@
     width: 100%;
     margin: 0;
     color: var(--color-title);
-    font-size: clamp(1.08rem, 4vw, 1.22rem);
+    font-size: clamp(1rem, 4vw, 1.18rem);
     font-weight: 500;
     line-height: 1.25;
     letter-spacing: 0.01em;
@@ -258,7 +263,7 @@
     margin: 0;
     overflow: hidden;
     color: var(--color-text);
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     line-height: 1.65;
     opacity: 0.66;
     -webkit-box-orient: vertical;
@@ -283,6 +288,7 @@
     align-items: center;
     justify-content: flex-end;
     gap: 11px;
+    margin-top: 32px;
     padding: 0 18px;
     color: var(--color-muted);
     font-size: 0.62rem;
@@ -398,7 +404,6 @@
     background-color: var(--color-bg-soft);
     box-shadow: 10px 14px 22px -10px rgba(0, 0, 0, 0.42);
     transform: rotate(1.5deg);
-    backface-visibility: hidden;
     transition:
         border-color 0.3s ease,
         box-shadow 0.3s ease;
@@ -513,11 +518,6 @@
             inset 0 1px 0 rgba(255, 255, 255, 0.025);
     }
 
-    .specials__card:hover .specials__card-img {
-        transform: translateZ(0) scale(1.025);
-        filter: brightness(0.92);
-    }
-
     .specials__card:hover .specials__card-title {
         color: var(--color-accent-light);
     }
@@ -534,12 +534,12 @@
 }
 
 @media (min-width: 480px) {
-    .specials__item {
-        width: 320px;
+    .specials__card {
+        height: 430px;
     }
 
-    .specials__card {
-        height: 450px;
+    .specials__card-content {
+        padding: 20px 21px 22px;
     }
 }
 
@@ -564,36 +564,33 @@
 
     .specials__cards {
         margin-top: 18px;
-        padding: 24px 20px 38px;
+        padding: 22px 20px 34px;
     }
 
     .specials__cards::before,
     .specials__cards::after {
-        width: 30px;
-    }
-
-    .specials__item {
-        width: 330px;
+        width: 26px;
     }
 
     .specials__card {
-        height: 460px;
+        height: 450px;
     }
 
     .specials__card-content {
         gap: 12px;
-        padding: 22px 23px 24px;
+        padding: 21px 22px 23px;
     }
 
     .specials__card-title {
-        font-size: 1.2rem;
+        font-size: 1.18rem;
     }
 
     .specials__card-text {
-        font-size: 0.84rem;
+        font-size: 0.83rem;
     }
 
     .specials__slider-hint {
+        margin-top: 36px;
         padding: 0 22px;
     }
 
@@ -682,30 +679,32 @@
 
     .specials__cards {
         margin-top: 24px;
-        padding-top: 26px;
-        padding-bottom: 40px;
+        padding: 24px 24px 36px;
     }
 
     .specials__cards::before,
     .specials__cards::after {
-        width: 42px;
-    }
-
-    .specials__item {
-        width: 350px;
+        width: 34px;
     }
 
     .specials__card {
-        height: 475px;
+        height: 460px;
     }
 
     .specials__card-content {
-        padding: 23px 24px 25px;
+        padding: 22px 23px 24px;
+    }
+
+    .specials__slider-hint {
+        margin-top: 40px;
+        padding: 0 26px;
     }
 
     .specials__bottom {
         display: grid;
-        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        grid-template-columns:
+            minmax(0, 1.05fr)
+            minmax(0, 0.95fr);
         align-items: center;
         gap: 90px;
         padding: 30px 40px 40px;
@@ -794,42 +793,41 @@
 
     .specials__cards {
         margin-top: 28px;
-        padding: 28px 30px 42px;
+        padding: 26px 28px 38px;
     }
 
     .specials__cards::before,
     .specials__cards::after {
-        width: 54px;
-    }
-
-    .specials__item {
-        width: 365px;
+        width: 42px;
     }
 
     .specials__card {
-        height: 490px;
+        height: 475px;
     }
 
     .specials__card-content {
         gap: 13px;
-        padding: 25px 26px 27px;
+        padding: 23px 24px 25px;
     }
 
     .specials__card-title {
-        font-size: 1.25rem;
+        font-size: 1.22rem;
     }
 
     .specials__card-text {
-        font-size: 0.87rem;
+        font-size: 0.85rem;
         line-height: 1.7;
     }
 
     .specials__slider-hint {
-        padding: 0 32px;
+        margin-top: 44px;
+        padding: 0 30px;
     }
 
     .specials__bottom {
-        grid-template-columns: minmax(0, 1.08fr) minmax(420px, 0.92fr);
+        grid-template-columns:
+            minmax(0, 1.08fr)
+            minmax(420px, 0.92fr);
         gap: clamp(110px, 10vw, 140px);
         max-width: 1320px;
         margin-right: auto;
@@ -914,7 +912,6 @@
     }
 
     .specials__card,
-    .specials__card-img,
     .specials__card-title,
     .specials__card-line,
     .specials__bottom-small-img {
