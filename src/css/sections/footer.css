@@ -199,9 +199,7 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     -webkit-tap-highlight-color: transparent;
-    transition:
-        color 0.2s ease,
-        gap 0.2s ease;
+    transition: color 0.2s ease;
 }
 
 .footer__reservation-link span {
@@ -284,12 +282,19 @@
 
 @media (max-width: 455px) {
     .footer__inner {
-        column-gap: 18px;
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+        column-gap: 16px;
+    }
+
+    .footer__hours {
+        width: 100%;
+        max-width: none;
     }
 
     .footer__hours-item {
-        grid-template-columns: 72px minmax(0, auto);
+        grid-template-columns: minmax(58px, 1fr) auto;
         column-gap: 8px;
+        width: 100%;
     }
 
     .footer__hours-day,
@@ -297,6 +302,10 @@
     .footer__link,
     .footer__location {
         font-size: 0.8rem;
+    }
+
+    .footer__hours-time {
+        justify-self: end;
     }
 }
 

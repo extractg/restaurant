@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+
 import {
     motion,
     useScroll,
@@ -31,7 +32,8 @@ const storyChapters = [
         title: "Food With a Purpose",
         text: "Our approach is rooted in European cuisine, seasonal ingredients, and respect for simplicity. Every dish is designed to feel familiar yet refined, allowing quality ingredients and carefully balanced flavours to remain at the centre.",
         image: restaurantKitchen,
-        imageAlt: "Fresh ingredients, herbs and spices used in Deliciora cuisine",
+        imageAlt:
+            "Fresh ingredients, herbs and spices used in Deliciora cuisine",
     },
     {
         id: 3,
@@ -45,11 +47,8 @@ const storyChapters = [
     },
 ];
 
-    const StoryChapter = ({
-        chapter,
-        index,
-    }) => {
-        const chapterRef = useRef(null);
+const StoryChapter = ({ chapter, index }) => {
+    const chapterRef = useRef(null);
 
     const { scrollYProgress } = useScroll({
         target: chapterRef,
@@ -92,57 +91,58 @@ const storyChapters = [
         [0, 0.5, 1],
         [28, 0, -14],
     );
+
     return (
-    <article
-        ref={chapterRef}
-        className={`our-story__chapter ${
-            index % 2 !== 0
-                ? "our-story__chapter--reverse"
-                : ""
-        }`}
-    >
-        <motion.div
-            className="our-story__chapter-image"
-            style={{
-                opacity: imageOpacity,
-                y: imageY,
-                scale: imageScale,
-            }}
+        <article
+            ref={chapterRef}
+            className={`our-story__chapter ${
+                index % 2 !== 0
+                    ? "our-story__chapter--reverse"
+                    : ""
+            }`}
         >
-            <img
-                src={chapter.image}
-                alt={chapter.imageAlt}
-            />
+            <motion.div
+                className="our-story__chapter-image"
+                style={{
+                    opacity: imageOpacity,
+                    y: imageY,
+                    scale: imageScale,
+                }}
+            >
+                <img
+                    src={chapter.image}
+                    alt={chapter.imageAlt}
+                />
 
-            <span className="our-story__chapter-number">
-                {chapter.number}
-            </span>
-        </motion.div>
+                <span className="our-story__chapter-number">
+                    {chapter.number}
+                </span>
+            </motion.div>
 
-        <motion.div
-            className="our-story__chapter-content"
-            style={{
-                opacity: contentOpacity,
-                y: contentY,
-            }}
-        >
-            <span className="our-story__chapter-year">
-                {chapter.year}
-            </span>
+            <motion.div
+                className="our-story__chapter-content"
+                style={{
+                    opacity: contentOpacity,
+                    y: contentY,
+                }}
+            >
+                <span className="our-story__chapter-year">
+                    {chapter.year}
+                </span>
 
-            <span className="our-story__chapter-label">
-                {chapter.label}
-            </span>
+                <span className="our-story__chapter-label">
+                    {chapter.label}
+                </span>
 
-            <h3 className="our-story__chapter-title">
-                {chapter.title}
-            </h3>
+                <h3 className="our-story__chapter-title">
+                    {chapter.title}
+                </h3>
 
-            <p className="our-story__chapter-text">
-                {chapter.text}
-            </p>
-        </motion.div>
-    </article>
+                <p className="our-story__chapter-text">
+                    {chapter.text}
+                </p>
+            </motion.div>
+        </article>
     );
 };
 
@@ -162,13 +162,12 @@ const OurStory = () => {
         mass: 0.35,
         restDelta: 0.001,
     });
+
     const timelineLightPosition = useTransform(
         smoothTimelineProgress,
         [0, 0.88, 1],
         ["0%", "95%", "95%"],
     );
-
-
 
     const toggleStory = () => {
         setStoryOpen((current) => !current);
@@ -181,7 +180,27 @@ const OurStory = () => {
         >
             <div className="container">
                 <div className="our-story__intro">
-                    <div className="our-story__visual">
+                    <motion.div
+                        className="our-story__visual"
+                        initial={{
+                            opacity: 0,
+                            x: -30,
+                            scale: 0.98,
+                        }}
+                        whileInView={{
+                            opacity: 1,
+                            x: 0,
+                            scale: 1,
+                        }}
+                        viewport={{
+                            once: true,
+                            amount: 0.25,
+                        }}
+                        transition={{
+                            duration: 0.9,
+                            ease: [0.22, 1, 0.36, 1],
+                        }}
+                    >
                         <div className="our-story__image-main">
                             <img
                                 src={restaurantPhoto}
@@ -199,15 +218,35 @@ const OurStory = () => {
                         <span className="our-story__year">
                             EST. 2018
                         </span>
-                    </div>
+                    </motion.div>
 
-                    <div className="our-story__content">
+                    <motion.div
+                        className="our-story__content"
+                        initial={{
+                            opacity: 0,
+                            x: 30,
+                        }}
+                        whileInView={{
+                            opacity: 1,
+                            x: 0,
+                        }}
+                        viewport={{
+                            once: true,
+                            amount: 0.25,
+                        }}
+                        transition={{
+                            duration: 0.8,
+                            delay: 0.08,
+                            ease: [0.22, 1, 0.36, 1],
+                        }}
+                    >
                         <span className="our-story__label">
                             Our Story
                         </span>
 
                         <h2 className="our-story__title">
                             More Than a Restaurant.
+
                             <span>
                                 A Story Built Around the Table.
                             </span>
@@ -240,7 +279,7 @@ const OurStory = () => {
                                 ? "Close Story"
                                 : "Discover Our Story"}
                         </button>
-                    </div>
+                    </motion.div>
                 </div>
 
                 <motion.div
@@ -264,10 +303,12 @@ const OurStory = () => {
                             duration: 0.75,
                             ease: [0.22, 1, 0.36, 1],
                         },
+
                         opacity: {
                             duration: storyOpen ? 0.55 : 0.3,
                             delay: storyOpen ? 0.12 : 0,
                         },
+
                         marginTop: {
                             duration: 0.75,
                             ease: [0.22, 1, 0.36, 1],
@@ -278,17 +319,17 @@ const OurStory = () => {
                         ref={timelineRef}
                         className="our-story__timeline-inner"
                     >
-                    <div
-                        className="our-story__timeline-line"
-                        aria-hidden="true"
-                    >
-                        <motion.span
-                            className="our-story__timeline-light"
-                            style={{
-                                top: timelineLightPosition,
-                            }}
-                        ></motion.span>
-                    </div>
+                        <div
+                            className="our-story__timeline-line"
+                            aria-hidden="true"
+                        >
+                            <motion.span
+                                className="our-story__timeline-light"
+                                style={{
+                                    top: timelineLightPosition,
+                                }}
+                            ></motion.span>
+                        </div>
 
                         <div className="our-story__chapters">
                             {storyChapters.map(

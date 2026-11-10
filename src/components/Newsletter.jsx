@@ -1,42 +1,104 @@
-const Newsletter = () =>{
-    return(
-<section className="newsletter">
-  <div className="container">
-    <div className="newsletter__inner" data-aos="fade-up">
-      <div className="newsletter__content">
-        <span className="newsletter__label">Stay Connected</span>
+import { motion } from "motion/react";
 
-        <h2 className="newsletter__title">
-          A Taste of Deliciora,<br />
-          Delivered to You
-        </h2>
+const newsletterReveal = {
+    hidden: {},
 
-        <p className="newsletter__text">
-          Be the first to discover seasonal menus, private dining events,
-          and special evenings at Deliciora.
-        </p>
+    visible: {
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.08,
+        },
+    },
+};
 
-        <form className="newsletter__form">
-          <input
-            type="email"
-            className="newsletter__input"
-            placeholder="Your email address"
-            aria-label="Email address"
-            required
-          />
+const itemReveal = {
+    hidden: {
+        opacity: 0,
+        y: 20,
+    },
 
-          <button type="submit" className="newsletter__button">
-            Join the List
-          </button>
-        </form>
+    visible: {
+        opacity: 1,
+        y: 0,
 
-        <span className="newsletter__note">
-          No spam. Only something worth opening.
-        </span>
-      </div>
-    </div>
-  </div>
-</section>
+        transition: {
+            duration: 0.65,
+            ease: [0.22, 1, 0.36, 1],
+        },
+    },
+};
+
+const Newsletter = () => {
+    return (
+        <section className="newsletter">
+            <div className="container">
+                <motion.div
+                    className="newsletter__inner"
+                    variants={newsletterReveal}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{
+                        once: true,
+                        amount: 0.45,
+                    }}
+                >
+                    <div className="newsletter__content">
+                        <motion.span
+                            className="newsletter__label"
+                            variants={itemReveal}
+                        >
+                            Stay Connected
+                        </motion.span>
+
+                        <motion.h2
+                            className="newsletter__title"
+                            variants={itemReveal}
+                        >
+                            A Taste of Deliciora,
+                            <br />
+                            Delivered to You
+                        </motion.h2>
+
+                        <motion.p
+                            className="newsletter__text"
+                            variants={itemReveal}
+                        >
+                            Be the first to discover seasonal menus,
+                            private dining events, and special evenings
+                            at Deliciora.
+                        </motion.p>
+
+                        <motion.form
+                            className="newsletter__form"
+                            variants={itemReveal}
+                        >
+                            <input
+                                type="email"
+                                className="newsletter__input"
+                                placeholder="Your email address"
+                                aria-label="Email address"
+                                required
+                            />
+
+                            <button
+                                type="submit"
+                                className="newsletter__button"
+                            >
+                                Join the List
+                            </button>
+                        </motion.form>
+
+                        <motion.span
+                            className="newsletter__note"
+                            variants={itemReveal}
+                        >
+                            No spam. Only something worth opening.
+                        </motion.span>
+                    </div>
+                </motion.div>
+            </div>
+        </section>
     );
 };
-export default Newsletter
+
+export default Newsletter;
