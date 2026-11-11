@@ -205,7 +205,7 @@ const Specials = () => {
                 return;
             }
 
-            swiper.slideNext(700);
+            swiper.slideNext(600);
         }, 3800);
     };
 
@@ -248,13 +248,25 @@ const Specials = () => {
     };
 
     useEffect(() => {
-        startAutoplay();
+        autoplayTimerRef.current = setInterval(() => {
+            const swiper = swiperRef.current;
+
+            if (!swiper || swiper.destroyed) {
+                return;
+            }
+
+            swiper.slideNext(600);
+        }, 3800);
 
         return () => {
-            stopAutoplay();
+            if (autoplayTimerRef.current) {
+                clearInterval(autoplayTimerRef.current);
+                autoplayTimerRef.current = null;
+            }
 
             if (resumeTimerRef.current) {
                 clearTimeout(resumeTimerRef.current);
+                resumeTimerRef.current = null;
             }
         };
     }, []);
@@ -274,7 +286,7 @@ const Specials = () => {
                         viewport={viewport}
                     >
                         <span className="specials__label">
-                            Chef's Selection
+                            Chef&apos;s Selection
                         </span>
 
                         <h2 className="specials__title">
@@ -301,7 +313,7 @@ const Specials = () => {
                             slidesPerView={1.22}
                             spaceBetween={16}
                             centeredSlides={true}
-                            speed={700}
+                            speed={600}
                             grabCursor={true}
                             followFinger={true}
                             threshold={4}
