@@ -1,33 +1,39 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import ProductCard from "../components/ProductCard.jsx";
 
 import "../css/pages/favorites.css";
 
-function Favorites({ favorites, toggleFavorite, allProducts }) {
+function Favorites({
+    favorites,
+    toggleFavorite,
+    allProducts,
+}) {
+    const { t } = useTranslation();
+    const navigate = useNavigate();
+
     const [searchTerm, setSearchTerm] = useState("");
     const [sortType, setSortType] = useState("default");
     const [isSortOpen, setIsSortOpen] = useState(false);
 
-    const navigate = useNavigate();
-
     const sortOptions = [
         {
             value: "default",
-            label: "Default",
+            label: t("favorites.sort.default"),
         },
         {
             value: "name",
-            label: "Name A-Z",
+            label: t("favorites.sort.name"),
         },
         {
             value: "price-low",
-            label: "Price: Low to High",
+            label: t("favorites.sort.priceLow"),
         },
         {
             value: "price-high",
-            label: "Price: High to Low",
+            label: t("favorites.sort.priceHigh"),
         },
     ];
 
@@ -41,11 +47,13 @@ function Favorites({ favorites, toggleFavorite, allProducts }) {
 
     const featuredFavorite = favoriteProducts[0];
 
-    const searchedFavorites = favoriteProducts.filter((product) => {
-        return product.title
-            .toLowerCase()
-            .includes(searchTerm.toLowerCase());
-    });
+    const searchedFavorites = favoriteProducts.filter(
+        (product) => {
+            return product.title
+                .toLowerCase()
+                .includes(searchTerm.toLowerCase());
+        },
+    );
 
     const sortedFavorites = [...searchedFavorites];
 
@@ -67,6 +75,9 @@ function Favorites({ favorites, toggleFavorite, allProducts }) {
         });
     }
 
+    const featuredCategoryKey =
+        featuredFavorite?.category?.toLowerCase();
+
     return (
         <main className="favorites">
             <section className="favorites__hero">
@@ -74,39 +85,45 @@ function Favorites({ favorites, toggleFavorite, allProducts }) {
                     <div className="favorites__hero-inner">
                         <div className="favorites__header">
                             <span className="favorites__eyebrow">
-                                Your Collection
+                                {t("favorites.hero.eyebrow")}
                             </span>
 
                             <h1 className="favorites__title">
-                                Your Favorite
-                                <span>Dishes</span>
+                                {t("favorites.hero.title")}{" "}
+                                <span>
+                                    {t(
+                                        "favorites.hero.titleAccent",
+                                    )}
+                                </span>
                             </h1>
 
                             <p className="favorites__text">
-                                Keep the dishes worth coming back for. Your
-                                personal selection from the Deliciora menu,
-                                saved in one place and always ready to revisit.
+                                {t(
+                                    "favorites.hero.description",
+                                )}
                             </p>
                         </div>
 
                         <div className="favorites__hero-meta">
                             <span className="favorites__hero-number">
-                                {String(favoriteProducts.length).padStart(
-                                    2,
-                                    "0",
-                                )}
+                                {String(
+                                    favoriteProducts.length,
+                                ).padStart(2, "0")}
                             </span>
 
                             <div className="favorites__hero-meta-content">
                                 <span className="favorites__hero-meta-label">
-                                    Saved Dishes
+                                    {t(
+                                        "favorites.hero.savedDishes",
+                                    )}
                                 </span>
 
                                 <span className="favorites__hero-meta-line"></span>
 
                                 <p>
-                                    A personal collection curated by you,
-                                    one dish at a time.
+                                    {t(
+                                        "favorites.hero.metaDescription",
+                                    )}
                                 </p>
                             </div>
                         </div>
@@ -123,24 +140,33 @@ function Favorites({ favorites, toggleFavorite, allProducts }) {
                             </span>
 
                             <span className="favorites__label">
-                                Your Collection
+                                {t(
+                                    "favorites.empty.label",
+                                )}
                             </span>
 
                             <h2 className="favorites__empty-title">
-                                Your collection is empty
+                                {t(
+                                    "favorites.empty.title",
+                                )}
                             </h2>
 
                             <p className="favorites__empty-text">
-                                Save dishes from our menu and they will appear
-                                here for you to revisit whenever you like.
+                                {t(
+                                    "favorites.empty.description",
+                                )}
                             </p>
 
                             <button
                                 className="btn btn--primary"
                                 type="button"
-                                onClick={() => navigate("/products")}
+                                onClick={() =>
+                                    navigate("/products")
+                                }
                             >
-                                Explore Menu
+                                {t(
+                                    "favorites.empty.button",
+                                )}
                             </button>
                         </div>
                     </div>
@@ -151,40 +177,59 @@ function Favorites({ favorites, toggleFavorite, allProducts }) {
                         <div className="container">
                             <div className="favorites__featured-heading">
                                 <span className="favorites__label">
-                                    Featured Favorite
+                                    {t(
+                                        "favorites.featured.label",
+                                    )}
                                 </span>
 
                                 <h2 className="favorites__featured-title">
-                                    A Taste Worth Returning To
+                                    {t(
+                                        "favorites.featured.title",
+                                    )}
                                 </h2>
                             </div>
 
                             <div className="favorites__featured-card">
                                 <div className="favorites__featured-image">
                                     <img
-                                        src={featuredFavorite.image}
-                                        alt={featuredFavorite.title}
+                                        src={
+                                            featuredFavorite.image
+                                        }
+                                        alt={
+                                            featuredFavorite.title
+                                        }
                                     />
                                 </div>
 
                                 <div className="favorites__featured-content">
                                     <span className="favorites__featured-category">
-                                        {featuredFavorite.category}
+                                        {t(
+                                            `products.categories.${featuredCategoryKey}`,
+                                            {
+                                                defaultValue:
+                                                    featuredFavorite.category,
+                                            },
+                                        )}
                                     </span>
 
                                     <h3 className="favorites__featured-name">
-                                        {featuredFavorite.title}
+                                        {
+                                            featuredFavorite.title
+                                        }
                                     </h3>
 
                                     <p className="favorites__featured-text">
-                                        One of the dishes you chose to keep
-                                        close — a favorite from the Deliciora
-                                        menu ready to be rediscovered.
+                                        {t(
+                                            "favorites.featured.description",
+                                        )}
                                     </p>
 
                                     <div className="favorites__featured-bottom">
                                         <span className="favorites__featured-price">
-                                            €{featuredFavorite.price}
+                                            €
+                                            {
+                                                featuredFavorite.price
+                                            }
                                         </span>
 
                                         <button
@@ -196,8 +241,13 @@ function Favorites({ favorites, toggleFavorite, allProducts }) {
                                                 )
                                             }
                                         >
-                                            View Dish
-                                            <span>→</span>
+                                            {t(
+                                                "favorites.featured.viewDish",
+                                            )}
+
+                                            <span aria-hidden="true">
+                                                →
+                                            </span>
                                         </button>
                                     </div>
                                 </div>
@@ -210,20 +260,25 @@ function Favorites({ favorites, toggleFavorite, allProducts }) {
                             <div className="favorites__section-header">
                                 <div>
                                     <span className="favorites__label">
-                                        Your Selection
+                                        {t(
+                                            "favorites.collection.label",
+                                        )}
                                     </span>
 
                                     <h2 className="favorites__subtitle">
-                                        Saved for Later
+                                        {t(
+                                            "favorites.collection.title",
+                                        )}
                                     </h2>
                                 </div>
 
                                 <span className="favorites__count">
-                                    {String(favoriteProducts.length).padStart(
-                                        2,
-                                        "0",
-                                    )}{" "}
-                                    Dishes
+                                    {String(
+                                        favoriteProducts.length,
+                                    ).padStart(2, "0")}{" "}
+                                    {t(
+                                        "favorites.collection.dishes",
+                                    )}
                                 </span>
                             </div>
 
@@ -233,36 +288,56 @@ function Favorites({ favorites, toggleFavorite, allProducts }) {
 
                                     <input
                                         type="text"
-                                        placeholder="Search your collection..."
+                                        placeholder={t(
+                                            "favorites.search.placeholder",
+                                        )}
+                                        aria-label={t(
+                                            "favorites.search.label",
+                                        )}
                                         value={searchTerm}
                                         onChange={(event) =>
-                                            setSearchTerm(event.target.value)
+                                            setSearchTerm(
+                                                event.target
+                                                    .value,
+                                            )
                                         }
                                     />
                                 </div>
 
                                 <div className="favorites__sort-wrapper">
                                     <span className="favorites__sort-label">
-                                        Sort By
+                                        {t(
+                                            "favorites.sort.label",
+                                        )}
                                     </span>
 
                                     <div
                                         className={`favorites__sort-dropdown ${
-                                            isSortOpen ? "active" : ""
+                                            isSortOpen
+                                                ? "active"
+                                                : ""
                                         }`}
                                     >
                                         <button
                                             className="favorites__sort"
                                             type="button"
                                             aria-haspopup="listbox"
-                                            aria-expanded={isSortOpen}
+                                            aria-expanded={
+                                                isSortOpen
+                                            }
+                                            aria-label={t(
+                                                "favorites.sort.label",
+                                            )}
                                             onClick={() =>
-                                                setIsSortOpen(!isSortOpen)
+                                                setIsSortOpen(
+                                                    !isSortOpen,
+                                                )
                                             }
                                         >
                                             <span>
-                                                {selectedSort?.label ??
-                                                    "Default"}
+                                                {
+                                                    selectedSort?.label
+                                                }
                                             </span>
 
                                             <i className="fa-solid fa-chevron-down"></i>
@@ -273,43 +348,52 @@ function Favorites({ favorites, toggleFavorite, allProducts }) {
                                                 className="favorites__sort-menu"
                                                 role="listbox"
                                             >
-                                                {sortOptions.map((option) => {
-                                                    const isSelected =
-                                                        sortType ===
-                                                        option.value;
+                                                {sortOptions.map(
+                                                    (
+                                                        option,
+                                                    ) => {
+                                                        const isSelected =
+                                                            sortType ===
+                                                            option.value;
 
-                                                    return (
-                                                        <button
-                                                            key={option.value}
-                                                            className={`favorites__sort-option ${
-                                                                isSelected
-                                                                    ? "active"
-                                                                    : ""
-                                                            }`}
-                                                            type="button"
-                                                            role="option"
-                                                            aria-selected={
-                                                                isSelected
-                                                            }
-                                                            onClick={() => {
-                                                                setSortType(
-                                                                    option.value,
-                                                                );
-                                                                setIsSortOpen(
-                                                                    false,
-                                                                );
-                                                            }}
-                                                        >
-                                                            <span>
-                                                                {option.label}
-                                                            </span>
+                                                        return (
+                                                            <button
+                                                                key={
+                                                                    option.value
+                                                                }
+                                                                className={`favorites__sort-option ${
+                                                                    isSelected
+                                                                        ? "active"
+                                                                        : ""
+                                                                }`}
+                                                                type="button"
+                                                                role="option"
+                                                                aria-selected={
+                                                                    isSelected
+                                                                }
+                                                                onClick={() => {
+                                                                    setSortType(
+                                                                        option.value,
+                                                                    );
 
-                                                            {isSelected && (
-                                                                <i className="fa-solid fa-check"></i>
-                                                            )}
-                                                        </button>
-                                                    );
-                                                })}
+                                                                    setIsSortOpen(
+                                                                        false,
+                                                                    );
+                                                                }}
+                                                            >
+                                                                <span>
+                                                                    {
+                                                                        option.label
+                                                                    }
+                                                                </span>
+
+                                                                {isSelected && (
+                                                                    <i className="fa-solid fa-check"></i>
+                                                                )}
+                                                            </button>
+                                                        );
+                                                    },
+                                                )}
                                             </div>
                                         )}
                                     </div>
@@ -322,38 +406,63 @@ function Favorites({ favorites, toggleFavorite, allProducts }) {
                                         <i className="fa-solid fa-magnifying-glass"></i>
                                     </span>
 
-                                    <h3>No matching dishes</h3>
+                                    <h3>
+                                        {t(
+                                            "favorites.noResults.title",
+                                        )}
+                                    </h3>
 
                                     <p>
-                                        Try another search or clear your search
-                                        to see your saved collection.
+                                        {t(
+                                            "favorites.noResults.description",
+                                        )}
                                     </p>
 
                                     <button
                                         type="button"
-                                        onClick={() => setSearchTerm("")}
+                                        onClick={() =>
+                                            setSearchTerm("")
+                                        }
                                     >
-                                        Clear Search
+                                        {t(
+                                            "favorites.noResults.button",
+                                        )}
                                     </button>
                                 </div>
                             ) : (
                                 <div className="favorites__grid">
-                                    {sortedFavorites.map((product) => {
-                                        return (
-                                            <ProductCard
-                                                key={product.id}
-                                                id={product.id}
-                                                title={product.title}
-                                                category={product.category}
-                                                price={product.price}
-                                                image={product.image}
-                                                isFavorite={true}
-                                                onFavoriteClick={
-                                                    toggleFavorite
-                                                }
-                                            />
-                                        );
-                                    })}
+                                    {sortedFavorites.map(
+                                        (product) => {
+                                            return (
+                                                <ProductCard
+                                                    key={
+                                                        product.id
+                                                    }
+                                                    id={
+                                                        product.id
+                                                    }
+                                                    title={
+                                                        product.title
+                                                    }
+                                                    category={
+                                                        product.category
+                                                    }
+                                                    price={
+                                                        product.price
+                                                    }
+                                                    image={
+                                                        product.image
+                                                    }
+                                                    isFavorite={
+                                                        true
+                                                    }
+                                                    onFavoriteClick={
+                                                        toggleFavorite
+                                                    }
+                                                />
+                                            );
+                                        },
+                                    )}
                                 </div>
                             )}
                         </div>

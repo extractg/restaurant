@@ -1,128 +1,195 @@
 import { Link } from "react-router-dom";
-import logo from '../assets/images/logo.png'
-const Footer = () =>{
-    return(
-<footer className="footer" id="contacts">
-  <div
-    className="section-divider footer__divider"
-    aria-hidden="true"
-  ></div>
+import { useTranslation } from "react-i18next";
 
-  <div className="container">
-    <div className="footer__inner" data-aos="fade-up">
-      <div className="footer__brand">
-        <Link to="/" className="footer__logo">
-          <img
-            src={logo}
-            alt="Deliciora"
-            className="footer__logo-img"
-          />
-        </Link>
+import logo from "../assets/images/logo.png";
 
-        <p className="footer__text">
-          European-inspired dining, seasonal ingredients, and memorable
-          evenings crafted around every table.
-        </p>
+const Footer = () => {
+    const { t } = useTranslation();
 
-        <div className="footer__socials">
-          <a href="#" className="footer__social" aria-label="Facebook">
-            <i className="fa-brands fa-facebook-f"></i>
-          </a>
+    return (
+        <footer
+            className="footer"
+            id="contacts"
+        >
+            <div
+                className="section-divider footer__divider"
+                aria-hidden="true"
+            ></div>
 
-          <a href="#" className="footer__social" aria-label="Instagram">
-            <i className="fa-brands fa-instagram"></i>
-          </a>
+            <div className="container">
+                <div className="footer__inner">
+                    <div className="footer__brand">
+                        <Link
+                            to="/"
+                            className="footer__logo"
+                        >
+                            <img
+                                src={logo}
+                                alt="Deliciora"
+                                className="footer__logo-img"
+                            />
+                        </Link>
 
-          <a href="#" className="footer__social" aria-label="Twitter">
-            <i className="fa-brands fa-twitter"></i>
-          </a>
-        </div>
-      </div>
+                        <p className="footer__text">
+                            {t("footer.description")}
+                        </p>
 
-      <div className="footer__column footer__explore">
-        <h3 className="footer__title">Explore</h3>
+                        <div className="footer__socials">
+                            <a
+                                href="#"
+                                className="footer__social"
+                                aria-label="Facebook"
+                            >
+                                <i className="fa-brands fa-facebook-f"></i>
+                            </a>
 
-        <ul className="footer__list">
-          <li className="footer__item">
-            <a href="#" className="footer__link">
-              Menu
-            </a>
-          </li>
+                            <a
+                                href="#"
+                                className="footer__social"
+                                aria-label="Instagram"
+                            >
+                                <i className="fa-brands fa-instagram"></i>
+                            </a>
 
-          <li className="footer__item">
-            <a href="#" className="footer__link">
-              Our Story
-            </a>
-          </li>
+                            <a
+                                href="#"
+                                className="footer__social"
+                                aria-label="Twitter"
+                            >
+                                <i className="fa-brands fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
 
-          <li className="footer__item">
-            <a href="#" className="footer__link">
-              Our Chef
-            </a>
-          </li>
+                    <div className="footer__column footer__explore">
+                        <h3 className="footer__title">
+                            {t("footer.explore.title")}
+                        </h3>
 
-          <li className="footer__item">
-            <a href="pages/products.html" className="footer__link">
-              Products
-            </a>
-          </li>
-        </ul>
-      </div>
+                        <ul className="footer__list">
+                            <li className="footer__item">
+                                <Link
+                                    to="/products"
+                                    className="footer__link"
+                                >
+                                    {t("footer.explore.menu")}
+                                </Link>
+                            </li>
 
-      <div className="footer__column footer__visit">
-        <h3 className="footer__title">Visit</h3>
+                            <li className="footer__item">
+                                <a
+                                    href="/#our-story"
+                                    className="footer__link"
+                                >
+                                    {t("footer.explore.ourStory")}
+                                </a>
+                            </li>
 
-        <p className="footer__location">Riga, Latvia</p>
+                            <li className="footer__item">
+                                <a
+                                    href="/#chef"
+                                    className="footer__link"
+                                >
+                                    {t("footer.explore.ourChef")}
+                                </a>
+                            </li>
 
-        <div className="footer__hours">
-          <div className="footer__hours-item">
-            <span className="footer__hours-day">Mon — Fri</span>
-            <span className="footer__hours-time">12:00 — 23:00</span>
-          </div>
+                            <li className="footer__item">
+                                <Link
+                                    to="/products"
+                                    className="footer__link"
+                                >
+                                    {t("footer.explore.products")}
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
 
-          <div className="footer__hours-item">
-            <span className="footer__hours-day">Saturday</span>
-            <span className="footer__hours-time">13:00 — 00:00</span>
-          </div>
+                    <div className="footer__column footer__visit">
+                        <h3 className="footer__title">
+                            {t("footer.visit.title")}
+                        </h3>
 
-          <div className="footer__hours-item">
-            <span className="footer__hours-day">Sunday</span>
-            <span className="footer__hours-time">13:00 — 22:00</span>
-          </div>
-        </div>
-      </div>
+                        <p className="footer__location">
+                            {t("footer.visit.location")}
+                        </p>
 
-      <div className="footer__column footer__reservation">
-        <h3 className="footer__title">Reservations</h3>
+                        <div className="footer__hours">
+                            <div className="footer__hours-item">
+                                <span className="footer__hours-day">
+                                    {t("footer.visit.weekdays")}
+                                </span>
 
-        <p className="footer__reservation-text">
-          Planning an evening with us? Reserve your table in advance.
-        </p>
+                                <span className="footer__hours-time">
+                                    12:00 — 23:00
+                                </span>
+                            </div>
 
-        <a href="#" className="footer__reservation-link">
-          Book a table
-          <span>→</span>
-        </a>
-      </div>
-    </div>
+                            <div className="footer__hours-item">
+                                <span className="footer__hours-day">
+                                    {t("footer.visit.saturday")}
+                                </span>
 
-    <div className="footer__bottom">
-      <p className="footer__copyright">
-        © 2026 Deliciora. All rights reserved.
-      </p>
+                                <span className="footer__hours-time">
+                                    13:00 — 00:00
+                                </span>
+                            </div>
 
-      <div className="footer__bottom-links">
-        <a href="#" className="footer__bottom-link">
-          Privacy Policy
-        </a>
+                            <div className="footer__hours-item">
+                                <span className="footer__hours-day">
+                                    {t("footer.visit.sunday")}
+                                </span>
 
-        <a href="#" className="footer__bottom-link">
-          Terms of Service
-        </a>
-      </div>
-    </div>
-  </div>
-</footer>
+                                <span className="footer__hours-time">
+                                    13:00 — 22:00
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="footer__column footer__reservation">
+                        <h3 className="footer__title">
+                            {t("footer.reservations.title")}
+                        </h3>
+
+                        <p className="footer__reservation-text">
+                            {t("footer.reservations.description")}
+                        </p>
+
+                        <a
+                            href="#"
+                            className="footer__reservation-link"
+                        >
+                            {t("footer.reservations.bookTable")}
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div className="footer__bottom">
+                    <p className="footer__copyright">
+                        {t("footer.copyright")}
+                    </p>
+
+                    <div className="footer__bottom-links">
+                        <a
+                            href="#"
+                            className="footer__bottom-link"
+                        >
+                            {t("footer.privacy")}
+                        </a>
+
+                        <a
+                            href="#"
+                            className="footer__bottom-link"
+                        >
+                            {t("footer.terms")}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
     );
 };
-export default Footer
+
+export default Footer;

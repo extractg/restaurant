@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 
 const newsletterReveal = {
     hidden: {},
@@ -29,6 +30,8 @@ const itemReveal = {
 };
 
 const Newsletter = () => {
+    const { t } = useTranslation();
+
     return (
         <section className="newsletter">
             <div className="container">
@@ -47,25 +50,23 @@ const Newsletter = () => {
                             className="newsletter__label"
                             variants={itemReveal}
                         >
-                            Stay Connected
+                            {t("newsletter.label")}
                         </motion.span>
 
                         <motion.h2
                             className="newsletter__title"
                             variants={itemReveal}
                         >
-                            A Taste of Deliciora,
+                            {t("newsletter.titleFirst")}
                             <br />
-                            Delivered to You
+                            {t("newsletter.titleSecond")}
                         </motion.h2>
 
                         <motion.p
                             className="newsletter__text"
                             variants={itemReveal}
                         >
-                            Be the first to discover seasonal menus,
-                            private dining events, and special evenings
-                            at Deliciora.
+                            {t("newsletter.description")}
                         </motion.p>
 
                         <motion.form
@@ -75,8 +76,12 @@ const Newsletter = () => {
                             <input
                                 type="email"
                                 className="newsletter__input"
-                                placeholder="Your email address"
-                                aria-label="Email address"
+                                placeholder={t(
+                                    "newsletter.emailPlaceholder",
+                                )}
+                                aria-label={t(
+                                    "newsletter.emailLabel",
+                                )}
                                 required
                             />
 
@@ -84,7 +89,7 @@ const Newsletter = () => {
                                 type="submit"
                                 className="newsletter__button"
                             >
-                                Join the List
+                                {t("newsletter.button")}
                             </button>
                         </motion.form>
 
@@ -92,7 +97,7 @@ const Newsletter = () => {
                             className="newsletter__note"
                             variants={itemReveal}
                         >
-                            No spam. Only something worth opening.
+                            {t("newsletter.note")}
                         </motion.span>
                     </div>
                 </motion.div>

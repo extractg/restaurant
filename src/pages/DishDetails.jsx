@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 import { getProductById } from "../api/productsApi.js";
 
 function getIngredients(product) {
@@ -22,13 +24,19 @@ function getIngredients(product) {
 }
 
 function DishDetails() {
+    const { t } = useTranslation();
+
     const params = useParams();
     const navigate = useNavigate();
 
     const [product, setProduct] = useState(null);
     const [error, setError] = useState(null);
-    const [showAllIngredients, setShowAllIngredients] = useState(false);
-    const [showFullPreparation, setShowFullPreparation] = useState(false);
+
+    const [showAllIngredients, setShowAllIngredients] =
+        useState(false);
+
+    const [showFullPreparation, setShowFullPreparation] =
+        useState(false);
 
     useEffect(() => {
         async function loadProduct() {
@@ -52,7 +60,7 @@ function DishDetails() {
         return (
             <main className="dish-details">
                 <div className="container">
-                    <p>Something went wrong.</p>
+                    <p>{t("dishDetails.error")}</p>
                 </div>
             </main>
         );
@@ -62,7 +70,7 @@ function DishDetails() {
         return (
             <main className="dish-details">
                 <div className="container">
-                    <p>Loading...</p>
+                    <p>{t("dishDetails.loading")}</p>
                 </div>
             </main>
         );
@@ -80,6 +88,16 @@ function DishDetails() {
 
     const price = 24 + (Number(product.idMeal) % 22);
 
+    const categoryKey =
+        product.strCategory?.toLowerCase();
+
+    const translatedCategory = t(
+        `products.categories.${categoryKey}`,
+        {
+            defaultValue: product.strCategory || "—",
+        },
+    );
+
     return (
         <main className="dish-details">
             <div className="container">
@@ -88,14 +106,18 @@ function DishDetails() {
                     onClick={() => navigate("/products")}
                     type="button"
                 >
-                    <span>←</span>
-                    Back to Menu
+                    <span aria-hidden="true">←</span>
+                    {t("dishDetails.backToMenu")}
                 </button>
 
                 <header className="dish-details__hero">
                     <div className="dish-details__eyebrow">
-                        <span>{product.strCategory}</span>
+                        <span>
+                            {translatedCategory}
+                        </span>
+
                         <i></i>
+
                         <span>{product.strArea}</span>
                     </div>
 
@@ -104,8 +126,7 @@ function DishDetails() {
                     </h1>
 
                     <p className="dish-details__intro">
-                        A carefully selected dish prepared with distinctive
-                        ingredients and timeless flavours.
+                        {t("dishDetails.intro")}
                     </p>
 
                     <p className="dish-details__price">
@@ -121,7 +142,12 @@ function DishDetails() {
 
                     <div className="dish-details__image-label">
                         <span>Deliciora</span>
-                        <span>Signature Selection</span>
+
+                        <span>
+                            {t(
+                                "dishDetails.signatureSelection",
+                            )}
+                        </span>
                     </div>
                 </div>
 
@@ -133,21 +159,30 @@ function DishDetails() {
 
                         <div>
                             <span className="dish-details__label">
-                                The Dish
+                                {t(
+                                    "dishDetails.dish.label",
+                                )}
                             </span>
 
-                            <h2>Crafted with intention.</h2>
+                            <h2>
+                                {t(
+                                    "dishDetails.dish.title",
+                                )}
+                            </h2>
                         </div>
                     </div>
 
                     <div className="dish-details__section-content">
                         <p>
-                            Discover the character of {product.strMeal}, a
-                            {product.strArea
-                                ? ` ${product.strArea.toLowerCase()}`
-                                : ""}{" "}
-                            dish built around carefully selected ingredients,
-                            balanced flavours and thoughtful preparation.
+                            {t(
+                                "dishDetails.dish.description",
+                                {
+                                    meal: product.strMeal,
+                                    area:
+                                        product.strArea ||
+                                        "",
+                                },
+                            )}
                         </p>
                     </div>
                 </section>
@@ -160,43 +195,61 @@ function DishDetails() {
 
                         <div>
                             <span className="dish-details__label">
-                                Ingredients
+                                {t(
+                                    "dishDetails.ingredients.label",
+                                )}
                             </span>
 
-                            <h2>What goes into the dish.</h2>
+                            <h2>
+                                {t(
+                                    "dishDetails.ingredients.title",
+                                )}
+                            </h2>
                         </div>
                     </div>
 
                     <div className="dish-details__ingredients-content">
                         <div className="dish-details__ingredients-grid">
-                            {visibleIngredients.map((ingredient) => {
-                                return (
-                                    <article
-                                        className="dish-details__ingredient"
-                                        key={ingredient.name}
-                                    >
-                                        <div className="dish-details__ingredient-image">
-                                            <img
-                                                src={ingredient.image}
-                                                alt={ingredient.name}
-                                                loading="lazy"
-                                            />
-                                        </div>
+                            {visibleIngredients.map(
+                                (ingredient) => {
+                                    return (
+                                        <article
+                                            className="dish-details__ingredient"
+                                            key={
+                                                ingredient.name
+                                            }
+                                        >
+                                            <div className="dish-details__ingredient-image">
+                                                <img
+                                                    src={
+                                                        ingredient.image
+                                                    }
+                                                    alt={
+                                                        ingredient.name
+                                                    }
+                                                    loading="lazy"
+                                                />
+                                            </div>
 
-                                        <div className="dish-details__ingredient-info">
-                                            <h3>
-                                                {ingredient.name}
-                                            </h3>
+                                            <div className="dish-details__ingredient-info">
+                                                <h3>
+                                                    {
+                                                        ingredient.name
+                                                    }
+                                                </h3>
 
-                                            {ingredient.measure && (
-                                                <p>
-                                                    {ingredient.measure}
-                                                </p>
-                                            )}
-                                        </div>
-                                    </article>
-                                );
-                            })}
+                                                {ingredient.measure && (
+                                                    <p>
+                                                        {
+                                                            ingredient.measure
+                                                        }
+                                                    </p>
+                                                )}
+                                            </div>
+                                        </article>
+                                    );
+                                },
+                            )}
                         </div>
 
                         {ingredients.length > 6 && (
@@ -205,7 +258,7 @@ function DishDetails() {
                                 type="button"
                                 onClick={() =>
                                     setShowAllIngredients(
-                                        !showAllIngredients
+                                        !showAllIngredients,
                                     )
                                 }
                             >
@@ -213,12 +266,21 @@ function DishDetails() {
 
                                 <span className="dish-details__toggle-text">
                                     {showAllIngredients
-                                        ? "Show Less"
-                                        : "View All Ingredients"}
+                                        ? t(
+                                              "dishDetails.showLess",
+                                          )
+                                        : t(
+                                              "dishDetails.ingredients.viewAll",
+                                          )}
                                 </span>
 
-                                <span className="dish-details__toggle-icon">
-                                    {showAllIngredients ? "−" : "+"}
+                                <span
+                                    className="dish-details__toggle-icon"
+                                    aria-hidden="true"
+                                >
+                                    {showAllIngredients
+                                        ? "−"
+                                        : "+"}
                                 </span>
 
                                 <span className="dish-details__toggle-line"></span>
@@ -235,10 +297,16 @@ function DishDetails() {
 
                         <div>
                             <span className="dish-details__label">
-                                Preparation
+                                {t(
+                                    "dishDetails.preparation.label",
+                                )}
                             </span>
 
-                            <h2>From kitchen to table.</h2>
+                            <h2>
+                                {t(
+                                    "dishDetails.preparation.title",
+                                )}
+                            </h2>
                         </div>
                     </div>
 
@@ -249,25 +317,38 @@ function DishDetails() {
                                 : "dish-details__preparation-text"
                         }
                     >
-                        <p>{product.strInstructions}</p>
+                        <p>
+                            {product.strInstructions}
+                        </p>
 
                         <button
                             className="dish-details__preparation-toggle"
                             type="button"
                             onClick={() =>
-                                setShowFullPreparation(!showFullPreparation)
+                                setShowFullPreparation(
+                                    !showFullPreparation,
+                                )
                             }
                         >
                             <span className="dish-details__toggle-line"></span>
 
                             <span className="dish-details__toggle-text">
                                 {showFullPreparation
-                                    ? "Show Less"
-                                    : "Read Full Preparation"}
+                                    ? t(
+                                          "dishDetails.showLess",
+                                      )
+                                    : t(
+                                          "dishDetails.preparation.readFull",
+                                      )}
                             </span>
 
-                            <span className="dish-details__toggle-icon">
-                                {showFullPreparation ? "−" : "+"}
+                            <span
+                                className="dish-details__toggle-icon"
+                                aria-hidden="true"
+                            >
+                                {showFullPreparation
+                                    ? "−"
+                                    : "+"}
                             </span>
 
                             <span className="dish-details__toggle-line"></span>
@@ -283,27 +364,51 @@ function DishDetails() {
 
                         <div>
                             <span className="dish-details__label">
-                                Details
+                                {t(
+                                    "dishDetails.details.label",
+                                )}
                             </span>
 
-                            <h2>The story behind the plate.</h2>
+                            <h2>
+                                {t(
+                                    "dishDetails.details.title",
+                                )}
+                            </h2>
                         </div>
                     </div>
 
                     <div className="dish-details__details-grid">
                         <div className="dish-details__detail">
-                            <span>Origin</span>
-                            <p>{product.strArea || "—"}</p>
+                            <span>
+                                {t(
+                                    "dishDetails.details.origin",
+                                )}
+                            </span>
+
+                            <p>
+                                {product.strArea || "—"}
+                            </p>
                         </div>
 
                         <div className="dish-details__detail">
-                            <span>Category</span>
-                            <p>{product.strCategory || "—"}</p>
+                            <span>
+                                {t(
+                                    "dishDetails.details.category",
+                                )}
+                            </span>
+
+                            <p>
+                                {translatedCategory}
+                            </p>
                         </div>
 
                         {tags.length > 0 && (
                             <div className="dish-details__detail dish-details__detail--tags">
-                                <span>Tags</span>
+                                <span>
+                                    {t(
+                                        "dishDetails.details.tags",
+                                    )}
+                                </span>
 
                                 <div className="dish-details__tags">
                                     {tags.map((tag) => {

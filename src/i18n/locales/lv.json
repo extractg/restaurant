@@ -8,5 +8,273 @@
         "contacts": "Kontakti",
         "openMenu": "Atvērt izvēlni",
         "closeMenu": "Aizvērt izvēlni"
+    },
+
+    "hero": {
+        "title": "Mēs piedāvājam jums izcilāko ēdienu",
+        "description": "Atklājiet unikālu gastronomisko pieredzi, kur kulinārijas meistarība satiekas ar elegantu un mājīgu atmosfēru. Katru ēdienu rūpīgi gatavojam no svaigākajām sezonas sastāvdaļām, apvienojot bagātīgas tradicionālās garšas ar mūsdienīgu pieskārienu, lai radītu neaizmirstamus mirkļus.",
+        "menu": "Ēdienkarte",
+        "bookTable": "Rezervēt galdiņu"
+    },
+
+    "specials": {
+        "label": "Šefpavāra izvēle",
+        "title": "Mūsu īpašie ēdieni",
+        "description": "Atklājiet mūsu rūpīgi radītos ēdienus, kuros svaigas sastāvdaļas, bagātīgas garšas un mūsdienīgs pieskāriens apvienojas izsmalcinātā baudījumā.",
+        "dragToExplore": "Velciet, lai apskatītu",
+
+        "dishes": {
+            "ribeye": {
+                "title": "Ribeye steiks ar garšaugiem",
+                "description": "Sulīgs augstākās kvalitātes ribeye steiks, grilēts līdz pilnībai un pasniegts ar aromātisku rozmarīna sviestu un ceptiem ķiplokiem."
+            },
+            "salmon": {
+                "title": "Pannā cepts lasis",
+                "description": "Atlantijas laša fileja ar kraukšķīgu ādu, pasniegta uz krēmīga sparģeļu risoto un papildināta ar citrona un garšaugu eļļu."
+            },
+            "fettuccine": {
+                "title": "Fetučīni ar trifelēm un sēnēm",
+                "description": "Ar rokām gatavoti fetučīni bagātīgā savvaļas sēņu krējuma mērcē ar izsmalcinātu melno trifeļu eļļas pieskārienu."
+            },
+            "burrata": {
+                "title": "Burratas un tomātu salāti",
+                "description": "Krēmīga itāļu burrata ar saldiem šķirnes tomātiem un svaigu baziliku, papildināta ar balzamiko glazūru."
+            },
+            "duck": {
+                "title": "Pīles krūtiņa ar ķiršu mērci",
+                "description": "Maiga pīles krūtiņa ar bagātīgu ķiršu mērci, samtainu sakņu dārzeņu biezeni un svaigiem sezonas garšaugiem."
+            },
+            "scallops": {
+                "title": "Apceptas jūras ķemmītes",
+                "description": "Zeltaini apceptas jūras ķemmītes ar ziedkāpostu biezeni, brūninātu sviestu, svaigiem garšaugiem un vieglu citrusaugļu akcentu."
+            },
+            "risotto": {
+                "title": "Savvaļas sēņu risoto",
+                "description": "Krēmīgs Arborio rīsu risoto ar savvaļas sēnēm, izturētu Parmas sieru, svaigu timiānu un maigu trifeļu pieskārienu."
+            },
+            "fondant": {
+                "title": "Šokolādes fondants",
+                "description": "Silts tumšās šokolādes fondants ar kūstošu vidu, pasniegts ar vaniļas krēmu un sezonas ogām."
+            }
+        },
+
+        "story": {
+            "label": "Mūsu stāsts",
+            "title": "Aizraušanās ar ēdienu kopš 2018. gada",
+            "description": "Deliciora radās 2018. gadā ar vienkāršu ideju — apvienot izcilu ēdienu ar sirsnīgu viesmīlību. Iedvesmojoties no Eiropas virtuves, sezonālām sastāvdaļām un gadiem koptām tradīcijām, mūsu restorāns ir kļuvis par vietu, kur pie katra galda rodas neaizmirstami vakari.",
+            "established": "DIBINĀTS 2018",
+            "cuisine": "EIROPAS VIRTUVE",
+            "ourStory": "Mūsu stāsts",
+            "meetTeam": "Iepazīt komandu",
+            "restaurantAlt": "Deliciora restorāns",
+            "interiorAlt": "Deliciora restorāna interjers"
+        }
+    },
+
+    "ourStory": {
+        "label": "Mūsu stāsts",
+        "title": "Vairāk nekā restorāns.",
+        "titleAccent": "Stāsts, kas radīts ap vienu galdu.",
+        "description": "Deliciora radās no aizraušanās ar pārdomātu Eiropas virtuvi un pārliecības, ka neaizmirstamu vakaru veido kas vairāk par ēdienu vien. Sezonālas sastāvdaļas, sirsnīga viesmīlība un intīma atmosfēra veido ikvienu mūsu radīto pieredzi.",
+        "established": "DIBINĀTS 2018",
+        "location": "RĪGA, LATVIJA",
+        "discoverStory": "Atklāt mūsu stāstu",
+        "closeStory": "Aizvērt stāstu",
+
+        "images": {
+            "atmosphereAlt": "Deliciora restorāna atmosfēra",
+            "interiorAlt": "Deliciora restorāna interjers"
+        },
+
+        "chapters": {
+            "beginning": {
+                "label": "SĀKUMS",
+                "title": "No nelielas idejas radās Deliciora",
+                "text": "Deliciora radās no vienkāršas pārliecības — restorānam jābūt kam vairāk par vietu, kur paēst. Tai jābūt vietai, kur atmosfēra, pārdomāta virtuve un patiesa viesmīlība satiekas pie viena galda.",
+                "imageAlt": "Deliciora pirmsākumi"
+            },
+
+            "philosophy": {
+                "year": "MŪSU FILOZOFIJA",
+                "label": "FILOZOFIJA",
+                "title": "Ēdiens ar savu būtību",
+                "text": "Mūsu pieejas pamatā ir Eiropas virtuve, sezonālas sastāvdaļas un cieņa pret vienkāršību. Katrs ēdiens tiek radīts tā, lai tas būtu pazīstams, bet vienlaikus izsmalcināts, ļaujot kvalitatīvām sastāvdaļām un rūpīgi sabalansētām garšām palikt uzmanības centrā.",
+                "imageAlt": "Svaigas sastāvdaļas, garšaugi un garšvielas Deliciora virtuvē"
+            },
+
+            "today": {
+                "year": "ŠODIEN",
+                "label": "DELICIORA ŠODIEN",
+                "title": "Vieta, kur viss sākas pie galda",
+                "text": "Šodien Deliciora turpina attīstīties, saglabājot uzticību idejai, ar kuru viss sākās — radīt neaizmirstamus vakarus ar ēdienu, atmosfēru un cilvēkiem, kuri pulcējas pie viena galda.",
+                "imageAlt": "Deliciora restorāns šodien"
+            }
+        }
+    },
+
+    "chef": {
+        "label": "Iepazīstiet šefpavāru",
+        "title": "Meistarība aiz katra ēdiena",
+        "description": "Šefpavārs Adrians Moro apvieno Eiropas kulinārijas tradīcijas ar mūsdienīgu pieeju sezonālajai virtuvei. Viņa filozofija ir vienkārša — izcilas sastāvdaļas, pārdomāta tehnika un ēdieni, kas paliek atmiņā.",
+        "imageAlt": "Šefpavārs Adrians Moro",
+
+        "facts": {
+            "experience": "Gadu pieredze",
+            "european": "Eiropas",
+            "cuisine": "Virtuve",
+            "seasonal": "Sezonāla",
+            "menu": "Ēdienkarte"
+        },
+
+        "button": "Iepazīt mūsu šefpavāru"
+    },
+
+    "newsletter": {
+        "label": "Palieciet ar mums",
+        "titleFirst": "Deliciora garša,",
+        "titleSecond": "tieši jums",
+        "description": "Esiet pirmie, kas uzzina par sezonālajām ēdienkartēm, privātiem pasākumiem un īpašiem vakariem Deliciora.",
+        "emailPlaceholder": "Jūsu e-pasta adrese",
+        "emailLabel": "E-pasta adrese",
+        "button": "Pievienoties",
+        "note": "Bez surogātpasta. Tikai ziņas, kuras ir vērts atvērt."
+    },
+
+    "footer": {
+        "description": "Eiropas iedvesmota virtuve, sezonālas sastāvdaļas un neaizmirstami vakari pie ikviena galda.",
+
+        "explore": {
+            "title": "Izpētīt",
+            "menu": "Ēdienkarte",
+            "ourStory": "Mūsu stāsts",
+            "ourChef": "Mūsu šefpavārs",
+            "favorites": "Izlase"
+        },
+
+        "visit": {
+            "title": "Apmeklējiet mūs",
+            "location": "Rīga, Latvija",
+            "weekdays": "Pirm. — Piekt.",
+            "saturday": "Sestdiena",
+            "sunday": "Svētdiena"
+        },
+
+        "reservations": {
+            "title": "Rezervācijas",
+            "description": "Plānojat vakaru pie mums? Rezervējiet galdiņu jau iepriekš.",
+            "bookTable": "Rezervēt galdiņu"
+        },
+
+        "copyright": "© 2026 Deliciora. Visas tiesības aizsargātas.",
+        "privacy": "Privātuma politika",
+        "terms": "Lietošanas noteikumi"
+    },
+
+    "products": {
+        "label": "Mūsu ēdienkarte",
+        "title": "Atklājiet mūsu ēdienus",
+        "description": "Iepazīstiet mūsu rūpīgi veidoto ēdienu izlasi, kas gatavota no svaigām sastāvdaļām un iedvesmota no dažādu pasaules virtuvju garšām.",
+        "searchPlaceholder": "Meklēt ēdienus...",
+        "searchLabel": "Meklēt ēdienus",
+        "noResults": "Ēdieni netika atrasti. Izmēģiniet citu meklējumu vai kategoriju.",
+
+        "categories": {
+            "all": "Visi",
+            "beef": "Liellopa gaļa",
+            "chicken": "Vistas gaļa",
+            "seafood": "Jūras veltes",
+            "dessert": "Deserti"
+        }
+    },
+
+    "productCard": {
+        "viewDish": "Apskatīt ēdienu",
+        "addFavorite": "Pievienot izlasei",
+        "removeFavorite": "Noņemt no izlases"
+    },
+
+    "favorites": {
+        "hero": {
+            "eyebrow": "Jūsu izlase",
+            "title": "Jūsu iecienītākie",
+            "titleAccent": "ēdieni",
+            "description": "Saglabājiet ēdienus, kurus vēlaties baudīt vēlreiz. Jūsu personīgā Deliciora ēdienu izlase vienuviet, lai pie tās varētu atgriezties jebkurā laikā.",
+            "savedDishes": "Saglabātie ēdieni",
+            "metaDescription": "Jūsu personīgā izlase, ko veidojat pats — pa vienam ēdienam."
+        },
+
+        "empty": {
+            "label": "Jūsu izlase",
+            "title": "Jūsu izlase ir tukša",
+            "description": "Saglabājiet iecienītos ēdienus no mūsu ēdienkartes, un tie parādīsies šeit, lai jūs varētu pie tiem atgriezties jebkurā laikā.",
+            "button": "Apskatīt ēdienkarti"
+        },
+
+        "featured": {
+            "label": "Izceltais ēdiens",
+            "title": "Garša, pie kuras vērts atgriezties",
+            "description": "Viens no jūsu saglabātajiem ēdieniem — Deliciora izlases garša, kuru vienmēr ir vērts atklāt no jauna.",
+            "viewDish": "Apskatīt ēdienu"
+        },
+
+        "collection": {
+            "label": "Jūsu izlase",
+            "title": "Saglabātie ēdieni",
+            "dishes": "Ēdieni"
+        },
+
+        "search": {
+            "placeholder": "Meklēt savā izlasē...",
+            "label": "Meklēt saglabātos ēdienus"
+        },
+
+        "sort": {
+            "label": "Kārtot pēc",
+            "default": "Default",
+            "name": "Nosaukuma A–Z",
+            "priceLow": "Cena: no zemākās",
+            "priceHigh": "Cena: no augstākās"
+        },
+
+        "noResults": {
+            "title": "Atbilstoši ēdieni nav atrasti",
+            "description": "Izmēģiniet citu meklējumu vai notīriet meklēšanas lauku, lai redzētu visu savu izlasi.",
+            "button": "Notīrīt meklēšanu"
+        }
+    },
+
+    "dishDetails": {
+        "loading": "Ielādē...",
+        "error": "Radās kļūda. Lūdzu, mēģiniet vēlreiz.",
+        "backToMenu": "Atpakaļ uz ēdienkarti",
+        "intro": "Rūpīgi izvēlēts ēdiens, kas gatavots no izteiksmīgām sastāvdaļām un pārlaicīgām garšu kombinācijām.",
+        "signatureSelection": "Deliciora īpašā izlase",
+        "showLess": "Rādīt mazāk",
+
+        "dish": {
+            "label": "Ēdiens",
+            "title": "Radīts ar īpašu rūpību.",
+            "description": "Atklājiet {{meal}} raksturu — ēdienu, kura pamatā ir rūpīgi izvēlētas sastāvdaļas, sabalansētas garšas un pārdomāta pagatavošana."
+        },
+
+        "ingredients": {
+            "label": "Sastāvdaļas",
+            "title": "Kas veido šo ēdienu.",
+            "viewAll": "Apskatīt visas sastāvdaļas"
+        },
+
+        "preparation": {
+            "label": "Pagatavošana",
+            "title": "No virtuves līdz galdam.",
+            "readFull": "Lasīt visu pagatavošanas aprakstu"
+        },
+
+        "details": {
+            "label": "Informācija",
+            "title": "Stāsts aiz katra ēdiena.",
+            "origin": "Izcelsme",
+            "category": "Kategorija",
+            "tags": "Atslēgvārdi"
+        }
     }
 }

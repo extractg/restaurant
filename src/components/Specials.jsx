@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 import DishCard from "./DishCard";
 
@@ -25,65 +26,49 @@ const dishes = [
     {
         id: 1,
         number: "01",
-        title: "Ribeye Steak with Herbs",
-        description:
-            "Juicy prime ribeye steak grilled to perfection, served with aromatic rosemary butter and roasted seasonal garlic.",
+        translationKey: "ribeye",
         image: ribeyeSteak,
     },
     {
         id: 2,
         number: "02",
-        title: "Pan-Seared Salmon",
-        description:
-            "Crispy-skinned Atlantic salmon fillet resting on a bed of creamy asparagus risotto and drizzled with lemon-herb oil.",
+        translationKey: "salmon",
         image: Pan_Seared_Salmon,
     },
     {
         id: 3,
         number: "03",
-        title: "Truffle Mushroom Fettuccine",
-        description:
-            "Handcrafted fettuccine tossed in a rich, velvety wild mushroom cream sauce and infused with premium black truffle oil.",
+        translationKey: "fettuccine",
         image: Truffle_Mushroom,
     },
     {
         id: 4,
         number: "04",
-        title: "Burrata & Heirloom Salad",
-        description:
-            "Creamy Italian burrata cheese paired with sweet heirloom tomatoes, fresh basil leaves, and finished with a balsamic glaze.",
+        translationKey: "burrata",
         image: Burrata_Heirloom,
     },
     {
         id: 5,
         number: "05",
-        title: "Duck Breast with Cherry Jus",
-        description:
-            "Tender duck breast served with a rich cherry jus, silky root vegetable purée, and delicate seasonal herbs.",
+        translationKey: "duck",
         image: Duck_Breast,
     },
     {
         id: 6,
         number: "06",
-        title: "Seared Scallops",
-        description:
-            "Golden seared scallops paired with cauliflower purée, brown butter, fresh herbs, and a bright citrus finish.",
+        translationKey: "scallops",
         image: Seared_Scallops,
     },
     {
         id: 7,
         number: "07",
-        title: "Wild Mushroom Risotto",
-        description:
-            "Creamy Arborio rice with wild mushrooms, aged Parmesan, fresh thyme, and a delicate touch of truffle.",
+        translationKey: "risotto",
         image: Wild_Mushroom_Risotto,
     },
     {
         id: 8,
         number: "08",
-        title: "Chocolate Fondant",
-        description:
-            "Warm dark chocolate fondant with a molten center, complemented by vanilla cream and seasonal berries.",
+        translationKey: "fondant",
         image: Chocolate_Fondant,
     },
 ];
@@ -184,6 +169,8 @@ const contentReveal = {
 };
 
 const Specials = () => {
+    const { t } = useTranslation();
+
     const swiperRef = useRef(null);
     const autoplayTimerRef = useRef(null);
     const resumeTimerRef = useRef(null);
@@ -232,7 +219,7 @@ const Specials = () => {
             swiper.slideTo(
                 currentIndex + DISHES_COUNT,
                 0,
-                false
+                false,
             );
 
             return;
@@ -242,7 +229,7 @@ const Specials = () => {
             swiper.slideTo(
                 currentIndex - DISHES_COUNT,
                 0,
-                false
+                false,
             );
         }
     };
@@ -286,17 +273,15 @@ const Specials = () => {
                         viewport={viewport}
                     >
                         <span className="specials__label">
-                            Chef&apos;s Selection
+                            {t("specials.label")}
                         </span>
 
                         <h2 className="specials__title">
-                            Our Special Dishes
+                            {t("specials.title")}
                         </h2>
 
                         <p className="specials__text">
-                            Explore our carefully crafted dishes made with
-                            fresh ingredients, rich flavors, and a modern
-                            touch designed to satisfy every taste.
+                            {t("specials.description")}
                         </p>
                     </motion.div>
 
@@ -370,8 +355,12 @@ const Specials = () => {
                                 >
                                     <DishCard
                                         image={dish.image}
-                                        title={dish.title}
-                                        description={dish.description}
+                                        title={t(
+                                            `specials.dishes.${dish.translationKey}.title`,
+                                        )}
+                                        description={t(
+                                            `specials.dishes.${dish.translationKey}.description`,
+                                        )}
                                         number={dish.number}
                                     />
                                 </SwiperSlide>
@@ -382,7 +371,9 @@ const Specials = () => {
                             className="specials__slider-hint"
                             aria-hidden="true"
                         >
-                            <span>Drag to explore</span>
+                            <span>
+                                {t("specials.dragToExplore")}
+                            </span>
 
                             <span className="specials__slider-hint-line"></span>
                         </div>
@@ -399,13 +390,17 @@ const Specials = () => {
                     >
                         <img
                             src={restaurantPhoto}
-                            alt="Deliciora Restaurant"
+                            alt={t(
+                                "specials.story.restaurantAlt",
+                            )}
                             className="specials__bottom-main-img"
                         />
 
                         <img
                             src={restaurantInside}
-                            alt="Deliciora Restaurant Interior"
+                            alt={t(
+                                "specials.story.interiorAlt",
+                            )}
                             className="specials__bottom-small-img"
                         />
                     </motion.div>
@@ -418,29 +413,29 @@ const Specials = () => {
                         viewport={viewport}
                     >
                         <span className="specials__bottom-label">
-                            Our Story
+                            {t("specials.story.label")}
                         </span>
 
                         <h2 className="specials__bottom-title">
-                            A Passion for Food, Born in 2018
+                            {t("specials.story.title")}
                         </h2>
 
                         <p className="specials__bottom-text">
-                            Deliciora began in 2018 with a simple idea —
-                            to bring exceptional food and warm hospitality
-                            together. Inspired by European cuisine,
-                            seasonal ingredients, and years of tradition,
-                            our restaurant grew into a place where
-                            memorable evenings are created around every
-                            table.
+                            {t("specials.story.description")}
                         </p>
 
                         <div className="specials__bottom-meta">
-                            <span>EST. 2018</span>
+                            <span>
+                                {t(
+                                    "specials.story.established",
+                                )}
+                            </span>
 
                             <span className="specials__bottom-dot"></span>
 
-                            <span>EUROPEAN CUISINE</span>
+                            <span>
+                                {t("specials.story.cuisine")}
+                            </span>
                         </div>
 
                         <div className="specials__bottom-actions">
@@ -448,14 +443,14 @@ const Specials = () => {
                                 className="btn btn--primary"
                                 type="button"
                             >
-                                Our Story
+                                {t("specials.story.ourStory")}
                             </button>
 
                             <button
                                 className="btn btn--secondary"
                                 type="button"
                             >
-                                Meet the Team
+                                {t("specials.story.meetTeam")}
                             </button>
                         </div>
                     </motion.div>

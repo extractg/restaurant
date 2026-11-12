@@ -1,56 +1,83 @@
 import { useNavigate } from "react-router-dom";
-const ProductCard = (props) => {
+import { useTranslation } from "react-i18next";
+
+const ProductCard = ({
+    id,
+    title,
+    image,
+    category,
+    price,
+    isFavorite,
+    onFavoriteClick,
+}) => {
     const navigate = useNavigate();
-  return (
-    <article className="product-card" onClick={() => navigate(`/products/${props.id}`)}>
-      <div className="product-card__image">
-          <img
-              src={props.image}
-              alt={props.title}
-              loading="lazy"
-          />
+    const { t } = useTranslation();
 
-          <button
-              className={
-                  props.isFavorite
-                      ? "product-card__favorite active"
-                      : "product-card__favorite"
-              }
-              onClick={(event) => {
-                  event.stopPropagation();
-                  props.onFavoriteClick(props.id);
-              }}
-              type="button"
-          >
-              <i
-                  className={
-                      props.isFavorite
-                          ? "fa-solid fa-heart"
-                          : "fa-regular fa-heart"
-                  }
-              ></i>
-          </button>
+    const categoryKey = category?.toLowerCase();
 
-          <span className="product-card__view">
-              View Dish
-          </span>
-      </div>
+    return (
+        <article
+            className="product-card"
+            onClick={() => navigate(`/products/${id}`)}
+        >
+            <div className="product-card__image">
+                <img
+                    src={image}
+                    alt={title}
+                    loading="lazy"
+                />
 
-      <div className="product-card__content">
-        <span className="product-card__category">
-          {props.category}
-        </span>
+                <button
+                    className={
+                        isFavorite
+                            ? "product-card__favorite active"
+                            : "product-card__favorite"
+                    }
+                    onClick={(event) => {
+                        event.stopPropagation();
+                        onFavoriteClick(id);
+                    }}
+                    type="button"
+                    aria-label={
+                        isFavorite
+                            ? t("productCard.removeFavorite")
+                            : t("productCard.addFavorite")
+                    }
+                >
+                    <i
+                        className={
+                            isFavorite
+                                ? "fa-solid fa-heart"
+                                : "fa-regular fa-heart"
+                        }
+                    ></i>
+                </button>
 
-        <h2 className="product-card__title">
-          {props.title}
-        </h2>
+                <span className="product-card__view">
+                    {t("productCard.viewDish")}
+                </span>
+            </div>
 
-        <span className="product-card__price">
-          €{props.price}
-        </span>
-      </div>
-    </article>
-  );
+            <div className="product-card__content">
+                <span className="product-card__category">
+                    {t(
+                        `products.categories.${categoryKey}`,
+                        {
+                            defaultValue: category,
+                        },
+                    )}
+                </span>
+
+                <h2 className="product-card__title">
+                    {title}
+                </h2>
+
+                <span className="product-card__price">
+                    €{price}
+                </span>
+            </div>
+        </article>
+    );
 };
 
 export default ProductCard;

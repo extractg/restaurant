@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 
 import chef from "../assets/images/chef.png";
 
@@ -73,6 +74,8 @@ const factReveal = {
 };
 
 const Chef = () => {
+    const { t } = useTranslation();
+
     return (
         <section className="chef">
             <div
@@ -91,7 +94,7 @@ const Chef = () => {
                     >
                         <img
                             src={chef}
-                            alt="Chef Adrian Moreau"
+                            alt={t("chef.imageAlt")}
                             className="chef__image"
                         />
                     </motion.div>
@@ -104,19 +107,15 @@ const Chef = () => {
                         viewport={viewport}
                     >
                         <span className="chef__label">
-                            Meet the Chef
+                            {t("chef.label")}
                         </span>
 
                         <h2 className="chef__title">
-                            The Craft Behind Every Plate
+                            {t("chef.title")}
                         </h2>
 
                         <p className="chef__text">
-                            Chef Adrian Moreau brings together European
-                            tradition and a modern approach to seasonal
-                            cuisine. His philosophy is simple — exceptional
-                            ingredients, thoughtful technique, and dishes
-                            created to be remembered.
+                            {t("chef.description")}
                         </p>
 
                         <motion.div
@@ -138,7 +137,7 @@ const Chef = () => {
                                 </span>
 
                                 <span className="chef__fact-label">
-                                    Years Experience
+                                    {t("chef.facts.experience")}
                                 </span>
                             </motion.div>
 
@@ -147,11 +146,11 @@ const Chef = () => {
                                 variants={factReveal}
                             >
                                 <span className="chef__fact-value">
-                                    European
+                                    {t("chef.facts.european")}
                                 </span>
 
                                 <span className="chef__fact-label">
-                                    Cuisine
+                                    {t("chef.facts.cuisine")}
                                 </span>
                             </motion.div>
 
@@ -160,11 +159,11 @@ const Chef = () => {
                                 variants={factReveal}
                             >
                                 <span className="chef__fact-value">
-                                    Seasonal
+                                    {t("chef.facts.seasonal")}
                                 </span>
 
                                 <span className="chef__fact-label">
-                                    Menu
+                                    {t("chef.facts.menu")}
                                 </span>
                             </motion.div>
                         </motion.div>
@@ -173,7 +172,7 @@ const Chef = () => {
                             className="btn btn--secondary chef__btn"
                             type="button"
                         >
-                            Meet Our Chef
+                            {t("chef.button")}
                         </button>
                     </motion.div>
                 </div>

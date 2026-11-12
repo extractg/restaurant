@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 
 const containerVariants = {
     hidden: {},
@@ -30,6 +31,8 @@ const itemVariants = {
 };
 
 const Hero = () => {
+    const { t } = useTranslation();
+
     return (
         <section className="hero">
             <div className="container">
@@ -44,19 +47,14 @@ const Hero = () => {
                             className="hero__title"
                             variants={itemVariants}
                         >
-                            We provide the best food for you
+                            {t("hero.title")}
                         </motion.h1>
 
                         <motion.p
                             className="hero__text"
                             variants={itemVariants}
                         >
-                            Discover a unique dining experience where culinary
-                            mastery meets an elegant, cozy ambiance. We carefully
-                            craft every dish using only the freshest seasonal
-                            ingredients, rich traditional flavors, and a modern
-                            touch designed to satisfy every taste and create
-                            unforgettable moments.
+                            {t("hero.description")}
                         </motion.p>
 
                         <motion.div
@@ -67,14 +65,14 @@ const Hero = () => {
                                 to="/products"
                                 className="btn btn--primary"
                             >
-                                Menu
+                                {t("hero.menu")}
                             </Link>
 
                             <button
                                 className="btn btn--secondary"
                                 type="button"
                             >
-                                Book a table
+                                {t("hero.bookTable")}
                             </button>
                         </motion.div>
 
