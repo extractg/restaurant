@@ -95,12 +95,12 @@ const Footer = () => {
                             </li>
 
                             <li className="footer__item">
-                                <Link
-                                    to="/products"
-                                    className="footer__link"
-                                >
-                                    {t("footer.explore.products")}
-                                </Link>
+                              <Link
+                                  to="/favorites"
+                                  className="footer__link"
+                              >
+                                  {t("footer.explore.favorites")}
+                              </Link>
                             </li>
                         </ul>
                     </div>

@@ -18,14 +18,17 @@ const Header = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const currentLanguage = i18n.resolvedLanguage || "en";
+    const currentLanguage =
+        i18n.resolvedLanguage || "en";
 
     const closeMenu = () => {
         setMenuOpen(false);
     };
 
-    const changeLanguage = (language) => {
-        i18n.changeLanguage(language);
+    const changeLanguage = async (language) => {
+        await i18n.changeLanguage(language);
+
+        localStorage.setItem("language", language);
     };
 
     const scrollToSection = (sectionId) => {
@@ -36,7 +39,8 @@ const Header = () => {
             return;
         }
 
-        const section = document.getElementById(sectionId);
+        const section =
+            document.getElementById(sectionId);
 
         if (section) {
             section.scrollIntoView({
@@ -61,9 +65,11 @@ const Header = () => {
     };
 
     useEffect(() => {
-        if (menuOpen) {
-            document.body.classList.add("no-scroll");
+        if (!menuOpen) {
+            return;
         }
+
+        document.body.classList.add("no-scroll");
 
         return () => {
             document.body.classList.remove("no-scroll");
@@ -71,14 +77,19 @@ const Header = () => {
     }, [menuOpen]);
 
     useEffect(() => {
-        if (location.pathname !== "/" || !location.hash) {
+        if (
+            location.pathname !== "/" ||
+            !location.hash
+        ) {
             return;
         }
 
-        const sectionId = location.hash.replace("#", "");
+        const sectionId =
+            location.hash.replace("#", "");
 
         const timer = setTimeout(() => {
-            const section = document.getElementById(sectionId);
+            const section =
+                document.getElementById(sectionId);
 
             if (section) {
                 section.scrollIntoView({
@@ -107,7 +118,13 @@ const Header = () => {
                         />
                     </Link>
 
-                    <nav className={menuOpen ? "nav active" : "nav"}>
+                    <nav
+                        className={
+                            menuOpen
+                                ? "nav active"
+                                : "nav"
+                        }
+                    >
                         <ul className="nav__list">
                             <li className="nav__items">
                                 <button
@@ -124,10 +141,14 @@ const Header = () => {
                                     type="button"
                                     className="nav__link"
                                     onClick={() =>
-                                        scrollToSection("specials")
+                                        scrollToSection(
+                                            "specials",
+                                        )
                                     }
                                 >
-                                    {t("header.specials")}
+                                    {t(
+                                        "header.specials",
+                                    )}
                                 </button>
                             </li>
 
@@ -136,17 +157,23 @@ const Header = () => {
                                     type="button"
                                     className="nav__link"
                                     onClick={() =>
-                                        scrollToSection("our-story")
+                                        scrollToSection(
+                                            "our-story",
+                                        )
                                     }
                                 >
-                                    {t("header.ourStory")}
+                                    {t(
+                                        "header.ourStory",
+                                    )}
                                 </button>
                             </li>
 
                             <li className="nav__items">
                                 <NavLink
                                     to="/products"
-                                    className={({ isActive }) =>
+                                    className={({
+                                        isActive,
+                                    }) =>
                                         isActive
                                             ? "nav__link active"
                                             : "nav__link"
@@ -160,14 +187,18 @@ const Header = () => {
                             <li className="nav__items">
                                 <NavLink
                                     to="/favorites"
-                                    className={({ isActive }) =>
+                                    className={({
+                                        isActive,
+                                    }) =>
                                         isActive
                                             ? "nav__link active"
                                             : "nav__link"
                                     }
                                     onClick={closeMenu}
                                 >
-                                    {t("header.favorites")}
+                                    {t(
+                                        "header.favorites",
+                                    )}
                                 </NavLink>
                             </li>
 
@@ -176,10 +207,14 @@ const Header = () => {
                                     type="button"
                                     className="nav__link"
                                     onClick={() =>
-                                        scrollToSection("contacts")
+                                        scrollToSection(
+                                            "contacts",
+                                        )
                                     }
                                 >
-                                    {t("header.contacts")}
+                                    {t(
+                                        "header.contacts",
+                                    )}
                                 </button>
                             </li>
                         </ul>
@@ -189,26 +224,38 @@ const Header = () => {
                         <div className="header__language">
                             <button
                                 className={
-                                    currentLanguage === "en"
+                                    currentLanguage ===
+                                    "en"
                                         ? "header__language-btn active"
                                         : "header__language-btn"
                                 }
                                 type="button"
-                                onClick={() => changeLanguage("en")}
-                                aria-pressed={currentLanguage === "en"}
+                                onClick={() =>
+                                    changeLanguage("en")
+                                }
+                                aria-pressed={
+                                    currentLanguage ===
+                                    "en"
+                                }
                             >
                                 EN
                             </button>
 
                             <button
                                 className={
-                                    currentLanguage === "lv"
+                                    currentLanguage ===
+                                    "lv"
                                         ? "header__language-btn active"
                                         : "header__language-btn"
                                 }
                                 type="button"
-                                onClick={() => changeLanguage("lv")}
-                                aria-pressed={currentLanguage === "lv"}
+                                onClick={() =>
+                                    changeLanguage("lv")
+                                }
+                                aria-pressed={
+                                    currentLanguage ===
+                                    "lv"
+                                }
                             >
                                 LV
                             </button>
@@ -216,15 +263,26 @@ const Header = () => {
 
                         <button
                             className={
-                                menuOpen ? "burger active" : "burger"
+                                menuOpen
+                                    ? "burger active"
+                                    : "burger"
                             }
-                            onClick={() => setMenuOpen(!menuOpen)}
+                            onClick={() =>
+                                setMenuOpen(
+                                    (current) =>
+                                        !current,
+                                )
+                            }
                             id="burger"
                             type="button"
                             aria-label={
                                 menuOpen
-                                    ? t("header.closeMenu")
-                                    : t("header.openMenu")
+                                    ? t(
+                                          "header.closeMenu",
+                                      )
+                                    : t(
+                                          "header.openMenu",
+                                      )
                             }
                             aria-expanded={menuOpen}
                         >

@@ -1,0 +1,255 @@
+.language-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    background: rgba(8, 7, 6, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.language-modal__content {
+    position: relative;
+
+    width: min(100%, 560px);
+
+    padding: 48px;
+
+    border: 1px solid rgba(184, 148, 115, 0.22);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(26, 20, 16, 0.98),
+            rgba(15, 14, 13, 0.99)
+        );
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.language-modal__content::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 48px;
+
+    width: 70px;
+    height: 1px;
+
+    background: var(--color-accent);
+}
+
+.language-modal__brand {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 32px;
+}
+
+.language-modal__logo {
+    display: block;
+
+    width: 130px;
+    height: auto;
+}
+
+.language-modal__eyebrow {
+    display: block;
+
+    margin-bottom: 14px;
+
+    color: var(--color-accent);
+
+    font-size: 0.7rem;
+    font-weight: 600;
+
+    letter-spacing: 0.2em;
+    text-align: center;
+}
+
+.language-modal__title {
+    margin: 0;
+
+    color: var(--color-title);
+
+    font-family: "David Libre", serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+
+    line-height: 1.05;
+    text-align: center;
+}
+
+.language-modal__text {
+    max-width: 390px;
+
+    margin: 18px auto 34px;
+
+    color: var(--color-muted);
+
+    font-size: 0.94rem;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.language-modal__languages {
+    display: grid;
+    gap: 12px;
+}
+
+.language-modal__language {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    align-items: center;
+    gap: 18px;
+
+    padding: 18px 20px;
+
+    border: 1px solid rgba(184, 148, 115, 0.2);
+
+    background: rgba(255, 255, 255, 0.015);
+
+    color: var(--color-text);
+
+    font: inherit;
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.language-modal__language-code {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    border: 1px solid rgba(184, 148, 115, 0.28);
+
+    color: var(--color-accent-light);
+
+    font-size: 0.78rem;
+    font-weight: 600;
+
+    letter-spacing: 0.1em;
+}
+
+.language-modal__language-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.language-modal__language-info strong {
+    color: var(--color-title);
+
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.language-modal__language-info small {
+    color: var(--color-muted);
+
+    font-size: 0.78rem;
+    font-weight: 400;
+}
+
+.language-modal__arrow {
+    color: var(--color-accent);
+
+    font-size: 1.15rem;
+
+    transition: transform 0.3s ease;
+}
+
+.language-modal__note {
+    margin: 24px 0 0;
+
+    color: rgba(159, 149, 141, 0.7);
+
+    font-size: 0.72rem;
+
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.language-modal__language:focus-visible {
+    outline: 1px solid var(--color-accent-light);
+    outline-offset: 3px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .language-modal__language:hover {
+        border-color: rgba(184, 148, 115, 0.55);
+
+        background: rgba(184, 148, 115, 0.06);
+
+        transform: translateY(-2px);
+    }
+
+    .language-modal__language:hover
+        .language-modal__arrow {
+        transform: translateX(4px);
+    }
+}
+
+@media (max-width: 767px) {
+    .language-modal {
+        padding: 16px;
+    }
+
+    .language-modal__content {
+        padding: 38px 22px 30px;
+    }
+
+    .language-modal__content::before {
+        left: 22px;
+
+        width: 52px;
+    }
+
+    .language-modal__brand {
+        margin-bottom: 26px;
+    }
+
+    .language-modal__logo {
+        width: 112px;
+    }
+
+    .language-modal__text {
+        margin-bottom: 28px;
+
+        font-size: 0.88rem;
+    }
+
+    .language-modal__language {
+        grid-template-columns: 42px 1fr auto;
+        gap: 14px;
+
+        padding: 15px;
+    }
+
+    .language-modal__language-code {
+        width: 42px;
+        height: 42px;
+    }
+}

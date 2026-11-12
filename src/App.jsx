@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
+import LanguageModal from "./components/LanguageModal.jsx";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
@@ -23,7 +24,8 @@ function App() {
 
     const [favorites, setFavorites] = useState(() => {
         try {
-            const savedFavorites = localStorage.getItem("favorites");
+            const savedFavorites =
+                localStorage.getItem("favorites");
 
             return savedFavorites
                 ? JSON.parse(savedFavorites)
@@ -36,16 +38,18 @@ function App() {
     useEffect(() => {
         localStorage.setItem(
             "favorites",
-            JSON.stringify(favorites)
+            JSON.stringify(favorites),
         );
     }, [favorites]);
 
     const toggleFavorite = (id) => {
         setFavorites((currentFavorites) => {
             if (currentFavorites.includes(id)) {
-                return currentFavorites.filter((favoriteId) => {
-                    return favoriteId !== id;
-                });
+                return currentFavorites.filter(
+                    (favoriteId) => {
+                        return favoriteId !== id;
+                    },
+                );
             }
 
             return [...currentFavorites, id];
@@ -58,7 +62,9 @@ function App() {
                 localStorage.getItem(PRODUCTS_CACHE_KEY);
 
             const cachedTime =
-                localStorage.getItem(PRODUCTS_CACHE_TIME_KEY);
+                localStorage.getItem(
+                    PRODUCTS_CACHE_TIME_KEY,
+                );
 
             if (cachedProducts && cachedTime) {
                 try {
@@ -80,11 +86,11 @@ function App() {
                     }
                 } catch {
                     localStorage.removeItem(
-                        PRODUCTS_CACHE_KEY
+                        PRODUCTS_CACHE_KEY,
                     );
 
                     localStorage.removeItem(
-                        PRODUCTS_CACHE_TIME_KEY
+                        PRODUCTS_CACHE_TIME_KEY,
                     );
                 }
             }
@@ -100,10 +106,11 @@ function App() {
                 const requests = categories.map(
                     (category) => {
                         return getProducts(category);
-                    }
+                    },
                 );
 
-                const results = await Promise.all(requests);
+                const results =
+                    await Promise.all(requests);
 
                 const products = results.flat();
 
@@ -111,17 +118,17 @@ function App() {
 
                 localStorage.setItem(
                     PRODUCTS_CACHE_KEY,
-                    JSON.stringify(products)
+                    JSON.stringify(products),
                 );
 
                 localStorage.setItem(
                     PRODUCTS_CACHE_TIME_KEY,
-                    Date.now().toString()
+                    Date.now().toString(),
                 );
             } catch (error) {
                 console.error(
                     "Failed to load products:",
-                    error
+                    error,
                 );
             }
         };
@@ -132,6 +139,8 @@ function App() {
     return (
         <>
             <ScrollToTop />
+
+            <LanguageModal />
 
             <Header />
 
