@@ -6,16 +6,26 @@ import {
     useNavigate,
 } from "react-router-dom";
 
+import { useTranslation } from "react-i18next";
+
 import logo from "../assets/images/logo.png";
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
+    const { t, i18n } = useTranslation();
+
     const navigate = useNavigate();
     const location = useLocation();
 
+    const currentLanguage = i18n.resolvedLanguage || "en";
+
     const closeMenu = () => {
         setMenuOpen(false);
+    };
+
+    const changeLanguage = (language) => {
+        i18n.changeLanguage(language);
     };
 
     const scrollToSection = (sectionId) => {
@@ -88,6 +98,7 @@ const Header = () => {
                     <Link
                         to="/"
                         onClick={closeMenu}
+                        aria-label="Deliciora home"
                     >
                         <img
                             src={logo}
@@ -104,7 +115,7 @@ const Header = () => {
                                     className="nav__link"
                                     onClick={goHome}
                                 >
-                                    Home
+                                    {t("header.home")}
                                 </button>
                             </li>
 
@@ -116,7 +127,7 @@ const Header = () => {
                                         scrollToSection("specials")
                                     }
                                 >
-                                    Specials
+                                    {t("header.specials")}
                                 </button>
                             </li>
 
@@ -128,7 +139,7 @@ const Header = () => {
                                         scrollToSection("our-story")
                                     }
                                 >
-                                    Our Story
+                                    {t("header.ourStory")}
                                 </button>
                             </li>
 
@@ -142,7 +153,7 @@ const Header = () => {
                                     }
                                     onClick={closeMenu}
                                 >
-                                    Menu
+                                    {t("header.menu")}
                                 </NavLink>
                             </li>
 
@@ -156,7 +167,7 @@ const Header = () => {
                                     }
                                     onClick={closeMenu}
                                 >
-                                    Favorites
+                                    {t("header.favorites")}
                                 </NavLink>
                             </li>
 
@@ -168,7 +179,7 @@ const Header = () => {
                                         scrollToSection("contacts")
                                     }
                                 >
-                                    Contacts
+                                    {t("header.contacts")}
                                 </button>
                             </li>
                         </ul>
@@ -177,15 +188,27 @@ const Header = () => {
                     <div className="header__actions">
                         <div className="header__language">
                             <button
-                                className="header__language-btn active"
+                                className={
+                                    currentLanguage === "en"
+                                        ? "header__language-btn active"
+                                        : "header__language-btn"
+                                }
                                 type="button"
+                                onClick={() => changeLanguage("en")}
+                                aria-pressed={currentLanguage === "en"}
                             >
                                 EN
                             </button>
 
                             <button
-                                className="header__language-btn"
+                                className={
+                                    currentLanguage === "lv"
+                                        ? "header__language-btn active"
+                                        : "header__language-btn"
+                                }
                                 type="button"
+                                onClick={() => changeLanguage("lv")}
+                                aria-pressed={currentLanguage === "lv"}
                             >
                                 LV
                             </button>
@@ -198,7 +221,11 @@ const Header = () => {
                             onClick={() => setMenuOpen(!menuOpen)}
                             id="burger"
                             type="button"
-                            aria-label="Open menu"
+                            aria-label={
+                                menuOpen
+                                    ? t("header.closeMenu")
+                                    : t("header.openMenu")
+                            }
                             aria-expanded={menuOpen}
                         >
                             <span></span>

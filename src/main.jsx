@@ -5,6 +5,7 @@ import { ReactLenis } from "lenis/react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "lenis/dist/lenis.css";
 import "./css/style.css";
+import "./i18n/i18n.js";
 import App from "./App.jsx";
 
 createRoot(document.getElementById("root")).render(

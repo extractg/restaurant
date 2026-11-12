@@ -35,17 +35,15 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100vh;
     height: 100dvh;
     overflow: hidden;
     background: #141210;
-    transform: translate3d(100%, 0, 0);
-    backface-visibility: hidden;
+    transform: translateX(100%);
     transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .nav.active {
-    transform: translate3d(0, 0, 0);
+    transform: translateX(0);
 }
 
 .nav::before {
@@ -114,9 +112,8 @@
     gap: 22px;
     padding: 0;
     border: 0;
-    background: none;
+    background: transparent;
     color: var(--color-text);
-    font-family: "Jost", sans-serif;
     font-size: clamp(1.25rem, 5vw, 1.55rem);
     font-weight: 300;
     letter-spacing: 0.04em;
@@ -124,8 +121,8 @@
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     transition:
-        color 0.3s ease,
-        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        color 0.25s ease,
+        transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .nav__items:nth-child(1) .nav__link::before {
@@ -170,11 +167,12 @@
     height: 1px;
     background: rgba(208, 173, 138, 0.65);
     opacity: 0;
+    pointer-events: none;
     transform: scaleX(0);
-    transform-origin: center;
+    transform-origin: left center;
     transition:
-        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.3s ease;
+        transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.2s ease;
 }
 
 .nav__link.active {
@@ -193,13 +191,9 @@
     gap: 15px;
 }
 
-.btn.header__btn {
-    padding: 0.55em clamp(1em, 4vw, 1.3em);
-    font-size: clamp(0.82rem, 0.8vw + 0.45rem, 1rem);
-}
-
 .burger {
     position: relative;
+    z-index: 1001;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -209,7 +203,6 @@
     border: 0;
     background: transparent;
     cursor: pointer;
-    z-index: 1001;
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -275,8 +268,7 @@
 
 .nav__link:focus-visible,
 .burger:focus-visible,
-.header__language-btn:focus-visible,
-.header__logo:focus-visible {
+.header__language-btn:focus-visible {
     outline: 1px solid var(--color-accent-light);
     outline-offset: 5px;
 }
@@ -339,11 +331,11 @@
     }
 
     .burger.active span:nth-child(1) {
-        transform: translate3d(0, 10px, 0) rotate(45deg);
+        transform: translateY(10px) rotate(45deg);
     }
 
     .burger.active span:nth-child(3) {
-        transform: translate3d(0, -10px, 0) rotate(-45deg);
+        transform: translateY(-10px) rotate(-45deg);
     }
 }
 
@@ -405,14 +397,19 @@
         display: inline-block;
         width: fit-content;
         padding: 0;
+        border: 0;
+        background: transparent;
         color: rgba(255, 250, 245, 0.72);
         font-size: 0.8rem;
         font-weight: 300;
-        line-height: 1;
+        line-height: 1.2;
         letter-spacing: 0.065em;
         text-transform: uppercase;
+        text-decoration: none;
+        cursor: pointer;
         transform: none;
-        transition: color 0.3s ease;
+
+        transition: color 0.25s ease;
     }
 
     .nav__link::before {
@@ -422,24 +419,18 @@
     .nav__link::after {
         content: "";
         position: absolute;
-        bottom: -6px;
+        bottom: -7px;
         left: 0;
         width: 100%;
         height: 1px;
-        border-radius: 999px;
-        background: linear-gradient(
-            90deg,
-            rgba(184, 148, 115, 0.3),
-            rgba(208, 173, 138, 0.9) 50%,
-            rgba(184, 148, 115, 0.3)
-        );
+        background: rgba(208, 173, 138, 0.85);
         opacity: 0;
         pointer-events: none;
         transform: scaleX(0);
-        transform-origin: center;
+        transform-origin: left center;
         transition:
-            transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-            opacity 0.25s ease;
+            transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+            opacity 0.2s ease;
     }
 
     .nav__link.active {
@@ -458,7 +449,7 @@
 
 @media (min-width: 992px) and (hover: hover) and (pointer: fine) {
     .nav__link:hover {
-        color: rgba(255, 250, 245, 0.95);
+        color: rgba(208, 173, 138, 0.92);
         transform: none;
     }
 
