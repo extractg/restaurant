@@ -231,3 +231,10 @@ Frontend Developer
 
 - 🌐 [Deliciora](https://deliciora.eu)
 - 💻 [GitHub](https://github.com/extractg)
+
+## License
+
+© 2026 Antons Mavrenkovs. All rights reserved.
+
+This project was created as a personal portfolio project.  
+The source code may be viewed for educational and evaluation purposes, but copying, redistribution, modification, or use of substantial portions of the project without permission is not allowed.
