@@ -8,7 +8,7 @@ import {
 
 import { useTranslation } from "react-i18next";
 
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/logo.webp";
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);

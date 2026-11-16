@@ -10,7 +10,7 @@
     min-height: clamp(500px, 52vw, 570px);
     padding: clamp(75px, 8vw, 105px) clamp(20px, 5vw, 60px);
     overflow: hidden;
-    background: url("../../assets/images/background_promo.png") center / cover no-repeat;
+    background: url("../../assets/images/background_promo.webp") center / cover no-repeat;
 }
 
 .newsletter__inner::before {

@@ -11,7 +11,7 @@
     position: absolute;
     inset: 0;
     z-index: 0;
-    background: url("../../assets/images/chef_background.png") center / cover no-repeat;
+    background: url("../../assets/images/chef_background.webp") center / cover no-repeat;
     filter: brightness(0.72) saturate(0.8);
     pointer-events: none;
 }

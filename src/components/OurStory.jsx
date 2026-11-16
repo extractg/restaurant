@@ -8,11 +8,11 @@ import {
     useTransform,
 } from "motion/react";
 
-import restaurantPhoto from "../assets/images/restaurant-photo.png";
-import restaurantInside from "../assets/images/restaurant-small.png";
-import restaurantKitchen from "../assets/images/restaurant-kitchen.png";
-import restaurantChef from "../assets/images/restaurant-chef.png";
-import restaurantBuilding from "../assets/images/restaurant-building.png";
+import restaurantPhoto from "../assets/images/restaurant-photo.webp";
+import restaurantInside from "../assets/images/restaurant-small.webp";
+import restaurantKitchen from "../assets/images/restaurant-kitchen.webp";
+import restaurantChef from "../assets/images/restaurant-chef.webp";
+import restaurantBuilding from "../assets/images/restaurant-building.webp";
 
 const storyChapters = [
     {

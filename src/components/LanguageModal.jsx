@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AnimatePresence, motion } from "motion/react";
 
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/logo.webp";
 
 const LanguageModal = () => {
     const { i18n } = useTranslation();

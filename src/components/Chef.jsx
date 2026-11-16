@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 
-import chef from "../assets/images/chef.png";
+import chef from "../assets/images/chef.webp";
 
 const viewport = {
     once: true,
@@ -167,13 +167,6 @@ const Chef = () => {
                                 </span>
                             </motion.div>
                         </motion.div>
-
-                        <button
-                            className="btn btn--secondary chef__btn"
-                            type="button"
-                        >
-                            {t("chef.button")}
-                        </button>
                     </motion.div>
                 </div>
             </div>

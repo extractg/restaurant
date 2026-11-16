@@ -3,18 +3,18 @@ import { useTranslation } from "react-i18next";
 
 import DishCard from "./DishCard";
 
-import ribeyeSteak from "../assets/images/Ribeye_Steak.png";
-import Truffle_Mushroom from "../assets/images/Truffle_Mushroom.png";
-import Pan_Seared_Salmon from "../assets/images/Pan_Seared_Salmon.png";
-import Burrata_Heirloom from "../assets/images/Burrata_ Heirloom.png";
+import ribeyeSteak from "../assets/images/Ribeye_Steak.webp";
+import Truffle_Mushroom from "../assets/images/Truffle_Mushroom.webp";
+import Pan_Seared_Salmon from "../assets/images/Pan_Seared_Salmon.webp";
+import Burrata_Heirloom from "../assets/images/Burrata_ Heirloom.webp";
 
-import Duck_Breast from "../assets/images/Roasted_Duck.png";
-import Seared_Scallops from "../assets/images/Seared_Scallops.png";
-import Wild_Mushroom_Risotto from "../assets/images/Wild_Mushroom_Risotto.png";
-import Chocolate_Fondant from "../assets/images/Chocolate_Fondant.png";
+import Duck_Breast from "../assets/images/Roasted_Duck.webp";
+import Seared_Scallops from "../assets/images/Seared_Scallops.webp";
+import Wild_Mushroom_Risotto from "../assets/images/Wild_Mushroom_Risotto.webp";
+import Chocolate_Fondant from "../assets/images/Chocolate_Fondant.webp";
 
-import restaurantPhoto from "../assets/images/restaurant_photo.png";
-import restaurantInside from "../assets/images/restaurant_inside.png";
+import restaurantPhoto from "../assets/images/restaurant_photo.webp";
+import restaurantInside from "../assets/images/restaurant_inside.webp";
 
 import { motion } from "motion/react";
 
